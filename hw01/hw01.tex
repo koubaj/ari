@@ -1,0 +1,121 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[czech]{babel}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+% Hyperlinks and PDF bookmarks
+\usepackage[hidelinks,unicode,pdfencoding=auto]{hyperref}
+\hypersetup{
+	pdftitle={Domácí Úkol 01},
+	pdfauthor={Jáchym Kouba},
+	bookmarksopen=true,
+	bookmarksnumbered=true
+}
+
+% Page numbering and header/footer setup
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Jáchym Kouba}
+\rhead{22. února 2026}
+\cfoot{\thepage}
+
+% Add dot after section numbers
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\thesection\arabic{subsection}.}
+
+\title{Domácí Úkol 01}
+\author{Jáchym Kouba}
+\date{22. února 2026}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\section{Úvod}
+
+Úkol jsem zpracoval do sešitu a ofotil. Případné grafy, simulink modely, atd. jsem doplnil jako přílohy do 
+pdf, jména kapitol odpovídají úkolu.
+
+\section{Fotografie výpočtů}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{hw1_1.jpg}
+\caption{Výpočty - strana 1}
+\label{fig:hw11}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{hw1_2.jpg}
+\caption{Výpočty - strana 2}
+\label{fig:hw12}
+\end{figure}
+
+\section{Úkol 01}
+
+\subsection{Bod 3 - Lineární a Nelineární model}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{task_01_3_linear.jpg}\hfill
+\includegraphics[width=0.48\textwidth]{task_01_3_nonlinear.jpg}
+\caption{Úkol 01, bod 3 - Lineární model (vlevo) a Nelineární model (vpravo)}
+\label{fig:task01_3}
+\end{figure}
+
+\subsection{Bod 4 - Lineární a Nelineární model}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{task_01_4_linear.jpg}\hfill
+\includegraphics[width=0.48\textwidth]{task_01_4_nonlinear.jpg}
+\caption{Úkol 01, bod 4 - Lineární model (vlevo) a Nelineární model (vpravo)}
+\label{fig:task01_4}
+\end{figure}
+
+\subsection{Simulink model}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{task_01_simulink.png}
+\caption{Úkol 01 - Simulink model pro $v_0 = 0$}
+\label{fig:task01_simulink}
+\end{figure}
+
+\section{Úkol 02}
+
+\subsection{Bod 3 - Lineární a Nelineární model}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{task_02_3_linear.jpg}\hfill
+\includegraphics[width=0.48\textwidth]{task_02_3_nonlinear.jpg}
+\caption{Úkol 02, bod 3 - Lineární model (vlevo) a Nelineární model (vpravo)}
+\label{fig:task02_3}
+\end{figure}
+
+\subsection{Bod 4 - Lineární a Nelineární model}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{task_02_4_linear.jpg}\hfill
+\includegraphics[width=0.48\textwidth]{task_02_4_nonlinear.jpg}
+\caption{Úkol 02, bod 4 - Lineární model (vlevo) a Nelineární model (vpravo)}
+\label{fig:task02_4}
+\end{figure}
+
+\subsection{Simulink model}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{task_02_simulink.png}
+\caption{Úkol 02 - Simulink model pro $v_0 = 10$}
+\label{fig:task02_simulink}
+\end{figure}
+
+\end{document}
