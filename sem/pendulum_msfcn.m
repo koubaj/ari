@@ -119,7 +119,7 @@ function Derivatives(block)
      % constants
      g = 9.80665; %[m/s^2]
      M = 0.5; %[kg] cart mass
-     rail_half_length = 0.91; %[m] 1/2 rail length
+     rail_half_length = 3.91; %[m] 1/2 rail length
      m = 0.275; %[kg] pendulum mass
      l = 0.1; %[m] pendulum length
      b = 0.21; %[] friction constant of the cart
