@@ -85,7 +85,7 @@ function CheckPrms(block)
   end
   if abs(x0) > 0.91
       error('Initial cart position ''x(0)'' out of bounds');
-  end;
+  end
   
   phi0 = block.DialogPrm(2).Data;
   if ~strcmp(class(phi0), 'double')
