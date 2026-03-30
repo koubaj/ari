@@ -1,4 +1,4 @@
-clear; clc;
+%clear; clc;
 
 %% 1. Define S-Function Constants
 g = 9.80665;       % [m/s^2]
@@ -95,3 +95,4 @@ sys_tf_down
 G1 = sys_ss_down(1, 1);
 
 rltool(G1);
+%pidTuner(G1);
