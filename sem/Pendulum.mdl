@@ -44,8 +44,8 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
   <dcterms:created xsi:type="dcterms:W3CDTF">2007-04-13T13:36:23Z</dcterms:created>
   <dc:creator>H</dc:creator>
   <cp:lastModifiedBy>jx2004</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-03-30T10:03:44Z</dcterms:modified>
-  <cp:revision>33.5</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-03-30T10:20:18Z</dcterms:modified>
+  <cp:revision>33.6</cp:revision>
   <cp:version>R2025b</cp:version>
 </cp:coreProperties>
 
@@ -133,7 +133,7 @@ clear figureVR worldVR;</P>
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:33.5&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:33.6&gt;</P>
     </ConfigManagerSettings>
     <EditorSettings>
       <P Name="LibraryLinkDisplay">none</P>
@@ -1278,7 +1278,6 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_1.xml
       <P Name="AutoView">off</P>
       <P Name="VideoDimensions">[]</P>
       <P Name="AllowVariableSize">off</P>
-      <P Name="FigureProperties">[]</P>
     </InstanceData>
   </Block>
   <Block BlockType="SubSystem" Name="__InputSSForSFun__" SID="16">
@@ -1592,17 +1591,9 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
 <System>
   <P Name="Location">[66, 32, 1920, 1080]</P>
   <P Name="Open">on</P>
-  <P Name="ZoomFactor">125</P>
+  <P Name="ZoomFactor">175</P>
   <P Name="ReportName">simulink-default.rpt</P>
-  <P Name="SIDHighWatermark">87</P>
-  <Block BlockType="Abs" Name="Abs" SID="84">
-    <P Name="Position">[270, -10, 300, 20]</P>
-    <P Name="ZOrder">338</P>
-    <P Name="BlockRotation">270</P>
-    <P Name="BlockMirror">on</P>
-    <P Name="NameLocation">left</P>
-    <P Name="SaturateOnIntegerOverflow">off</P>
-  </Block>
+  <P Name="SIDHighWatermark">90</P>
   <Block BlockType="Bias" Name="Add Constant" SID="50">
     <P Name="Position">[495, 420, 535, 450]</P>
     <P Name="ZOrder">305</P>
@@ -1612,7 +1603,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     <P Name="SaturateOnIntegerOverflow">off</P>
   </Block>
   <Block BlockType="Bias" Name="Add Constant1" SID="65">
-    <P Name="Position">[665, 185, 705, 215]</P>
+    <P Name="Position">[655, 185, 695, 215]</P>
     <P Name="ZOrder">320</P>
     <P Name="Bias">90</P>
     <P Name="SaturateOnIntegerOverflow">off</P>
@@ -1623,17 +1614,18 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     </PortProperties>
   </Block>
   <Block BlockType="Constant" Name="Constant" SID="68">
-    <P Name="Position">[190, -215, 220, -185]</P>
+    <P Name="Position">[785, -90, 815, -60]</P>
     <P Name="ZOrder">323</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">top</P>
     <P Name="Value">-0.5</P>
   </Block>
-  <Block BlockType="Constant" Name="Constant1" SID="82">
-    <P Name="Position">[330, -10, 360, 20]</P>
-    <P Name="ZOrder">336</P>
-    <P Name="BlockRotation">270</P>
+  <Block BlockType="Fcn" Name="Deadzone" SID="88">
+    <P Name="Position">[370, -90, 430, -60]</P>
+    <P Name="ZOrder">340</P>
     <P Name="BlockMirror">on</P>
-    <P Name="NameLocation">left</P>
-    <P Name="Value">0</P>
+    <P Name="NameLocation">top</P>
+    <P Name="Expr">(u&lt;0.2)*u+(u&gt;0.2)*u</P>
   </Block>
   <Block BlockType="Demux" Name="Demux" SID="63">
     <PortCounts in="1" out="2"/>
@@ -1651,6 +1643,20 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     <P Name="ZOrder">310</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
+  </Block>
+  <Block BlockType="ManualSwitch" Name="Manual Switch" SID="89">
+    <P Name="Position">[285, -103, 315, -67]</P>
+    <P Name="ZOrder">341</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">top</P>
+    <P Name="CurrentSetting">0</P>
+  </Block>
+  <Block BlockType="ManualSwitch" Name="Manual Switch1" SID="90">
+    <P Name="Position">[667, 25, 703, 55]</P>
+    <P Name="ZOrder">342</P>
+    <P Name="BlockRotation">270</P>
+    <P Name="NameLocation">right</P>
+    <P Name="CurrentSetting">0</P>
   </Block>
   <Block BlockType="Gain" Name="Multiply" SID="48">
     <P Name="Position">[65, 50, 95, 80]</P>
@@ -1766,11 +1772,10 @@ end</Callback>
   </Block>
   <Block BlockType="Reference" Name="PID Controller" SID="76">
     <PortCounts in="1" out="1"/>
-    <P Name="Position">[267, -170, 303, -130]</P>
+    <P Name="Position">[565, -93, 605, -57]</P>
     <P Name="ZOrder">330</P>
-    <P Name="BlockRotation">270</P>
     <P Name="BlockMirror">on</P>
-    <P Name="NameLocation">left</P>
+    <P Name="NameLocation">top</P>
     <P Name="LibrarySourceBlock">simulink/Continuous/PID Controller</P>
     <P Name="LibraryVersion">11.0</P>
     <P Name="SourceBlock">slpidlib/PID Controller</P>
@@ -1988,11 +1993,10 @@ end</Callback>
     <P Name="ZeroCross">off</P>
   </Block>
   <Block BlockType="Saturate" Name="Saturation1" SID="85">
-    <P Name="Position">[270, -110, 300, -80]</P>
+    <P Name="Position">[485, -90, 515, -60]</P>
     <P Name="ZOrder">339</P>
-    <P Name="BlockRotation">270</P>
     <P Name="BlockMirror">on</P>
-    <P Name="NameLocation">left</P>
+    <P Name="NameLocation">top</P>
     <P Name="UpperLimit">10</P>
     <P Name="LowerLimit">-10</P>
     <P Name="ZeroCross">off</P>
@@ -2035,19 +2039,18 @@ end</Callback>
     <PortCounts in="2"/>
     <P Name="Position">[785, 106, 815, 139]</P>
     <P Name="ZOrder">-3</P>
-    <P Name="GraphicalSettings">{&quot;Style&quot;:{&quot;BackgroundColor&quot;:[0.12941176470588237,0.12941176470588237,0.12941176470588237],&quot;AxesColor&quot;:[0.07058823529411765,0.07058823529411765,0.07058823529411765],&quot;LabelsColor&quot;:[0.8509803921568627,0.8509803921568627,0.8509803921568627],&quot;PreserveColors&quot;:false,&quot;Visible&quot;:[true,true],&quot;LineStyle&quot;:[&quot;-&quot;,&quot;-&quot;],&quot;LineWidth&quot;:[1.5,1.5],&quot;BarWidth&quot;:[0.9,0.9],&quot;LineColor&quot;:[&quot;auto&quot;,&quot;auto&quot;],&quot;LineFaceAlpha&quot;:[1,1],&quot;LineEdgeAlpha&quot;:[1,1],&quot;Marker&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;FontSize&quot;:8.5,&quot;LineTrueColor&quot;:[[1,0.9098039215686274,0.39215686274509803],[0.14901960784313725,0.5490196078431373,0.8666666666666667]],&quot;ChannelNames&quot;:[&quot;&quot;],&quot;DefaultLegendLabel&quot;:[&quot;orig x&quot;,&quot;linear x&quot;],&quot;PlotType&quot;:&quot;Auto&quot;,&quot;NumLinesForDisplays&quot;:[2],&quot;OffsetView&quot;:true,&quot;LineLabels&quot;:[&quot;orig x&quot;,&quot;linear x&quot;],&quot;MinimizeControls&quot;:false,&quot;LineCache&quot;:null},&quot;MeasurementChannel&quot;:0,&quot;AxesScalingProperties&quot;:{&quot;AxesScaling&quot;:&quot;Manual&quot;,&quot;ExpandOnly&quot;:true,&quot;AxesScalingNumUpdates&quot;:10,&quot;ScaleAxesLimitsAtStop&quot;:false,&quot;YAxisDataRange&quot;:80,&quot;AlignYAxis&quot;:&quot;Center&quot;,&quot;AutoScaleXAxisLimits&quot;:false,&quot;XAxisDataRange&quot;:100,&quot;AlignXAxis&quot;:&quot;Center&quot;},&quot;DisplayProperties&quot;:{&quot;DisplayLayoutDimensions&quot;:[1,1],&quot;DisplayPropertyDefaults&quot;:{&quot;MaxYLimMag&quot;:3.7177819653907567,&quot;MaxYLimReal&quot;:2.800239919186304,&quot;MinYLimMag&quot;:0,&quot;MinYLimReal&quot;:-2.735519419274141,&quot;PlotAsMagnitudePhase&quot;:false,&quot;ShowGrid&quot;:true,&quot;ShowLegend&quot;:true,&quot;Title&quot;:&quot;%&lt;SignalLabel&gt;&quot;,&quot;YLabel&quot;:&quot;&quot;},&quot;DisplayContentCache&quot;:{&quot;Title&quot;:&quot;&quot;,&quot;LinePropertiesCache&quot;:{},&quot;UserDefinedChannelNames&quot;:{},&quot;PlotMagPhase&quot;:0},&quot;SerializedDisplays&quot;:[{&quot;Title&quot;:&quot;%&lt;SignalLabel&gt;&quot;,&quot;LinePropertiesCache&quot;:{},&quot;UserDefinedChannelNames&quot;:{},&quot;PlotMagPhase&quot;:0,&quot;MaxYLimMag&quot;:3.7177819653907567,&quot;MaxYLimReal&quot;:2.800239919186304,&quot;MinYLimMag&quot;:0,&quot;MinYLimReal&quot;:-2.735519419274141,&quot;PlotAsMagnitudePhase&quot;:false,&quot;ShowGrid&quot;:true,&quot;ShowLegend&quot;:true,&quot;YLabel&quot;:&quot;&quot;,&quot;NumLines&quot;:2,&quot;ShowContent&quot;:1,&quot;Placement&quot;:0}],&quot;ColorOrder&quot;:[&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;]}}</P>
-    <P Name="WindowPosition">[812.000000,471.000000,644.000000,437.000000,]</P>
+    <P Name="GraphicalSettings">{&quot;Style&quot;:{&quot;BackgroundColor&quot;:[0.12941176470588237,0.12941176470588237,0.12941176470588237],&quot;AxesColor&quot;:[0.07058823529411765,0.07058823529411765,0.07058823529411765],&quot;LabelsColor&quot;:[0.8509803921568627,0.8509803921568627,0.8509803921568627],&quot;PreserveColors&quot;:false,&quot;Visible&quot;:[true,true],&quot;LineStyle&quot;:[&quot;-&quot;,&quot;-&quot;],&quot;LineWidth&quot;:[1.5,1.5],&quot;BarWidth&quot;:[0.9,0.9],&quot;LineColor&quot;:[&quot;auto&quot;,&quot;auto&quot;],&quot;LineFaceAlpha&quot;:[1,1],&quot;LineEdgeAlpha&quot;:[1,1],&quot;Marker&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;FontSize&quot;:8.5,&quot;LineTrueColor&quot;:[[1,0.9098039215686274,0.39215686274509803],[0.14901960784313725,0.5490196078431373,0.8666666666666667]],&quot;ChannelNames&quot;:[&quot;&quot;],&quot;DefaultLegendLabel&quot;:[&quot;orig x&quot;,&quot;linear x&quot;],&quot;PlotType&quot;:&quot;Auto&quot;,&quot;NumLinesForDisplays&quot;:[2],&quot;OffsetView&quot;:true,&quot;LineLabels&quot;:[&quot;orig x&quot;,&quot;linear x&quot;],&quot;MinimizeControls&quot;:false,&quot;LineCache&quot;:null},&quot;MeasurementChannel&quot;:0,&quot;AxesScalingProperties&quot;:{&quot;AxesScaling&quot;:&quot;Manual&quot;,&quot;ExpandOnly&quot;:true,&quot;AxesScalingNumUpdates&quot;:10,&quot;ScaleAxesLimitsAtStop&quot;:false,&quot;YAxisDataRange&quot;:80,&quot;AlignYAxis&quot;:&quot;Center&quot;,&quot;AutoScaleXAxisLimits&quot;:false,&quot;XAxisDataRange&quot;:100,&quot;AlignXAxis&quot;:&quot;Center&quot;},&quot;DisplayProperties&quot;:{&quot;DisplayLayoutDimensions&quot;:[1,1],&quot;DisplayPropertyDefaults&quot;:{&quot;MaxYLimMag&quot;:0.6197092484838792,&quot;MaxYLimReal&quot;:-0.2817711096358687,&quot;MinYLimMag&quot;:0,&quot;MinYLimReal&quot;:-0.6197092484838792,&quot;PlotAsMagnitudePhase&quot;:false,&quot;ShowGrid&quot;:true,&quot;ShowLegend&quot;:true,&quot;Title&quot;:&quot;%&lt;SignalLabel&gt;&quot;,&quot;YLabel&quot;:&quot;&quot;},&quot;DisplayContentCache&quot;:{&quot;Title&quot;:&quot;&quot;,&quot;LinePropertiesCache&quot;:{},&quot;UserDefinedChannelNames&quot;:{},&quot;PlotMagPhase&quot;:0},&quot;SerializedDisplays&quot;:[{&quot;Title&quot;:&quot;%&lt;SignalLabel&gt;&quot;,&quot;LinePropertiesCache&quot;:{},&quot;UserDefinedChannelNames&quot;:{},&quot;PlotMagPhase&quot;:0,&quot;MaxYLimMag&quot;:0.6197092484838792,&quot;MaxYLimReal&quot;:-0.2817711096358687,&quot;MinYLimMag&quot;:0,&quot;MinYLimReal&quot;:-0.6197092484838792,&quot;PlotAsMagnitudePhase&quot;:false,&quot;ShowGrid&quot;:true,&quot;ShowLegend&quot;:true,&quot;YLabel&quot;:&quot;&quot;,&quot;NumLines&quot;:2,&quot;ShowContent&quot;:1,&quot;Placement&quot;:0}],&quot;ColorOrder&quot;:[&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;,&quot;auto&quot;]}}</P>
+    <P Name="WindowPosition">[1172.000000,364.000000,644.000000,437.000000,]</P>
     <P Name="ScopeFrameLocation">window</P>
     <P Name="WasSavedAsWebScope">on</P>
     <P Name="Floating">off</P>
-    <P Name="MultipleDisplayCache">[{&quot;MaxYLimMag&quot;:3.7177819653907567,&quot;MaxYLimReal&quot;:2.8002399191863039,&quot;MinYLimMag&quot;:0,&quot;MinYLimReal&quot;:-2.7355194192741412,&quot;PlotAsMagnitudePhase&quot;:false,&quot;ShowGrid&quot;:true,&quot;ShowLegend&quot;:true,&quot;Title&quot;:&quot;%&lt;SignalLabel&gt;&quot;,&quot;YLabel&quot;:&quot;&quot;}]</P>
+    <P Name="MultipleDisplayCache">[{&quot;MaxYLimMag&quot;:0.6197092484838792,&quot;MaxYLimReal&quot;:-0.28177110963586871,&quot;MinYLimMag&quot;:0,&quot;MinYLimReal&quot;:-0.6197092484838792,&quot;PlotAsMagnitudePhase&quot;:false,&quot;ShowGrid&quot;:true,&quot;ShowLegend&quot;:true,&quot;Title&quot;:&quot;%&lt;SignalLabel&gt;&quot;,&quot;YLabel&quot;:&quot;&quot;}]</P>
     <P Name="NumInputPorts">2</P>
     <P Name="TimeSpan">20</P>
     <P Name="ShowLegend">on</P>
-    <P Name="ActiveDisplayYMinimum">-2.7355194192741412</P>
-    <P Name="ActiveDisplayYMaximum">2.8002399191863039</P>
+    <P Name="ActiveDisplayYMinimum">-0.6197092484838792</P>
+    <P Name="ActiveDisplayYMaximum">-0.28177110963586871</P>
     <P Name="DataLoggingLimitDataPoints">on</P>
-    <P Name="DataLoggingMaxPoints">500000</P>
     <P Name="DataLoggingDecimateData">on</P>
     <P Name="DataLoggingDecimation">1</P>
     <P Name="DataLogging">on</P>
@@ -2111,35 +2114,23 @@ end</Callback>
   </Block>
   <Block BlockType="Sum" Name="Sum" SID="31">
     <PortCounts in="3" out="1"/>
-    <P Name="Position">[275, 150, 295, 170]</P>
+    <P Name="Position">[250, 150, 270, 170]</P>
     <P Name="ZOrder">-7</P>
     <P Name="ShowName">off</P>
     <P Name="Inputs">+--</P>
   </Block>
   <Block BlockType="Sum" Name="Sum1" SID="69">
     <PortCounts in="2" out="1"/>
-    <P Name="Position">[275, -210, 295, -190]</P>
+    <P Name="Position">[675, -85, 695, -65]</P>
     <P Name="ZOrder">324</P>
-    <P Name="BlockRotation">270</P>
     <P Name="BlockMirror">on</P>
-    <P Name="NameLocation">left</P>
-    <P Name="Inputs">+-</P>
-  </Block>
-  <Block BlockType="Switch" Name="Switch" SID="83">
-    <P Name="Position">[265, 40, 305, 90]</P>
-    <P Name="ZOrder">337</P>
-    <P Name="BlockRotation">270</P>
-    <P Name="BlockMirror">on</P>
-    <P Name="NameLocation">left</P>
-    <P Name="Criteria">u2 &gt; Threshold</P>
-    <P Name="Threshold">0.2</P>
-    <P Name="InputSameDT">off</P>
-    <P Name="SaturateOnIntegerOverflow">off</P>
+    <P Name="NameLocation">top</P>
+    <P Name="Inputs">|+-</P>
   </Block>
   <Line>
     <P Name="ZOrder">1</P>
     <P Name="Src">31#out:1</P>
-    <P Name="Points">[20, 0]</P>
+    <P Name="Points">[45, 0]</P>
     <Branch>
       <P Name="ZOrder">2</P>
       <P Name="Points">[0, -50]</P>
@@ -2207,15 +2198,16 @@ end</Callback>
     <P Name="Name">linear x</P>
     <P Name="ZOrder">97</P>
     <P Name="Src">63#out:1</P>
-    <P Name="Points">[240, 0; 0, -170; 16, 0]</P>
+    <P Name="Points">[223, 0; 0, -153]</P>
     <Branch>
-      <P Name="ZOrder">184</P>
-      <P Name="Points">[0, -330]</P>
-      <P Name="Dst">69#in:2</P>
+      <P Name="ZOrder">218</P>
+      <P Name="Points">[-13, 0]</P>
+      <P Name="Dst">90#in:2</P>
     </Branch>
     <Branch>
-      <P Name="ZOrder">183</P>
-      <P Name="Labels">[1, 1]</P>
+      <P Name="ZOrder">217</P>
+      <P Name="Labels">[2, 1]</P>
+      <P Name="Points">[0, -17]</P>
       <P Name="Dst">27#in:2</P>
     </Branch>
   </Line>
@@ -2244,46 +2236,64 @@ end</Callback>
     <P Name="ZOrder">45</P>
     <P Name="Labels">[0, 0]</P>
     <P Name="Src">1#out:1</P>
-    <P Name="Dst">27#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">113</P>
-    <P Name="Src">68#out:1</P>
-    <P Name="Dst">69#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">139</P>
-    <P Name="Src">69#out:1</P>
-    <P Name="Dst">76#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">164</P>
-    <P Name="Src">84#out:1</P>
-    <P Name="Dst">83#in:2</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">165</P>
-    <P Name="Src">82#out:1</P>
-    <P Name="Dst">83#in:3</P>
+    <P Name="Points">[40, 0]</P>
+    <Branch>
+      <P Name="ZOrder">216</P>
+      <P Name="Dst">90#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">215</P>
+      <P Name="Dst">27#in:1</P>
+    </Branch>
   </Line>
   <Line>
     <P Name="ZOrder">178</P>
     <P Name="Src">76#out:1</P>
-    <P Name="Dst">85#in:1</P>
+    <P Name="Points">[-14, 0]</P>
+    <Branch>
+      <P Name="ZOrder">213</P>
+      <P Name="Points">[0, -52; -203, 0; 0, 32]</P>
+      <P Name="Dst">89#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">212</P>
+      <P Name="Dst">85#in:1</P>
+    </Branch>
   </Line>
   <Line>
-    <P Name="ZOrder">196</P>
+    <P Name="ZOrder">198</P>
     <P Name="Src">85#out:1</P>
-    <P Name="Dst">84#in:1</P>
+    <P Name="Dst">88#in:1</P>
   </Line>
   <Line>
-    <P Name="ZOrder">197</P>
-    <P Name="Src">83#out:1</P>
+    <P Name="ZOrder">204</P>
+    <P Name="Src">68#out:1</P>
+    <P Name="Dst">69#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">207</P>
+    <P Name="Src">69#out:1</P>
+    <P Name="Dst">76#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">208</P>
+    <P Name="Src">88#out:1</P>
+    <P Name="Dst">89#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">211</P>
+    <P Name="Src">89#out:1</P>
+    <P Name="Points">[-20, 0]</P>
     <P Name="Dst">31#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">214</P>
+    <P Name="Src">90#out:1</P>
+    <P Name="Dst">69#in:2</P>
   </Line>
   <Annotation SID="71">
     <P Name="Name">target</P>
-    <P Name="Position">[191, -173, 218, -158]</P>
+    <P Name="Position">[786, -117, 813, -102]</P>
     <P Name="InternalMargins">[0, 0, 0, 0]</P>
     <P Name="HorizontalAlignment">left</P>
     <P Name="VerticalAlignment">top</P>
@@ -2327,9 +2337,9 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="ViewObjType" Class="char">SimulinkTopLevel</P>
           <P Name="LoadSaveID" Class="char">0</P>
           <P Name="Extents" Class="double">[1816.0, 807.0]</P>
-          <P Name="ZoomFactor" Class="double">1.25</P>
-          <P Name="Offset" Class="double">[-218.41375598086142, -285.89488716563]</P>
-          <P Name="SceneRectInView" Class="double">[-218.41375598086142, -285.89488716563, 1452.8, 645.6]</P>
+          <P Name="ZoomFactor" Class="double">1.75</P>
+          <P Name="Offset" Class="double">[62.807672590566661, -79.522282140052084]</P>
+          <P Name="SceneRectInView" Class="double">[62.807672590566661, -79.522282140052084, 1037.7142857142858, 461.14285714285717]</P>
         </Object>
         <Object ObjectID="6">
           <P Name="IsActive" Class="logical">0</P>
