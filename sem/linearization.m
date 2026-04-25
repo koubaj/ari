@@ -95,4 +95,7 @@ sys_tf_down
 G1 = sys_ss_down(1, 1);
 
 %rltool(G1);
-%pidTuner(G1);
+
+Kp = 7.94;
+Ki = 0.882;
+Kd = 12.6;
