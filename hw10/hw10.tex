@@ -1,0 +1,90 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{float}
+
+\title{Domácí úkol 10}
+\author{Jáchym Kouba}
+\date{\today}
+
+% Remove section numbering
+\setcounter{secnumdepth}{0}
+
+% MATLAB listings setup
+\lstdefinestyle{mystyle}{
+  language=Matlab,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{teal},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=8pt,
+  tabsize=2,
+  breaklines=true,
+  showstringspaces=false
+}
+\lstset{style=mystyle}
+
+\begin{document}
+\maketitle
+
+\newpage
+\section{Soustava}
+Mé datum narození 1.9. 2004, z čehož dostávám $a=1$ a $b=9$. Poslední konstantu
+vypočítám jako 
+
+\begin{equation}
+  c = 4* \left( \frac{a+b-2}{16}+1 \right) = 6.
+\end{equation}
+
+Pomocí těchto konstant dostávám přenos 
+
+\begin{equation}
+  \frac{s+9}{(s+6)(s-1)}.
+\end{equation}
+
+\section{Příklad}
+Mám navrhnout diskrétní regulátor se vzorkovací periodou $T_s = 0.05
+\mathrm{s}$, který bude mít následující saturaci pro vstupní signál: $-1.5 \leq
+u \leq 1.5$. Musím dále zajistit nulovou ustálenou odchylku při odezvě na vstup,
+maximální překmit $30 \%$ a dobu ustálení odezvy na skok nejvýše $3 \mathrm{s}$.
+Budu navrhovat PI regulátor, takže implementuji i anti-windup.
+
+Implementace regulátoru bude následující:
+
+\begin{verbatim}
+e(k) = r(k) - y(k); % PI controller input
+ssum(k + 1) = ssum(k) + e(k); % sum (discrete "integrator")
+  
+u(k) = kp*e(k) + ki*ssum(k+1);  
+\end{verbatim}
+
+A provedení anti-windupu takovéto:
+
+\begin{verbatim}
+if abs(u(k)) >= u_sat % anti-windup implementation
+    u(k) = kp*e(k);
+    ssum(k+1) = 0;
+end
+
+% Saturation of the input
+u(k) = max(min(u(k), u_sat), -u_sat);
+\end{verbatim}
+
+Odladím konstanty $K_p$ a $K_i$ na hodnoty $K_p = 15$ a $K_i = 3$, čímž získám překmit $8.9 \%$ a 
+dobu ustálení odezvy na skok $0.7 \mathrm{s}$, což jsou výsledky výrazně lepší, než požaduje zadání.
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{graphs.png}
+  \caption{Grafy odezvy systému na skok a výstupu PI regulátoru}
+\end{figure}
+
+\end{document}
