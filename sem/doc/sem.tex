@@ -142,6 +142,91 @@ Zobrazením nul jsem si potvrdil, že systém s kyvadlem v dolní poloze je stab
 nestabilní (obsahuje jeden pól v bodě $10.5604$).
 
 \section{Řízení polohy vozíku}
+Jako první úlohu jsem si zvolil řízení polohy vozíku - dostanu zadaný bod na ose x a cílem vozíku je se do něj 
+dostat, polohu kyvadla zcela ignoruji.
+
+\subsection{Zapojení v Simulinku}
+Pro zprovoznění simulace jsem nejdříve musel zapojit shcéma v Simulinku
+\ref{fig:Simulink_pos_PID}. Linearizaci provádím přes blok \texttt{State-Space},
+do kterého jsem dal matice \texttt{A\_down}, \texttt{B\_down}, \texttt{C} a
+\texttt{D}.  První dvě matice jsem již zmínil v předchozím textu, pro zbylé
+platí: 
+$C = \begin{bmatrix}
+0 & 1 & 0 & 0 \\    
+0 & 0 & 0 & 1 \\    
+\end{bmatrix}, $
+$D = \begin{bmatrix}
+0 \\
+0 \\
+\end{bmatrix}.$  
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/simulink_pos_PID.png}
+  \caption{Simulink schéma pro regulátor polohy vozíku}\label{fig:Simulink_pos_PID}
+\end{figure}
+
+Z linearizovaného modelu vedu signál do Scope pro polohu a pro úhel (rozděluji
+před Demux), úhel musím převést na stupně. 
+
+Ve zpětné vazbě mám regulátor, do kterého později dosadním získané hodnoty.
+Regulátor sám o sobě obsahuje saturaci a implementaci řešení wind-upu (zvolil
+jsem metodu clamping - když signál přesahuje hodnotu saturace, tak dále
+nenačítám I hodnotu regulátoru). Následuje blok, který signál ořízne, pokud se
+nachází v deadzone. Tyto bloky jsou velmi důležité, bez nich se linearizovaný a
+nelinearizovaný model rozdělí a regulace nebude funguvoat,
+viz~\ref{fig:Withou_sat_and_deadzone}. Po přidání těchto bloků jsou originální i
+lineární signál téměř shodné.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/without_sat_and_deadzone_in.png}
+    \includegraphics[width=0.8\textwidth]{img/without_sat_and_deadzone_out.png}
+    \caption{Zapojení bez saturace a deadzone - vstup a výstup}\label{fig:Withou_sat_and_deadzone}
+  \end{center}
+\end{figure}
+
+\subsection{P regulátor}
+Nejdfříve jsem vyzkoušel řízení pomocí samotného P regulátoru, které ovšem vedlo
+na mnoho problémů. Při vysoké hodnotě koeficientu Kp docházelo k velkému
+překmitu a následnému rozkmitání, kvůli kterému se kyvadlo nechtělo ustálit na
+cílové hodnotě - výsledky jsou na obrázku~\ref{fig:P_pos_overshoot}.
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/P_pos_overshoot.png}
+  \caption{Překmir P regulátoru}\label{fig:P_pos_overshoot}
+\end{figure}
+
+I pro výsledky s kvalitně odladěnou hodnotou Kp nastával klasický problém u P
+regulátoru, že se kyvadlo neustálí na cílové hodnotě~\ref{fig:P_pos_inf_error}.
+Tento je je navíc výrazně podpořen díky deadzone, který dělá tento problém 
+matematicky neřešitelným.
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/P_pos_inf_error.png}
+  \caption{Ustálení na špatné hodnotě}\label{fig:P_pos_inf_error}
+\end{figure}
+
+Z výše zmíněných důvodů je nutné implementovat PID regulátor.
+
+\subsection{PID regulátor}
+PID regulátor už funguje velmi dobře. Hodnoty jsem odladil pomocí programu
+\texttt{rltool}~\ref{fig:rltool_pid_pos} a dosadil je do schématu Simulinku. 
+Výsledná regulace na polohu $x=1$ (na obrázku~\ref{fig:PID_pos}) má překmit 
+menší než $15 \%$ a dobu ustálení na $90 \%$ za $11 \mathrm{s}$.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/rltool_pid_pos.png}
+    \caption{Hledání parametrů PID regulátoru pomocí rltool}\label{fig:rltool_pid_pos}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/PID_pos.png}
+    \caption{Regulace vozíku na polohu $x=1$}\label{fig:PID_pos}
+  \end{center}
+\end{figure}
 
 \begin{thebibliography}{9}
 \bibitem{zadani}
