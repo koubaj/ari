@@ -53,7 +53,7 @@ disp('B_up Matrix:'); disp(B_up)
 
 % Check eigenvalues to confirm instability
 disp('Eigenvalues of A_up (Positive real part = Unstable):')
-disp(eig(A_up))
+disp(eig(A_up));
 
 %% 5. Evaluate at DOWN Position (Stable: phi = -pi/2)
 % Equilibrium states: [v=0; y=0; w=0; phi=-pi/2], u=0
@@ -70,7 +70,7 @@ disp('B_down Matrix:'); disp(B_down)
 
 % Check eigenvalues to confirm stability
 disp('Eigenvalues of A_down (All negative real parts = Stable):')
-disp(eig(A_down))
+disp(eig(A_down));
 
 %% 6. Creating a transfer function
 C = [0 1 0 0;

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1777211865.57745 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1777211866.1561 0
-  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1777211865.3569 4926 d3a2bff1b52dd9382cf7b7fb8820bd6c ""
+["pdflatex"] 1777221605.72805 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1777221606.3456 0
+  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1777221605.43814 5721 4d6463ad9032f4cae4fc03264c3047fd ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -11,6 +11,7 @@
   "/home/jx2004/snap/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm" 1136768653 3584 3c76ccb63eda935a68ba65ba9da29f1a ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm2074.tfm" 1136768653 3584 8e2870ec7aa9776f59654942b0923f51 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm" 1136768653 3072 8b5a64dc91775463bc95e2d818524028 ""
+  "/home/jx2004/snap/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm" 1136768653 1536 487c9b46984a816c7ed238d0674595c7 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -42,6 +43,7 @@
   "/home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb" 1215737283 131078 d96015a2fa5c350129e933ca070b2484 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb" 1215737283 131290 ea265c7de37664eae04a6f91a1f7a51f ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb" 1215737283 198221 ca5aa71411090ef358a6cc78b7458365 ""
+  "/home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb" 1215737283 167085 68de377d2744a68a88fa40a1f610615a ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel-czech/czech.ldf" 1367878866 15910 20b36fee6c6cdcfa90232891da7a9f34 ""
@@ -79,6 +81,7 @@
   "/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/fontenc.sty" 1717359999 5275 b64d8404d74d2860b9c6558239dd0784 ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/inputenc.sty" 1717359999 5048 7ebf0f2edf1ef6783e8fe2201a95d0e8 ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/size12.clo" 1717359999 8449 30d84ec2eac77409e31fe51403c1ed64 ""
+  "/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/t1cmtt.fd" 1705352648 2443 790016d75def8d3127df5c216a45abcc ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
   "/home/jx2004/snap/texlive/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
@@ -116,9 +119,9 @@
   "/home/jx2004/snap/texlive/texmf-var/web2c/pdftex/pdflatex.fmt" 1726515343 3325931 9fa7bebea25bd9858036e024cdf3faab ""
   "/home/jx2004/snap/texlive/texmf.cnf" 1726515280.78528 496 01ab80fa0036a81d2df86fb0ac70c709 ""
   "img/kontrola_rovnic.jpg" 1777208907.16339 1988522 b44b72eff68a8378fc7c1f41effef175 ""
-  "sem.aux" 1777211866.09433 1491 31c41560e726884871619ec0c30db806 "pdflatex"
-  "sem.out" 1777211866.09433 1063 6549442b3bd85336f3d66e11109389b9 "pdflatex"
-  "sem.tex" 1777211865.3569 4926 d3a2bff1b52dd9382cf7b7fb8820bd6c ""
+  "sem.aux" 1777221606.27415 1491 31c41560e726884871619ec0c30db806 "pdflatex"
+  "sem.out" 1777221606.27415 1063 6549442b3bd85336f3d66e11109389b9 "pdflatex"
+  "sem.tex" 1777221605.43814 5721 4d6463ad9032f4cae4fc03264c3047fd ""
   (generated)
   "sem.aux"
   "sem.log"
