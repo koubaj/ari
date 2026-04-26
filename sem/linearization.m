@@ -73,8 +73,6 @@ disp('Eigenvalues of A_down (All negative real parts = Stable):')
 disp(eig(A_down))
 
 %% 6. Creating a transfer function
-C_phi = [0, 0, 0, 1];
-D_phi = 0;
 C = [0 1 0 0;
      0 0 0 1];
 D = [0; 0];
@@ -96,6 +94,6 @@ G1 = sys_ss_down(1, 1);
 
 %rltool(G1);
 
-Kp = 7.94;
-Ki = 0.882;
-Kd = 12.6;
+Kp = 10.2;
+Ki = 1.14;
+Kd = 16.2;

@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{float}
+\usepackage[T1]{fontenc}
+\usepackage[czech]{babel}
+
+\title{Řízení lineárního kyvadla v předmětu ARI}
+\author{Jáchym Kouba}
+\date{\today}
+
+\setcounter{secnumdepth}{3}
+\makeatletter
+\renewcommand\@seccntformat[1]{\csname the#1\endcsname.\quad}
+\makeatother
+
+% MATLAB listings setup
+\lstdefinestyle{mystyle}{
+  language=Matlab,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{teal},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  stepnumber=1,
+  numbersep=8pt,
+  tabsize=2,
+  breaklines=true,
+  showstringspaces=false
+}
+\lstset{style=mystyle}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section{Úvod}
+V rámci semestrální práce předmětu ARI jsem si zvolil projekt týkající se řízení
+lineárního kyvadla. K dispozici mám matematicky popsaný model kyvadla a jeho
+simulaci v Matlabu a Simulinku. Konkrétní cíle úlohy jsem za průběhu semestru
+diskutoval s profesorem Martinem Hromčíkem, nakonec jsem své cíle stanovil na
+dva cíle: řízení polohy vozíku se stabilizací kyvadla v dolní poloze a
+stabilizaci inverzního kyvadla.
+
+\section{Popis kyvadla}
+Pro popis kyvadla jsem měl k dispozici dva zdroje - pdf soubor s matematickým
+popisem lineárního kyvadla a kód v Matlabu s předpřipravenou simulací v
+Simulinku.
+
+\subsection{Matematické zadání}
+Uvedu zde matematický popis kyvadla ze zadání, který budu dále používat \cite{zadani}:
+
+Laboratorní model Kyvadlo na vozíku je nelineární stabilní (pro naše účely) systém 
+s jedním vstupem
+
+\begin{itemize}
+  \item napětí na motoru vyvolávajícím sílu $F$ působící na vozík, $u$ [V]
+    (akční veličina)
+\end{itemize}
+a dvěma výstupy:
+\begin{itemize}
+  \item úhel natočení kyvadla měřený od vodorovné polohy $\varphi$ [°],
+  \item poloha vozíku $x$ [m].
+\end{itemize}
+
+Systém kyvadla na vozíku je popsán následujícími diferenciálními
+rovnicemi
+
+\begin{align*}
+(M + m)\ddot{x}(t) - ml\ddot{\varphi}(t) \sin \varphi(t) - ml\dot{\varphi}^2(t) \cos \varphi(t) + b\dot{x}(t) &= F(t) \\
+J_p \ddot{\varphi}(t) + mgl\cos(\varphi(t)) - ml\ddot{x}(t)\sin(\varphi(t)) + 2\delta\dot{\varphi}(t) &= 0.
+\end{align*}
+
+Tyto rovnice je možné přepsat do vhodnějšího tvaru
+\begin{align*}
+\ddot{x}(t) &= \frac{1}{f_1(t)} \biggl[ l^2 m^2 g \cos \varphi(t) \sin \varphi(t) - J_p m l \cos \varphi(t) \dot{\varphi}^2(t) \\
+&\qquad{} + 2\delta m l \sin \varphi(t) \dot{\varphi}(t) - F(t) J_p + J_p b\dot{x}(t) \biggr] \\
+\ddot{\varphi}(t) &= \frac{1}{f_2(t)} \biggl[ 2\delta \dot{\varphi}(t) + m l g \cos \varphi(t) - \frac{m^2 l^2}{M + m} \sin \varphi(t) \cos \varphi(t) \dot{\varphi}^2(t) \\
+&\qquad{} - \frac{m l}{M + m} \sin \varphi(t) F(t) + \frac{m l b}{M + m} \sin \varphi(t) \dot{x}(t) \biggr],
+\end{align*}
+
+kde funkce $f_1(t) = -J_p m - J_p M + l^2 m^2 \sin^2 \varphi(t)$ a $f_2(t) =
+-J_p + \frac{l^2 m^2 \sin^2 \varphi(t)}{M+m}$.
+
+Parametry v rovnicích jsou: $m$~[kg] je hmotnost kyvadla, $M$~[kg] je hmotnost
+vozíku, $l$~[m] je délka kyvadla, $J_p$~[kg\,m$^2$\,s$^{-2}$] [sic] je moment
+setrvačnosti kyvadla vzhledem k ose otáčení, $g$~[m\,s$^{-2}$] je gravitační
+zrychlení, $b$~[kg\,s$^{-1}$] reprezentuje všechna tření úměrná rychlosti
+vozíku, $\delta$~[kg\,m$^2$\,s$^{-1}$] je koeficient viskózního tření v kloubu
+kyvadla.
+
+\subsection{Kontrola rovnic}
+Obě rovnice z Matlabu jsem přepsal do stejné formy, jako jsou napsané v pdf
+zadání, viz obr.~\ref{fig:kontrola}.
+
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{img/kontrola_rovnic.jpg}
+  \caption{Kontrola rovnic}\label{fig:kontrola}
+\end{figure}
+
+\subsection{Kontrola zadání}
+Prvním krokem mé práce bylo ověřit, zda se zadáné rovnice v obou souborech
+shodují. V pdf zadání se nachází drobná chyba v jednotkách pro $J_p$:
+setrvačnost musí mít jednotku [kg\,m$^2$]. Rovnice vypadají po přepsání stejně,
+až na to, že v Matlabu se vyskytuje $2l$ všude, kde je v pdf napsáno $l$. Dále
+budu pokračovat s údaji z Matlabu.
+ 
+\subsection{Omezení vstupu a výstupu}
+Pro vstupní napětí je v programu uvedena saturace: vozík bude přijímat signál v rozsahu $[-10; 10]$. 
+Dále znám i hodnotu deadzone - vozík nereaguje na napětí $\mathrm{abs}(u)\leq0.2$.
+
+\section{Linearizace}
+Pro účely úlohy potřebuji získat linearizované rovnice kyvadla pro $\varphi = -90$° (kyvadlo míří kolmo dolů) 
+a pro $\varphi = 90$° (kyvadlo míří kolmo nahoru). Linearizaci provedu pomocí Matlabu:
+
+\section{Řízení polohy vozíku}
+
+\begin{thebibliography}{9}
+\bibitem{zadani}
+Prof. Martin Hromčík. \textit{Inverzni\_kyvadlo\_new.pdf}.
+\end{thebibliography}
+
+\end{document}
