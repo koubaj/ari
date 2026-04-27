@@ -252,6 +252,11 @@ INPUT ./img/PID_pos.png
 INPUT ./img/PID_pos.png
 INPUT ./img/PID_pos.png
 INPUT ./img/PID_pos.png
+INPUT ./img/reference_model.png
+INPUT ./img/reference_model.png
+INPUT ./img/reference_model.png
+INPUT ./img/reference_model.png
+INPUT ./img/reference_model.png
 INPUT /home/jx2004/snap/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm
 INPUT sem.aux
 INPUT ./sem.out

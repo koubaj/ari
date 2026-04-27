@@ -228,6 +228,25 @@ menší než $15 \%$ a dobu ustálení na $90 \%$ za $11 \mathrm{s}$.
   \end{center}
 \end{figure}
 
+\subsection{Model reference}
+Zatím jsem měl jako target nastavenou konstantu, jednalo se vlastně o jednotkový
+skok. Pro lepší řízení mohu ovšem target postupně načítat a tím se vyhnout
+zbytečně velkému překmitu. Za target připojím přenos druhé stupně, jehož hodnoty
+odladím a dostanu tak efektivnější řízení vozíku. Pro přenos $\frac{1}{0.05s^2 +
+s + 1}$ dostávám překmit $5 \%$, v rozmezí $\pm 5 \%$ od cílové hodnoty bude
+vozík za $2.6 \mathrm{s}$. Graf je na obrázku~\ref{fig:reference_model}. 
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{img/reference_model.png}
+    \caption{Regulace vozíku s modelem reference}\label{fig:reference_model}
+  \end{center}
+\end{figure}
+
+Tímto způsobem, s přenosem $\frac{1}{0.03s^2 + 2.8s + 1}$, jsem dosáhl i řízení
+polohy vozíku s překmitem méně než $1 \%$, do intervalu $1 \%$ se vozík dostane
+za $9 \mathrm{s}$.
+
 \begin{thebibliography}{9}
 \bibitem{zadani}
 Prof. Martin Hromčík. \textit{Inverzni\_kyvadlo\_new.pdf}.

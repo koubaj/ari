@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1777240214.00406 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1777240214.9179 0
-  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1777240213.77941 9418 3b29dd0f24985d4603379da1a3027218 ""
+["pdflatex"] 1777245558.25133 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1777245559.06955 0
+  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1777245558.0222 10360 99a0a70367e8ef3282ed53f2f9e06add ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -122,13 +122,14 @@
   "img/P_pos_inf_error.png" 1777227961.21125 27581 46478ba9ff1cd145b175b2a6ec4e6c7b ""
   "img/P_pos_overshoot.png" 1777228038.56763 28298 2426806c5b03d1f9bb09c03eed47354f ""
   "img/kontrola_rovnic.jpg" 1777208907.16339 1988522 b44b72eff68a8378fc7c1f41effef175 ""
+  "img/reference_model.png" 1777244426.22974 27627 cfe745db1567c6854bb05fc1efc809f2 ""
   "img/rltool_pid_pos.png" 1777228614.07918 82132 51996bc61752789f86ff0aacd5378fa2 ""
   "img/simulink_pos_PID.png" 1777225410.78437 62027 b93e01c616b6009be7703154009a595d ""
   "img/without_sat_and_deadzone_in.png" 1777227255.49261 21008 3e0da4fab1de4f97d391218e0db08efe ""
   "img/without_sat_and_deadzone_out.png" 1777227138.90577 26246 85050b570ce11441e77ee23b54d628c7 ""
-  "sem.aux" 1777240214.83593 3310 f72a9bd3f0e50ef22e4e48977820d36d "pdflatex"
-  "sem.out" 1777240214.83693 1477 ac505054b3762309408ff5e602866a60 "pdflatex"
-  "sem.tex" 1777240213.77941 9418 3b29dd0f24985d4603379da1a3027218 ""
+  "sem.aux" 1777245558.99726 3671 8695187c398a3a63aadbb08b4a95e107 "pdflatex"
+  "sem.out" 1777245558.99726 1613 b44f8726213ad74b452b81282b7e8915 "pdflatex"
+  "sem.tex" 1777245558.0222 10360 99a0a70367e8ef3282ed53f2f9e06add ""
   (generated)
   "sem.aux"
   "sem.log"

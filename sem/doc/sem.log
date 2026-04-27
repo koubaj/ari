@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  26 APR 2026 23:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  27 APR 2026 01:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -424,7 +424,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/home/jx2004/snap/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<img/kontrola_rovnic.jpg, id=58, 2998.20125pt x 2514.39375pt>
+<img/kontrola_rovnic.jpg, id=62, 2998.20125pt x 2514.39375pt>
 File: img/kontrola_rovnic.jpg Graphic file (type jpg)
 <use img/kontrola_rovnic.jpg>
 Package pdftex.def Info: img/kontrola_rovnic.jpg  used on input line 104.
@@ -443,7 +443,7 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 12
  (/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-<img/simulink_pos_PID.png, id=81, 911.405pt x 675.52374pt>
+<img/simulink_pos_PID.png, id=85, 911.405pt x 675.52374pt>
 File: img/simulink_pos_PID.png Graphic file (type png)
 <use img/simulink_pos_PID.png>
 Package pdftex.def Info: img/simulink_pos_PID.png  used on input line 164.
@@ -451,12 +451,12 @@ Package pdftex.def Info: img/simulink_pos_PID.png  used on input line 164.
 
 
 [4]
-<img/without_sat_and_deadzone_in.png, id=90, 738.76pt x 494.84875pt>
+<img/without_sat_and_deadzone_in.png, id=94, 738.76pt x 494.84875pt>
 File: img/without_sat_and_deadzone_in.png Graphic file (type png)
 <use img/without_sat_and_deadzone_in.png>
 Package pdftex.def Info: img/without_sat_and_deadzone_in.png  used on input line 182.
 (pdftex.def)             Requested size: 375.80544pt x 251.7277pt.
-<img/without_sat_and_deadzone_out.png, id=91, 723.70375pt x 501.875pt>
+<img/without_sat_and_deadzone_out.png, id=95, 723.70375pt x 501.875pt>
 File: img/without_sat_and_deadzone_out.png Graphic file (type png)
 <use img/without_sat_and_deadzone_out.png>
 Package pdftex.def Info: img/without_sat_and_deadzone_out.png  used on input line 183.
@@ -469,7 +469,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has
                                                   \__shipout_drop_firstpage_...
 l.187 
        <./img/simulink_pos_PID.png>]
-<img/P_pos_overshoot.png, id=99, 723.70375pt x 501.875pt>
+<img/P_pos_overshoot.png, id=103, 723.70375pt x 501.875pt>
 File: img/P_pos_overshoot.png Graphic file (type png)
 <use img/P_pos_overshoot.png>
 Package pdftex.def Info: img/P_pos_overshoot.png  used on input line 195.
@@ -482,7 +482,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has
                                                   \__shipout_drop_firstpage_...
 l.197 \end{figure}
                    <./img/without_sat_and_deadzone_in.png> <./img/without_sat_and_deadzone_out.png>]
-<img/P_pos_inf_error.png, id=107, 723.70375pt x 501.875pt>
+<img/P_pos_inf_error.png, id=111, 723.70375pt x 501.875pt>
 File: img/P_pos_inf_error.png Graphic file (type png)
 <use img/P_pos_inf_error.png>
 Package pdftex.def Info: img/P_pos_inf_error.png  used on input line 205.
@@ -495,7 +495,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has
                                                   \__shipout_drop_firstpage_...
 l.208 
        <./img/P_pos_overshoot.png>]
-<img/rltool_pid_pos.png, id=118, 1232.605pt x 869.2475pt>
+<img/rltool_pid_pos.png, id=122, 1232.605pt x 869.2475pt>
 File: img/rltool_pid_pos.png Graphic file (type png)
 <use img/rltool_pid_pos.png>
 Package pdftex.def Info: img/rltool_pid_pos.png  used on input line 219.
@@ -508,7 +508,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has
                                                   \__shipout_drop_firstpage_...
 l.223 
        <./img/P_pos_inf_error.png>]
-<img/PID_pos.png, id=126, 723.70375pt x 501.875pt>
+<img/PID_pos.png, id=130, 723.70375pt x 501.875pt>
 File: img/PID_pos.png Graphic file (type png)
 <use img/PID_pos.png>
 Package pdftex.def Info: img/PID_pos.png  used on input line 226.
@@ -519,35 +519,46 @@ Package pdftex.def Info: img/PID_pos.png  used on input line 226.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.234 \end{thebibliography}
-                           
+l.238 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.234 \end{thebibliography}
-                            <./img/rltool_pid_pos.png> <./img/PID_pos.png>]
+l.238 
+       <./img/rltool_pid_pos.png> <./img/PID_pos.png>]
+<img/reference_model.png, id=138, 682.55pt x 467.7475pt>
+File: img/reference_model.png Graphic file (type png)
+<use img/reference_model.png>
+Package pdftex.def Info: img/reference_model.png  used on input line 241.
+(pdftex.def)             Requested size: 375.80544pt x 257.54025pt.
 
-[10] (./sem.aux)
+
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.255 \end{document}
+                     <./img/reference_model.png>] (./sem.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `sem.out' has not changed.
-(rerunfilecheck)             Checksum: AC505054B3762309408FF5E602866A60;1477.
+(rerunfilecheck)             Checksum: B44F8726213AD74B452B81282B7E8915;1613.
  ) 
 Here is how much of TeX's memory you used:
- 13687 strings out of 473579
- 210247 string characters out of 5727228
+ 13698 strings out of 473579
+ 210515 string characters out of 5727228
  816298 words of memory out of 5000000
- 36377 multiletter control sequences out of 15000+600000
+ 36386 multiletter control sequences out of 15000+600000
  571271 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,575b,581s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,575b,482s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on sem.pdf (10 pages, 2443212 bytes).
+Output written on sem.pdf (10 pages, 2466915 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 156 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 224 PDF objects out of 1000 (max. 8388607)
+ 162 compressed objects within 2 object streams
+ 33 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 
