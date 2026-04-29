@@ -90,10 +90,18 @@ sys_tf_up
 sys_tf_down
 
 %% rtool
-G1 = sys_ss_down(1, 1);
+G1 = sys_ss_down(1, 1)
+G2 = sys_ss_up(1, 1)
 
-%rltool(G1);
+%rltool(G2);
 
 Kp = 10.2;
 Ki = 1.14;
 Kd = 16.2;
+
+%% Poisicast
+damping = 2.97e-01;
+freq = 1.42e+01;
+
+transport_delay = pi/(freq*sqrt(1-damping^2))
+amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)))

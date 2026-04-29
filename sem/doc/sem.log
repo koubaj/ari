@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  27 APR 2026 01:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  29 APR 2026 17:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -424,10 +424,10 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [1
 
 {/home/jx2004/snap/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<img/kontrola_rovnic.jpg, id=62, 2998.20125pt x 2514.39375pt>
+<img/kontrola_rovnic.jpg, id=70, 2998.20125pt x 2514.39375pt>
 File: img/kontrola_rovnic.jpg Graphic file (type jpg)
 <use img/kontrola_rovnic.jpg>
-Package pdftex.def Info: img/kontrola_rovnic.jpg  used on input line 104.
+Package pdftex.def Info: img/kontrola_rovnic.jpg  used on input line 105.
 (pdftex.def)             Requested size: 469.75502pt x 393.94733pt.
 
 
@@ -437,128 +437,186 @@ Package pdftex.def Info: img/kontrola_rovnic.jpg  used on input line 104.
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.118 
+l.124 
        <./img/kontrola_rovnic.jpg>]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 126.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 125.
  (/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-<img/simulink_pos_PID.png, id=85, 911.405pt x 675.52374pt>
+<img/simulink_pos_PID.png, id=93, 911.405pt x 675.52374pt>
 File: img/simulink_pos_PID.png Graphic file (type png)
 <use img/simulink_pos_PID.png>
 Package pdftex.def Info: img/simulink_pos_PID.png  used on input line 164.
-(pdftex.def)             Requested size: 469.75502pt x 348.18207pt.
+(pdftex.def)             Requested size: 375.80544pt x 278.5436pt.
 
 
 [4]
-<img/without_sat_and_deadzone_in.png, id=94, 738.76pt x 494.84875pt>
+<img/without_sat_and_deadzone_in.png, id=103, 738.76pt x 494.84875pt>
 File: img/without_sat_and_deadzone_in.png Graphic file (type png)
 <use img/without_sat_and_deadzone_in.png>
-Package pdftex.def Info: img/without_sat_and_deadzone_in.png  used on input line 182.
-(pdftex.def)             Requested size: 375.80544pt x 251.7277pt.
-<img/without_sat_and_deadzone_out.png, id=95, 723.70375pt x 501.875pt>
-File: img/without_sat_and_deadzone_out.png Graphic file (type png)
-<use img/without_sat_and_deadzone_out.png>
-Package pdftex.def Info: img/without_sat_and_deadzone_out.png  used on input line 183.
-(pdftex.def)             Requested size: 375.80544pt x 260.61656pt.
+Package pdftex.def Info: img/without_sat_and_deadzone_in.png  used on input line 183.
+(pdftex.def)             Requested size: 281.85587pt x 188.79956pt.
 
 
 [5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.187 
+l.186 
        <./img/simulink_pos_PID.png>]
-<img/P_pos_overshoot.png, id=103, 723.70375pt x 501.875pt>
+<img/without_sat_and_deadzone_out.png, id=111, 723.70375pt x 501.875pt>
+File: img/without_sat_and_deadzone_out.png Graphic file (type png)
+<use img/without_sat_and_deadzone_out.png>
+Package pdftex.def Info: img/without_sat_and_deadzone_out.png  used on input line 189.
+(pdftex.def)             Requested size: 281.85587pt x 195.46242pt.
+<img/P_pos_overshoot.png, id=113, 723.70375pt x 501.875pt>
 File: img/P_pos_overshoot.png Graphic file (type png)
 <use img/P_pos_overshoot.png>
-Package pdftex.def Info: img/P_pos_overshoot.png  used on input line 195.
-(pdftex.def)             Requested size: 469.75502pt x 325.7707pt.
+Package pdftex.def Info: img/P_pos_overshoot.png  used on input line 201.
+(pdftex.def)             Requested size: 281.85587pt x 195.46242pt.
 
 
 [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.197 \end{figure}
-                   <./img/without_sat_and_deadzone_in.png> <./img/without_sat_and_deadzone_out.png>]
-<img/P_pos_inf_error.png, id=111, 723.70375pt x 501.875pt>
-File: img/P_pos_inf_error.png Graphic file (type png)
-<use img/P_pos_inf_error.png>
-Package pdftex.def Info: img/P_pos_inf_error.png  used on input line 205.
-(pdftex.def)             Requested size: 469.75502pt x 325.7707pt.
-
-
-[7
+l.204 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.208 
-       <./img/P_pos_overshoot.png>]
-<img/rltool_pid_pos.png, id=122, 1232.605pt x 869.2475pt>
+l.204 
+       <./img/without_sat_and_deadzone_in.png> <./img/without_sat_and_deadzone_out.png>]
+<img/P_pos_inf_error.png, id=122, 723.70375pt x 501.875pt>
+File: img/P_pos_inf_error.png Graphic file (type png)
+<use img/P_pos_inf_error.png>
+Package pdftex.def Info: img/P_pos_inf_error.png  used on input line 212.
+(pdftex.def)             Requested size: 281.85587pt x 195.46242pt.
+<img/rltool_pid_pos.png, id=125, 1232.605pt x 869.2475pt>
 File: img/rltool_pid_pos.png Graphic file (type png)
 <use img/rltool_pid_pos.png>
-Package pdftex.def Info: img/rltool_pid_pos.png  used on input line 219.
-(pdftex.def)             Requested size: 375.80544pt x 265.02061pt.
+Package pdftex.def Info: img/rltool_pid_pos.png  used on input line 226.
+(pdftex.def)             Requested size: 281.85587pt x 198.76878pt.
 
 
-[8
+[7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.223 
-       <./img/P_pos_inf_error.png>]
-<img/PID_pos.png, id=130, 723.70375pt x 501.875pt>
-File: img/PID_pos.png Graphic file (type png)
-<use img/PID_pos.png>
-Package pdftex.def Info: img/PID_pos.png  used on input line 226.
-(pdftex.def)             Requested size: 375.80544pt x 260.61656pt.
-
-
-[9
+l.229 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.238 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.238 
-       <./img/rltool_pid_pos.png> <./img/PID_pos.png>]
+l.229 
+       <./img/P_pos_overshoot.png> <./img/P_pos_inf_error.png>]
+<img/PID_pos.png, id=136, 723.70375pt x 501.875pt>
+File: img/PID_pos.png Graphic file (type png)
+<use img/PID_pos.png>
+Package pdftex.def Info: img/PID_pos.png  used on input line 232.
+(pdftex.def)             Requested size: 281.85587pt x 195.46242pt.
 <img/reference_model.png, id=138, 682.55pt x 467.7475pt>
 File: img/reference_model.png Graphic file (type png)
 <use img/reference_model.png>
-Package pdftex.def Info: img/reference_model.png  used on input line 241.
-(pdftex.def)             Requested size: 375.80544pt x 257.54025pt.
+Package pdftex.def Info: img/reference_model.png  used on input line 252.
+(pdftex.def)             Requested size: 281.85587pt x 193.1552pt.
 
 
-[10
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.255 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.255 \end{document}
-                     <./img/reference_model.png>] (./sem.aux)
+l.255 
+       <./img/rltool_pid_pos.png> <./img/PID_pos.png>]
+<img/oscillation_without_PD.png, id=148, 694.595pt x 551.05875pt>
+File: img/oscillation_without_PD.png Graphic file (type png)
+<use img/oscillation_without_PD.png>
+Package pdftex.def Info: img/oscillation_without_PD.png  used on input line 269.
+(pdftex.def)             Requested size: 281.85587pt x 223.6148pt.
+<img/oscillation_with_PD.png, id=149, 694.595pt x 551.05875pt>
+File: img/oscillation_with_PD.png Graphic file (type png)
+<use img/oscillation_with_PD.png>
+Package pdftex.def Info: img/oscillation_with_PD.png  used on input line 275.
+(pdftex.def)             Requested size: 281.85587pt x 223.6148pt.
+
+
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.278 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.278 
+       <./img/reference_model.png> <./img/oscillation_without_PD.png>]
+<img/posicast_simulink.png, id=161, 574.145pt x 266.9975pt>
+File: img/posicast_simulink.png Graphic file (type png)
+<use img/posicast_simulink.png>
+Package pdftex.def Info: img/posicast_simulink.png  used on input line 294.
+(pdftex.def)             Requested size: 281.85587pt x 131.07434pt.
+<img/posicast_x.png, id=162, 682.55pt x 467.7475pt>
+File: img/posicast_x.png Graphic file (type png)
+<use img/posicast_x.png>
+Package pdftex.def Info: img/posicast_x.png  used on input line 300.
+(pdftex.def)             Requested size: 281.85587pt x 193.1552pt.
+
+
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.303 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.303 
+       <./img/oscillation_with_PD.png> <./img/posicast_simulink.png>]
+<img/posicast_phi.png, id=175, 694.595pt x 551.05875pt>
+File: img/posicast_phi.png Graphic file (type png)
+<use img/posicast_phi.png>
+Package pdftex.def Info: img/posicast_phi.png  used on input line 306.
+(pdftex.def)             Requested size: 281.85587pt x 223.6148pt.
+
+
+[11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.317 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.317 \end{document}
+                     <./img/posicast_x.png> <./img/posicast_phi.png>] (./sem.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
 Package rerunfilecheck Info: File `sem.out' has not changed.
-(rerunfilecheck)             Checksum: B44F8726213AD74B452B81282B7E8915;1613.
+(rerunfilecheck)             Checksum: 23EEE40DF0ABC41571810CBF88DA7AD9;1920.
  ) 
 Here is how much of TeX's memory you used:
- 13698 strings out of 473579
- 210515 string characters out of 5727228
- 816298 words of memory out of 5000000
- 36386 multiletter control sequences out of 15000+600000
+ 13750 strings out of 473579
+ 211847 string characters out of 5727228
+ 817298 words of memory out of 5000000
+ 36429 multiletter control sequences out of 15000+600000
  571271 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,575b,482s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on sem.pdf (10 pages, 2466915 bytes).
+</home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm2074.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on sem.pdf (11 pages, 2582226 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 162 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
- 142 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 183 words of extra memory for PDF output out of 10000 (max. 10000000)
 
