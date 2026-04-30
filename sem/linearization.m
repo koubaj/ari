@@ -103,5 +103,37 @@ Kd = 16.2;
 damping = 2.97e-01;
 freq = 1.42e+01;
 
-transport_delay = pi/(freq*sqrt(1-damping^2))
-amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)))
+transport_delay = pi/(freq*sqrt(1-damping^2));
+amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)));
+
+%% State control - down position
+%p_des = [-3+2i, -3-2i, -10, -12];
+p_des = [-1.5+1.5i, -1.5-1.5i, -4, -5];
+
+K_down = place(A_down, B_down, p_des);
+
+% Definujeme matici C pro výstup, který nás zajímá (poloha vozíku y)
+C_y = [0 1 0 0]; 
+
+% Výpočet předfiltru M podle vzorce z prezentace
+M_down = -1 / (C_y * inv(A_down - B_down * K) * B_down);
+
+disp('Hodnota předfiltru M:');
+disp(M_down);
+
+C_four = eye(4);
+D_four = zeros(4, 1);
+
+%% State control - up position
+p_up = [-4+2i, -4-2i, -15, -30];
+%K_up = place(A_up, B_up, p_up);
+
+Q = diag([1, 100, 1, 100]);
+R = 1;
+K_up = lqr(A_up, B_up, Q, R);
+
+C_y_up = [0 1 0 0]; % zajímá nás poloha vozíku
+M_up = -1 / (C_y_up * inv(A_up - B_up * K_up) * B_up);
+
+disp('Nové K_up:'); disp(K_up);
+disp('Nové M_up:'); disp(M_up);
