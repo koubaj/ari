@@ -107,8 +107,8 @@ transport_delay = pi/(freq*sqrt(1-damping^2));
 amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)));
 
 %% State control - down position
-%p_des = [-3+2i, -3-2i, -10, -12];
-p_des = [-1.5+1.5i, -1.5-1.5i, -4, -5];
+p_des = [-3+2i, -3-2i, -10, -12];
+%p_des = [-1.5+1.5i, -1.5-1.5i, -4, -5];
 
 K_down = place(A_down, B_down, p_des);
 
@@ -116,7 +116,7 @@ K_down = place(A_down, B_down, p_des);
 C_y = [0 1 0 0]; 
 
 % Výpočet předfiltru M podle vzorce z prezentace
-M_down = -1 / (C_y * inv(A_down - B_down * K) * B_down);
+M_down = -1 / (C_y * inv(A_down - B_down * K_down) * B_down);
 
 disp('Hodnota předfiltru M:');
 disp(M_down);

@@ -1,0 +1,4 @@
+regulátor na tlumení - rltools na rychlost
+stavový - integrální řešení, do polohy dát odchylku
+vyzkoušet stálé působení (z kopce)
+u state - vzít póly kyvadla a utlumit je
