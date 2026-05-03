@@ -112,8 +112,9 @@ jsem si všimnul, že v pdf zadání se nachází drobná chyba v jednotkách pr
 setrvačnost musí mít jednotku [kg\,m$^2$]. 
  
 \subsection{Omezení vstupu a výstupu}
-Pro vstupní napětí je v zadaném programu uvedena saturace: vozík bude přijímat signál v rozsahu $u \in [-10; 10]$. 
-Dále znám i hodnotu deadzone - vozík nereaguje na napětí s hodnotou $\mathrm{abs}(u)\leq0.2$.
+Pro vstupní napětí je v zadaném programu uvedena saturace: vozík bude přijímat
+ignál v rozsahu $u \in [-10; 10]$.  Dále znám i hodnotu deadzone - vozík
+nereaguje na napětí s hodnotou $\mathrm{abs}(u)\leq0.2$.
 
 \section{Linearizace}
 Abych mohl efektivně pracovat s rovnicemi, tak je potřebuji linearizovat v
@@ -140,12 +141,13 @@ Zobrazením nul jsem si potvrdil, že systém s kyvadlem v dolní poloze je stab
 (má všechny póly v levé polorovině), zatímco systém s kyvadlem v horní poloze je
 nestabilní (obsahuje jeden pól v bodě $10.5604$).
 
-\section{Řízení polohy vozíku}
-Jako první úlohu jsem si zvolil řízení polohy vozíku - dostanu zadaný bod na ose x a cílem vozíku je se do něj 
-dostat, polohu kyvadla zcela ignoruji.
+\section{Řízení polohy vozíku pomocí PID regulátoru}
+Jako první úlohu jsem si zvolil řízení polohy vozíku - dostanu zadaný bod na ose
+x a cílem vozíku je se do něj dostat. Nejdříve budu polohu kyvadla zcela 
+ignorovat, následně se pokusím tlumit jeho kmity.
 
 \subsection{Zapojení v Simulinku}
-Pro zprovoznění simulace jsem nejdříve musel zapojit shcéma v Simulinku
+Pro zprovoznění simulace jsem nejdříve zapojil zapojit shcéma v Simulinku
 \ref{fig:Simulink_pos_PID}. Linearizaci provádím přes blok \texttt{State-Space},
 do kterého jsem dal matice \texttt{A\_down}, \texttt{B\_down}, \texttt{C} a
 \texttt{D}.  První dvě matice jsem již zmínil v předchozím textu, pro zbylé
@@ -158,6 +160,7 @@ $D = \begin{bmatrix}
 0 \\
 0 \\
 \end{bmatrix}.$  
+Zajímá mě totiž pouze poloha a úhel, tedy druhá a čtvrtá složka vektoru vstupu.
 
 \begin{figure}[H]
   \centering
@@ -166,17 +169,17 @@ $D = \begin{bmatrix}
 \end{figure}
 
 Z linearizovaného modelu vedu signál do Scope pro polohu a pro úhel (rozděluji
-před Demux), úhel musím převést na stupně. 
+ho pomocí bloku Demux), úhel musím převést na stupně.
 
 Ve zpětné vazbě mám regulátor, do kterého později dosadním získané hodnoty.
-Regulátor sám o sobě obsahuje saturaci a implementaci řešení wind-upu (zvolil
-jsem metodu clamping - když signál přesahuje hodnotu saturace, tak dále
-nenačítám I hodnotu regulátoru). Následuje blok, který signál ořízne, pokud se
-nachází v deadzone. Tyto bloky jsou velmi důležité, bez nich se linearizovaný a
-nelinearizovaný model rozdělí a regulace nebude funguvoat,
+Regulátor sám o sobě obsahuje omezení na  saturaci a implementaci řešení
+wind-upu (zvolil jsem metodu clamping - když signál přesahuje hodnotu saturace,
+tak dále nenačítám I složku regulátoru). Následuje blok, který signál ořízne,
+pokud se nachází v deadzone. Tyto bloky jsou velmi důležité, bez nich se
+linearizovaný a nelinearizovaný model rozdělí a regulace nebude funguvoat,
 viz~\ref{fig:Without_sat_and_deadzone_in}
 a~\ref{fig:Without_sat_and_deadzone_out}. Po přidání těchto bloků jsou
-originální i lineární signál téměř shodné.
+nelineární i lineární signál během řízení v dolní poloze téměř shodné.
 
 \begin{figure}[H]
   \centering
@@ -203,9 +206,9 @@ cílové hodnotě - výsledky jsou na obrázku~\ref{fig:P_pos_overshoot}.
 \end{figure}
 
 I pro výsledky s kvalitně odladěnou hodnotou Kp nastával klasický problém u P
-regulátoru, že se kyvadlo neustálí na cílové hodnotě~\ref{fig:P_pos_inf_error}.
-Tento je je navíc výrazně podpořen díky deadzone, který dělá tento problém 
-matematicky neřešitelným.
+regulátoru, že se kyvadlo neustálí na cílové hodnotě, jako na 
+obrázku~\ref{fig:P_pos_inf_error}. Tento jev je navíc výrazně podpořen 
+existencí pásma necitlivosti, které dělá tento problém neřešitelným.
 
 \begin{figure}[H]
   \centering
@@ -219,7 +222,7 @@ Z výše zmíněných důvodů je nutné implementovat PID regulátor.
 PID regulátor už funguje velmi dobře. Hodnoty jsem odladil pomocí programu
 \texttt{rltool}~\ref{fig:rltool_pid_pos} a dosadil je do schématu Simulinku. 
 Výsledná regulace na polohu $x=1$ (na obrázku~\ref{fig:PID_pos}) má překmit 
-menší než $15 \%$ a dobu ustálení na $90 \%$ za $11 \mathrm{s}$.
+menší než $15 \%$ a dobu ustálení na $90 \%$ reference za $11 \mathrm{s}$.
 
 \begin{figure}[H]
   \centering
@@ -234,16 +237,11 @@ menší než $15 \%$ a dobu ustálení na $90 \%$ za $11 \mathrm{s}$.
 \end{figure}
 
 \subsection{Model reference}
-% Tuto metodu označil pan profesor Hromčík za nedostatečně matematickou vzheldem k
-% exaktnějším metodám z přednášky. Tvrzení naprosto chápu, ale po stráveném čase
-% na ladění a s přihlédnutím k velmi dobrým výsledkům bych metodu rád ponechal ve
-% zprávě.
-
-Zatím jsem měl jako target nastavenou konstantu, jednalo se vlastně o jednotkový
-skok. Pro lepší řízení mohu ovšem target postupně načítat (pomocí přenosu) a tím
-se vyhnout zbytečně velkému překmitu. Za target připojím přenos druhého stupně,
+Zatím jsem měl jako referenci nastavenou konstantu, jednalo se vlastně o jednotkový
+skok. Pro lepší řízení mohu ovšem referenci postupně načítat (pomocí přenosu) a tím
+se vyhnout zbytečně velkému překmitu. Za blok target připojím přenos druhého stupně,
 jehož hodnoty odladím a dostanu tak efektivnější řízení vozíku. Pro přenos
-$\frac{1}{0.05s^2 + s + 1}$ dostávám překmit $5 \%$, v rozmezí $\pm 5 \%$ od
+$\frac{1}{0.05s^2 + s + 1}$ dostávám překmit $5 \%$ a v rozmezí $\pm 5 \%$ od
 cílové hodnoty bude vozík za $2.6 \mathrm{s}$. Graf je na
 obrázku~\ref{fig:reference_model}. 
 
@@ -254,30 +252,44 @@ obrázku~\ref{fig:reference_model}.
 \end{figure}
 
 Tímto způsobem, s přenosem $\frac{1}{0.03s^2 + 2.8s + 1}$, jsem dosáhl i řízení
-polohy vozíku s překmitem méně než $1 \%$, do intervalu $1 \%$ se vozík dostane
-za $9 \mathrm{s}$.
+polohy vozíku s překmitem méně než $1 \%$, do intervalu $1 \%$ od cílové hodnoty
+se vozík dostane za $9 \mathrm{s}$.
 
-\subsection{Tlumení kmitů kyvadla}
-Prvním návrhem na tlumení kmitů je jednoduchý PD regulátor. Ten bere jako chybu
-rozdíl úhlu kyvadla od $0^\circ$ a působí proti směru pohybu, aby co nejvíc
-omezil kmitání kyvadla. Pro zvolené hodnoty $k_p = 10$ a $K_d = 25$ mám oproti
-původnímu průběhu~\ref{fig:oscillation_without} následující
-zlepšení~\ref{fig:oscillation_with}.
+\subsection{Tlumení kmitů pomocí D regulátoru}
+Následujícím cílem mé práce je utlumit kmitání kyvadla během posunu vozíku. 
+Budu testovat PD a D regulátor. Do simulinku si přidám blok regulátoru, do
+kterého vede jako vstup úhel kyvadla. Jedná se o tlumení, takže výsledná
+hodnota pro regulaci musí být vždy záporná. Hodnoty regulátoru budu chtít
+odlatit pomocí programu \texttt{rltool}, pro D regulátor umístím jednu nulu do
+bodu 0 a budu hýbat s póly, dokud nezískám otpimální regulátor na
+obrázku~\ref{fig:rltool_phi}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/oscillation_without_PD.png}
+  \includegraphics[width=0.6\textwidth]{img/rltool_phi.png}
+  \caption{Hlednání paramterů D regulátoru pomocí rltool}\label{fig:rltool_phi}
+\end{figure}
+
+Hodntou jsem odladil na $k_d = 7.4102$. Regulátorem dojde k úplnému utlumení
+malých kmitů, tzv. při přesunu vozíku vykoná kyvadlo pouze dva kmity. Zlepšení
+oproti původnímu stavu~\ref{fig:oscillation_without} je vidět na
+obrázku~\ref{fig:oscillation_with}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/oscillation_without_regulator.png}
   \caption{Kmitání bez regulátoru}\label{fig:oscillation_without}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/oscillation_with_PD.png}
+  \includegraphics[width=0.6\textwidth]{img/oscillation_with_regulator.png}
   \caption{Kmitání s regulátorem}\label{fig:oscillation_with}
 \end{figure}
 
-Mohu si povšimnout, že druhý kmit je lehce větší s regulátorem, ovšem výrazné
-zmenšení prvního kmitu a dřívější ustálení kmitání jsou stále výhodné.
+Přidáním P regulátoru bych sice dosáhlu zmenšení prvního kmitu o $\sim 20 \%$, ale
+jinak PD regulátor nepřináší žádné výrazné zlepšení, proto ho nebudu
+implementovat. Vyvýjím tak totiž zbytečně velkou sílu na vozík.
 
 \subsection{Posicast}
 Dále jsem implementoval feedforward řízení posicast. Pomocí funkce

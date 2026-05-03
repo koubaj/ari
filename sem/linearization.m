@@ -93,11 +93,16 @@ sys_tf_down
 G1 = sys_ss_down(1, 1)
 G2 = sys_ss_up(1, 1)
 
-%rltool(G2);
+%rltool(G1);
 
 Kp = 10.2;
 Ki = 1.14;
 Kd = 16.2;
+
+G_phi_down = sys_tf_down(2, 1);
+
+%rltool(-G_phi_down);
+Kd_phi = 7.4102;
 
 %% Poisicast
 damping = 2.97e-01;
