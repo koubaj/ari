@@ -45,8 +45,8 @@ __MWOPC_PART_BEGIN__ /metadata/coreProperties.xml
   <dcterms:created xsi:type="dcterms:W3CDTF">2007-04-13T13:36:23Z</dcterms:created>
   <dc:creator>H</dc:creator>
   <cp:lastModifiedBy>jx2004</cp:lastModifiedBy>
-  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-04-30T12:09:58Z</dcterms:modified>
-  <cp:revision>30.16</cp:revision>
+  <dcterms:modified xsi:type="dcterms:W3CDTF">2026-05-04T09:54:33Z</dcterms:modified>
+  <cp:revision>30.23</cp:revision>
   <cp:version>R2024a</cp:version>
 </cp:coreProperties>
 
@@ -134,7 +134,7 @@ clear figureVR worldVR;</P>
     <ConfigManagerSettings>
       <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
       <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
-      <P Name="ModelVersionFormat">%&lt;AutoIncrement:30.16&gt;</P>
+      <P Name="ModelVersionFormat">%&lt;AutoIncrement:30.23&gt;</P>
     </ConfigManagerSettings>
     <EditorSettings>
       <P Name="LibraryLinkDisplay">none</P>
@@ -982,8 +982,8 @@ __MWOPC_PART_BEGIN__ /simulink/graphicalInterface.xml
 __MWOPC_PART_BEGIN__ /simulink/modelDictionary.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <MF0 version="1.1" defaultPackage="slid" packageUris="http://schema.mathworks.com/mf0/slid/R2023a_20220628">
-  <System type="System" uuid="0ef2aa23-e342-4f2e-82c2-b2b50a1dfc36">
-    <Interface type="Interface" uuid="5d0e085c-c591-4d72-aac4-bc3381446bdc"/>
+  <System type="System" uuid="2bd4be40-11ac-4a36-9173-991f89c502f5">
+    <Interface type="Interface" uuid="80871fd8-04a8-443a-997e-d00ceb3b8df1"/>
   </System>
 </MF0>
 __MWOPC_PART_BEGIN__ /simulink/plugins/SimscapeModelParametersPlugin.xml
@@ -1002,7 +1002,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/sl_paper_props.xml
 	&lt;count&gt;4&lt;/count&gt;
 	&lt;item_version&gt;0&lt;/item_version&gt;
 	&lt;item class_id=&quot;1&quot; tracking_level=&quot;0&quot; version=&quot;0&quot;&gt;
-		&lt;first&gt;Pendulum24_state_pos/PENDULUM  VR Model&lt;/first&gt;
+		&lt;first&gt;Pendulum24_state/PENDULUM  VR Model&lt;/first&gt;
 		&lt;second class_id=&quot;2&quot; tracking_level=&quot;0&quot; version=&quot;0&quot;&gt;
 			&lt;count&gt;2&lt;/count&gt;
 			&lt;item_version&gt;0&lt;/item_version&gt;
@@ -1017,7 +1017,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/sl_paper_props.xml
 		&lt;/second&gt;
 	&lt;/item&gt;
 	&lt;item&gt;
-		&lt;first&gt;Pendulum24_state_pos/PENDULUM  VR Model/To VR World&lt;/first&gt;
+		&lt;first&gt;Pendulum24_state/PENDULUM  VR Model/To VR World&lt;/first&gt;
 		&lt;second&gt;
 			&lt;count&gt;2&lt;/count&gt;
 			&lt;item_version&gt;0&lt;/item_version&gt;
@@ -1032,7 +1032,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/sl_paper_props.xml
 		&lt;/second&gt;
 	&lt;/item&gt;
 	&lt;item&gt;
-		&lt;first&gt;Pendulum24_state_pos/PENDULUM  VR Model/__InputSSForSFun__&lt;/first&gt;
+		&lt;first&gt;Pendulum24_state/PENDULUM  VR Model/__InputSSForSFun__&lt;/first&gt;
 		&lt;second&gt;
 			&lt;count&gt;2&lt;/count&gt;
 			&lt;item_version&gt;0&lt;/item_version&gt;
@@ -1047,7 +1047,7 @@ __MWOPC_PART_BEGIN__ /simulink/plugins/sl_paper_props.xml
 		&lt;/second&gt;
 	&lt;/item&gt;
 	&lt;item&gt;
-		&lt;first&gt;Pendulum24_state_pos/PENDULUM  VR Model/__OutputSSForSFun__&lt;/first&gt;
+		&lt;first&gt;Pendulum24_state/PENDULUM  VR Model/__OutputSSForSFun__&lt;/first&gt;
 		&lt;second&gt;
 			&lt;count&gt;2&lt;/count&gt;
 			&lt;item_version&gt;0&lt;/item_version&gt;
@@ -1128,16 +1128,6 @@ __MWOPC_PART_BEGIN__ /simulink/ScheduleCore.xml
             </rateSpec>
             <sti>2</sti>
           </rates>
-          <rates type="sltp.mm.core.Rate" uuid="e39482ab-653a-4dd5-991b-c816e0bd4003">
-            <annotation>D2</annotation>
-            <color>986198527</color>
-            <hasBlocks>true</hasBlocks>
-            <rateIndex>3</rateIndex>
-            <rateSpec type="sltp.mm.core.RateSpec">
-              <period>2.0</period>
-            </rateSpec>
-            <sti>3</sti>
-          </rates>
         </tasks>
       </subgraph>
     </rootTask>
@@ -1167,12 +1157,6 @@ __MWOPC_PART_BEGIN__ /simulink/ScheduleEditor.xml
           <hasBlocks>true</hasBlocks>
           <rate>0.1</rate>
           <title>D1</title>
-        </rates>
-        <rates type="sltp.mm.syntax.RateData">
-          <color>#3ac831</color>
-          <hasBlocks>true</hasBlocks>
-          <rate>2</rate>
-          <title>D2</title>
         </rates>
         <title>Cont</title>
         <type>base</type>
@@ -1367,7 +1351,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_1.xml
 __MWOPC_PART_BEGIN__ /simulink/systems/system_16.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
-  <P Name="Location">[450, 52, 1086, 537]</P>
+  <P Name="Location">[66, 32, 1920, 1080]</P>
   <P Name="PaperType">A4</P>
   <Block BlockType="Inport" Name="F (t)" SID="17">
     <P Name="Position">[70, 30, 90, 40]</P>
@@ -1389,7 +1373,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_16.xml
 __MWOPC_PART_BEGIN__ /simulink/systems/system_19.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
-  <P Name="Location">[450, 52, 1086, 537]</P>
+  <P Name="Location">[66, 32, 1920, 1080]</P>
   <P Name="PaperType">A4</P>
   <Block BlockType="Inport" Name="__UniqueInportName__1__" SID="20">
     <P Name="Position">[100, 35, 120, 55]</P>
@@ -1434,7 +1418,7 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_19.xml
 __MWOPC_PART_BEGIN__ /simulink/systems/system_4.xml
 <?xml version="1.0" encoding="utf-8"?>
 <System>
-  <P Name="Location">[283, 156, 688, 550]</P>
+  <P Name="Location">[66, 32, 1920, 1080]</P>
   <P Name="PaperType">A4</P>
   <Block BlockType="Inport" Name="x" SID="5">
     <P Name="Position">[225, 43, 255, 57]</P>
@@ -1580,9 +1564,9 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
 <System>
   <P Name="Location">[66, 32, 1920, 1080]</P>
   <P Name="Open">on</P>
-  <P Name="ZoomFactor">125</P>
+  <P Name="ZoomFactor">150</P>
   <P Name="ReportName">simulink-default.rpt</P>
-  <P Name="SIDHighWatermark">148</P>
+  <P Name="SIDHighWatermark">168</P>
   <Block BlockType="Bias" Name="Bias Down" SID="139">
     <P Name="Position">[685, 210, 725, 240]</P>
     <P Name="ZOrder">389</P>
@@ -1596,19 +1580,28 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     <P Name="SaturateOnIntegerOverflow">off</P>
   </Block>
   <Block BlockType="Constant" Name="Constant" SID="112">
-    <P Name="Position">[970, -220, 1000, -190]</P>
+    <P Name="Position">[1095, -220, 1125, -190]</P>
     <P Name="ZOrder">364</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
+    <P Name="Value">0</P>
   </Block>
-  <Block BlockType="Constant" Name="Constant1" SID="136">
-    <P Name="Position">[970, -155, 1000, -125]</P>
-    <P Name="ZOrder">386</P>
+  <Block BlockType="Constant" Name="Constant1" SID="163">
+    <P Name="Position">[1095, -145, 1125, -115]</P>
+    <P Name="ZOrder">417</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
   </Block>
+  <Block BlockType="Constant" Name="Constant2" SID="149">
+    <P Name="Position">[620, -290, 650, -260]</P>
+    <P Name="ZOrder">399</P>
+    <P Name="BlockRotation">270</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">left</P>
+    <P Name="Value">2</P>
+  </Block>
   <Block BlockType="Fcn" Name="Deadzone" SID="88">
-    <P Name="Position">[240, -190, 300, -160]</P>
+    <P Name="Position">[375, -190, 435, -160]</P>
     <P Name="ZOrder">340</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
@@ -1640,38 +1633,56 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     <P Name="ZOrder">396</P>
     <P Name="Gain">pi/180</P>
   </Block>
-  <Block BlockType="Gain" Name="K Down" SID="127">
-    <P Name="Position">[680, -60, 710, -30]</P>
-    <P Name="ZOrder">377</P>
+  <Block BlockType="Integrator" Name="Integrator" SID="151">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[850, -160, 880, -130]</P>
+    <P Name="ZOrder">415</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">top</P>
+    <P Name="UpperSaturationLimit">2</P>
+    <P Name="LowerSaturationLimit">-2</P>
+  </Block>
+  <Block BlockType="Integrator" Name="Integrator1" SID="167">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[850, -215, 880, -185]</P>
+    <P Name="ZOrder">420</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">top</P>
+    <P Name="UpperSaturationLimit">2</P>
+    <P Name="LowerSaturationLimit">-2</P>
+  </Block>
+  <Block BlockType="Gain" Name="K Down" SID="153">
+    <P Name="Position">[615, -60, 645, -30]</P>
+    <P Name="ZOrder">405</P>
     <P Name="BlockRotation">270</P>
     <P Name="NameLocation">right</P>
-    <P Name="Gain">K_down</P>
+    <P Name="Gain">K_new_down</P>
     <P Name="Multiplication">Matrix(K*u)</P>
   </Block>
   <Block BlockType="Gain" Name="K Up" SID="132">
-    <P Name="Position">[760, -60, 790, -30]</P>
+    <P Name="Position">[685, -60, 715, -30]</P>
     <P Name="ZOrder">382</P>
     <P Name="BlockRotation">270</P>
     <P Name="NameLocation">right</P>
-    <P Name="Gain">K_up</P>
+    <P Name="Gain">K_new_up</P>
     <P Name="Multiplication">Matrix(K*u)</P>
   </Block>
-  <Block BlockType="Gain" Name="M Down" SID="126">
-    <P Name="Position">[895, -155, 925, -125]</P>
-    <P Name="ZOrder">376</P>
+  <Block BlockType="Gain" Name="KI_down" SID="127">
+    <P Name="Position">[800, -160, 830, -130]</P>
+    <P Name="ZOrder">414</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
-    <P Name="Gain">M_down</P>
+    <P Name="Gain">K_I_down</P>
   </Block>
-  <Block BlockType="Gain" Name="M Up" SID="134">
-    <P Name="Position">[895, -220, 925, -190]</P>
-    <P Name="ZOrder">384</P>
+  <Block BlockType="Gain" Name="KI_up" SID="168">
+    <P Name="Position">[800, -215, 830, -185]</P>
+    <P Name="ZOrder">419</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
-    <P Name="Gain">M_up</P>
+    <P Name="Gain">K_I_up</P>
   </Block>
   <Block BlockType="ManualSwitch" Name="Manual Switch" SID="89">
-    <P Name="Position">[175, -203, 205, -167]</P>
+    <P Name="Position">[310, -203, 340, -167]</P>
     <P Name="ZOrder">341</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
@@ -1687,17 +1698,18 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     </PortProperties>
   </Block>
   <Block BlockType="ManualSwitch" Name="Manual Switch2" SID="133">
-    <P Name="Position">[722, -145, 758, -115]</P>
+    <P Name="Position">[652, -145, 688, -115]</P>
     <P Name="ZOrder">383</P>
     <P Name="BlockRotation">270</P>
     <P Name="NameLocation">right</P>
     <P Name="CurrentSetting">0</P>
   </Block>
   <Block BlockType="ManualSwitch" Name="Manual Switch3" SID="135">
-    <P Name="Position">[795, -193, 825, -157]</P>
+    <P Name="Position">[985, -188, 1015, -152]</P>
     <P Name="ZOrder">385</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
+    <P Name="CurrentSetting">0</P>
   </Block>
   <Block BlockType="ManualSwitch" Name="Manual Switch4" SID="138">
     <P Name="Position">[770, 182, 800, 218]</P>
@@ -1709,20 +1721,44 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
     </PortProperties>
   </Block>
   <Block BlockType="ManualSwitch" Name="Manual Switch5" SID="145">
-    <P Name="Position">[820, -18, 850, 18]</P>
+    <P Name="Position">[875, -3, 905, 33]</P>
     <P Name="ZOrder">395</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
+    <P Name="CurrentSetting">0</P>
   </Block>
   <Block BlockType="ManualSwitch" Name="Manual Switch6" SID="148">
-    <P Name="Position">[722, -250, 758, -220]</P>
+    <P Name="Position">[652, -235, 688, -205]</P>
     <P Name="ZOrder">398</P>
     <P Name="BlockRotation">270</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">left</P>
   </Block>
+  <Block BlockType="ManualSwitch" Name="Manual Switch7" SID="159">
+    <P Name="Position">[807, -35, 843, -5]</P>
+    <P Name="ZOrder">411</P>
+    <P Name="BlockRotation">270</P>
+    <P Name="NameLocation">right</P>
+    <P Name="CurrentSetting">0</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">position</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="ManualSwitch" Name="Manual Switch8" SID="162">
+    <P Name="Position">[715, -193, 745, -157]</P>
+    <P Name="ZOrder">416</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">top</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">I</P>
+      </Port>
+    </PortProperties>
+  </Block>
   <Block BlockType="Gain" Name="Multiply2" SID="66">
-    <P Name="Position">[905, 260, 935, 290]</P>
+    <P Name="Position">[945, 255, 975, 285]</P>
     <P Name="ZOrder">321</P>
     <P Name="Gain">180/pi</P>
     <PortProperties>
@@ -1731,10 +1767,10 @@ __MWOPC_PART_BEGIN__ /simulink/systems/system_root.xml
       </Port>
     </PortProperties>
   </Block>
-  <Block BlockType="Mux" Name="Mux" SID="143">
+  <Block BlockType="Mux" Name="Mux" SID="161">
     <PortCounts in="4" out="1"/>
     <P Name="Position">[970, 61, 975, 99]</P>
-    <P Name="ZOrder">393</P>
+    <P Name="ZOrder">413</P>
     <P Name="DisplayOption">bar</P>
     <PortProperties>
       <Port Type="out" Index="1">
@@ -1834,7 +1870,7 @@ end</Callback>
     <System Ref="system_1"/>
   </Block>
   <Block BlockType="Saturate" Name="Saturation" SID="102">
-    <P Name="Position">[335, -190, 365, -160]</P>
+    <P Name="Position">[470, -190, 500, -160]</P>
     <P Name="ZOrder">354</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
@@ -1845,7 +1881,7 @@ end</Callback>
     <PortCounts in="2"/>
     <P Name="Position">[1130, 191, 1160, 224]</P>
     <P Name="ZOrder">-2</P>
-    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;ty&apos;,&apos;DataLoggingLimitDataPoints&apos;,true,&apos;DataLoggingMaxPoints&apos;,&apos;5000000&apos;,&apos;DataLoggingDecimateData&apos;,true,&apos;DataLoggingDecimation&apos;,&apos;1&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-9.21598&apos;,&apos;MaxYLimReal&apos;,&apos;5.42564&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;9.21598&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,2,&apos;LineNames&apos;,{{&apos;orig phi&apos;,&apos;linear phi&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1)},&apos;TimeUnits&apos;,&apos;None&apos;,&apos;DisplayPropertyDefaults&apos;,struct(&apos;YLabelReal&apos;,&apos;&apos;,&apos;XGrid&apos;,true,&apos;YGird&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.6863 0.6863 0.6863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;9.21598&apos;,&apos;MinYLimReal&apos;,&apos;-9.21598&apos;,&apos;MaxYLimReal&apos;,&apos;5.42564&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;),&apos;DisplayContentCache&apos;,[],&apos;TimeRangeSamples&apos;,&apos;20&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false,&apos;AutoscaleSecondaryAxes&apos;,true,&apos;PreviousAutoscale&apos;,&apos;XY&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[67 1 937 460],&apos;VisibleAtModelOpen&apos;,&apos;on&apos;)</P>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;ty&apos;,&apos;DataLoggingLimitDataPoints&apos;,true,&apos;DataLoggingMaxPoints&apos;,&apos;5000000&apos;,&apos;DataLoggingDecimateData&apos;,true,&apos;DataLoggingDecimation&apos;,&apos;1&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-11.1299&apos;,&apos;MaxYLimReal&apos;,&apos;12.00213&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;12.00213&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,2,&apos;LineNames&apos;,{{&apos;orig phi&apos;,&apos;linear phi&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1)},&apos;TimeUnits&apos;,&apos;None&apos;,&apos;DisplayPropertyDefaults&apos;,struct(&apos;YLabelReal&apos;,&apos;&apos;,&apos;XGrid&apos;,true,&apos;YGird&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.6863 0.6863 0.6863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;12.00213&apos;,&apos;MinYLimReal&apos;,&apos;-11.1299&apos;,&apos;MaxYLimReal&apos;,&apos;12.00213&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;),&apos;DisplayContentCache&apos;,[],&apos;TimeRangeSamples&apos;,&apos;20&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false,&apos;AutoscaleSecondaryAxes&apos;,true,&apos;PreviousAutoscale&apos;,&apos;XY&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[67 1 927 430],&apos;VisibleAtModelOpen&apos;,&apos;on&apos;)</P>
     <P Name="NumInputPorts">2</P>
     <P Name="Floating">off</P>
   </Block>
@@ -1853,7 +1889,7 @@ end</Callback>
     <PortCounts in="2"/>
     <P Name="Position">[1130, 105, 1160, 140]</P>
     <P Name="ZOrder">-3</P>
-    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true,&apos;FigureColor&apos;,[0 0 0]),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;tyx&apos;,&apos;DataLoggingLimitDataPoints&apos;,true,&apos;DataLoggingDecimateData&apos;,true,&apos;DataLoggingDecimation&apos;,&apos;1&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-0.16185&apos;,&apos;MaxYLimReal&apos;,&apos;1.45663&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;1.45663&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{struct(&apos;Visible&apos;,&apos;on&apos;,&apos;Color&apos;,[1 0.909803921568627 0.392156862745098],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;),struct(&apos;Visible&apos;,&apos;on&apos;,&apos;Color&apos;,[0.149019607843137 0.549019607843137 0.866666666666667],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;)}},&apos;UserDefinedChannelNames&apos;,{{&apos;&apos;}},&apos;NumLines&apos;,2,&apos;LineNames&apos;,{{&apos;orig x&apos;,&apos;linear x&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1)},&apos;DisplayPropertyDefaults&apos;,struct(&apos;MinYLimReal&apos;,&apos;-0.16185&apos;,&apos;MaxYLimReal&apos;,&apos;1.45663&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;1.45663&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;),&apos;DisplayContentCache&apos;,[],&apos;TimeRangeSamples&apos;,&apos;20&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false,&apos;PreviousAutoscale&apos;,&apos;XY&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[1 1 927 383],&apos;WindowStyle&apos;,&apos;docked&apos;,&apos;VisibleAtModelOpen&apos;,&apos;on&apos;)</P>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true,&apos;FigureColor&apos;,[0 0 0]),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;tyx&apos;,&apos;DataLoggingDecimateData&apos;,true,&apos;DataLoggingDecimation&apos;,&apos;1&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-0.18053&apos;,&apos;MaxYLimReal&apos;,&apos;1.62476&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;1.62476&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{struct(&apos;Visible&apos;,&apos;on&apos;,&apos;Color&apos;,[1 0.909803921568627 0.392156862745098],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;),struct(&apos;Visible&apos;,&apos;on&apos;,&apos;Color&apos;,[0.149019607843137 0.549019607843137 0.866666666666667],&apos;LineStyle&apos;,&apos;-&apos;,&apos;LineWidth&apos;,1.5,&apos;Marker&apos;,&apos;none&apos;)}},&apos;UserDefinedChannelNames&apos;,{{&apos;&apos;}},&apos;NumLines&apos;,2,&apos;LineNames&apos;,{{&apos;orig x&apos;,&apos;linear x&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1)},&apos;DisplayPropertyDefaults&apos;,struct(&apos;MinYLimReal&apos;,&apos;-0.18053&apos;,&apos;MaxYLimReal&apos;,&apos;1.62476&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;1.62476&apos;,&apos;LegendVisibility&apos;,&apos;On&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.850980392156863 0.850980392156863 0.850980392156863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;),&apos;DisplayContentCache&apos;,[],&apos;TimeRangeSamples&apos;,&apos;20&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false,&apos;PreviousAutoscale&apos;,&apos;XY&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[1 1 927 383],&apos;WindowStyle&apos;,&apos;docked&apos;,&apos;VisibleAtModelOpen&apos;,&apos;on&apos;)</P>
     <P Name="NumInputPorts">2</P>
     <P Name="Floating">off</P>
   </Block>
@@ -1861,7 +1897,7 @@ end</Callback>
     <PortCounts in="1"/>
     <P Name="Position">[350, 94, 380, 126]</P>
     <P Name="ZOrder">-4</P>
-    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;tu&apos;,&apos;DataLoggingLimitDataPoints&apos;,true,&apos;DataLoggingMaxPoints&apos;,&apos;5000000&apos;,&apos;DataLoggingDecimateData&apos;,true,&apos;DataLoggingDecimation&apos;,&apos;1&apos;,&apos;DataLoggingSaveFormat&apos;,&apos;Array&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-5.99927&apos;,&apos;MaxYLimReal&apos;,&apos;11.7777&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;11.7777&apos;,&apos;LegendVisibility&apos;,&apos;Off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;Manual Switch&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1)},&apos;TimeUnits&apos;,&apos;None&apos;,&apos;DisplayPropertyDefaults&apos;,struct(&apos;YLabelReal&apos;,&apos;&apos;,&apos;XGrid&apos;,true,&apos;YGird&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.6863 0.6863 0.6863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;11.7777&apos;,&apos;MinYLimReal&apos;,&apos;-5.99927&apos;,&apos;MaxYLimReal&apos;,&apos;11.7777&apos;),&apos;DisplayContentCache&apos;,[],&apos;TimeRangeSamples&apos;,&apos;20&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false,&apos;AutoscaleSecondaryAxes&apos;,true),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[509 54 928 430])</P>
+    <P Name="ScopeSpecificationString">Simulink.scopes.TimeScopeBlockCfg(&apos;CurrentConfiguration&apos;, extmgr.ConfigurationSet(extmgr.Configuration(&apos;Core&apos;,&apos;General UI&apos;,true),extmgr.Configuration(&apos;Core&apos;,&apos;Source UI&apos;,true),extmgr.Configuration(&apos;Sources&apos;,&apos;WiredSimulink&apos;,true,&apos;DataLogging&apos;,true,&apos;DataLoggingVariableName&apos;,&apos;tu&apos;,&apos;DataLoggingLimitDataPoints&apos;,true,&apos;DataLoggingMaxPoints&apos;,&apos;5000000&apos;,&apos;DataLoggingDecimateData&apos;,true,&apos;DataLoggingDecimation&apos;,&apos;1&apos;,&apos;DataLoggingSaveFormat&apos;,&apos;Array&apos;),extmgr.Configuration(&apos;Visuals&apos;,&apos;Time Domain&apos;,true,&apos;SerializedDisplays&apos;,{struct(&apos;MinYLimReal&apos;,&apos;-11.1908&apos;,&apos;MaxYLimReal&apos;,&apos;5.47587&apos;,&apos;YLabelReal&apos;,&apos;&apos;,&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;11.1908&apos;,&apos;LegendVisibility&apos;,&apos;Off&apos;,&apos;XGrid&apos;,true,&apos;YGrid&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.686274509803922 0.686274509803922 0.686274509803922],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;Title&apos;,&apos;%&lt;SignalLabel&gt;&apos;,&apos;LinePropertiesCache&apos;,{{}},&apos;UserDefinedChannelNames&apos;,{{}},&apos;NumLines&apos;,1,&apos;LineNames&apos;,{{&apos;Manual Switch&apos;}},&apos;ShowContent&apos;,true,&apos;Placement&apos;,1)},&apos;TimeUnits&apos;,&apos;None&apos;,&apos;DisplayPropertyDefaults&apos;,struct(&apos;YLabelReal&apos;,&apos;&apos;,&apos;XGrid&apos;,true,&apos;YGird&apos;,true,&apos;PlotMagPhase&apos;,false,&apos;AxesColor&apos;,[0 0 0],&apos;AxesTickColor&apos;,[0.6863 0.6863 0.6863],&apos;ColorOrder&apos;,[1 0.909803921568627 0.392156862745098;0.149019607843137 0.549019607843137 0.866666666666667;0.96078431372549 0.466666666666667 0.16078431372549;0.286274509803922 0.858823529411765 0.250980392156863;0.752941176470588 0.36078431372549 0.984313725490196;0.423529411764706 0.956862745098039 1;0.949019607843137 0.403921568627451 0.772549019607843],&apos;MinYLimMag&apos;,&apos;0.00000&apos;,&apos;MaxYLimMag&apos;,&apos;11.1908&apos;,&apos;MinYLimReal&apos;,&apos;-11.1908&apos;,&apos;MaxYLimReal&apos;,&apos;5.47587&apos;),&apos;DisplayContentCache&apos;,[],&apos;TimeRangeSamples&apos;,&apos;20&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Plot Navigation&apos;,true,&apos;OnceAtStop&apos;,false,&apos;AutoscaleSecondaryAxes&apos;,true,&apos;PreviousAutoscale&apos;,&apos;XY&apos;),extmgr.Configuration(&apos;Tools&apos;,&apos;Measurements&apos;,true,&apos;Version&apos;,&apos;2024a&apos;)),&apos;Version&apos;,&apos;2024a&apos;,&apos;Position&apos;,[67 525 927 430],&apos;VisibleAtModelOpen&apos;,&apos;on&apos;)</P>
     <P Name="NumInputPorts">1</P>
     <P Name="Floating">off</P>
   </Block>
@@ -1885,26 +1921,26 @@ end</Callback>
     <P Name="D">D_four</P>
     <P Name="InitialCondition">[0; 0; 0; 0]</P>
   </Block>
-  <Block BlockType="Step" Name="Step" SID="147">
-    <P Name="Position">[735, -315, 765, -285]</P>
-    <P Name="ZOrder">397</P>
-    <P Name="BlockRotation">270</P>
+  <Block BlockType="Sum" Name="Sum" SID="152">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[940, -180, 960, -160]</P>
+    <P Name="ZOrder">402</P>
     <P Name="BlockMirror">on</P>
-    <P Name="NameLocation">left</P>
-    <P Name="SampleTime">2</P>
+    <P Name="NameLocation">top</P>
+    <P Name="Inputs">|+-</P>
   </Block>
   <Block BlockType="Sum" Name="Sum1" SID="69">
     <PortCounts in="3" out="1"/>
-    <P Name="Position">[730, -185, 750, -165]</P>
+    <P Name="Position">[660, -185, 680, -165]</P>
     <P Name="ZOrder">324</P>
     <P Name="BlockMirror">on</P>
     <P Name="NameLocation">top</P>
-    <P Name="Inputs">++-</P>
+    <P Name="Inputs">+--</P>
   </Block>
   <Line>
     <P Name="ZOrder">400</P>
     <P Name="Src">89#out:1</P>
-    <P Name="Points">[-19, 0; 0, 345; 169, 0]</P>
+    <P Name="Points">[-19, 0; 0, 345; 34, 0]</P>
     <Branch>
       <P Name="ZOrder">402</P>
       <P Name="Points">[0, -50]</P>
@@ -1952,7 +1988,7 @@ end</Callback>
     <P Name="ZOrder">104</P>
     <P Name="Labels">[1, 1]</P>
     <P Name="Src">66#out:1</P>
-    <P Name="Points">[167, 0; 0, -60]</P>
+    <P Name="Points">[127, 0; 0, -55]</P>
     <P Name="Dst">26#in:2</P>
   </Line>
   <Line>
@@ -1975,8 +2011,15 @@ end</Callback>
       </Branch>
       <Branch>
         <P Name="ZOrder">550</P>
-        <P Name="Points">[0, -40]</P>
-        <P Name="Dst">143#in:2</P>
+        <P Name="Points">[0, -40; 88, 0]</P>
+        <Branch>
+          <P Name="ZOrder">676</P>
+          <P Name="Dst">161#in:2</P>
+        </Branch>
+        <Branch>
+          <P Name="ZOrder">644</P>
+          <P Name="Dst">159#in:2</P>
+        </Branch>
       </Branch>
     </Branch>
   </Line>
@@ -1993,10 +2036,10 @@ end</Callback>
   <Line>
     <P Name="ZOrder">505</P>
     <P Name="Src">69#out:1</P>
-    <P Name="Points">[-227, 0]</P>
+    <P Name="Points">[-132, 0]</P>
     <Branch>
       <P Name="ZOrder">296</P>
-      <P Name="Points">[0, -59; -278, 0]</P>
+      <P Name="Points">[0, -59; -168, 0]</P>
       <P Name="Dst">89#in:1</P>
     </Branch>
     <Branch>
@@ -2007,16 +2050,24 @@ end</Callback>
   <Line>
     <P Name="ZOrder">509</P>
     <P Name="Src">63#out:4</P>
-    <P Name="Points">[236, 0; 0, -85]</P>
+    <P Name="Points">[279, 0; 0, -90]</P>
     <P Name="Dst">66#in:1</P>
   </Line>
   <Line>
     <P Name="Name">linear x</P>
     <P Name="ZOrder">510</P>
-    <P Name="Labels">[3, 1]</P>
     <P Name="Src">63#out:2</P>
-    <P Name="Points">[404, 0; 0, -210]</P>
-    <P Name="Dst">27#in:2</P>
+    <P Name="Points">[180, 0]</P>
+    <Branch>
+      <P Name="ZOrder">675</P>
+      <P Name="Labels">[3, 1]</P>
+      <P Name="Points">[224, 0; 0, -210]</P>
+      <P Name="Dst">27#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">651</P>
+      <P Name="Dst">159#in:1</P>
+    </Branch>
   </Line>
   <Line>
     <P Name="Name">Linear</P>
@@ -2026,7 +2077,7 @@ end</Callback>
     <Branch>
       <P Name="ZOrder">577</P>
       <P Name="Labels">[4, 1]</P>
-      <P Name="Points">[0, 52; 654, 0; 0, -407]</P>
+      <P Name="Points">[0, 41; 632, 0; 0, -381]</P>
       <P Name="Dst">145#in:1</P>
     </Branch>
     <Branch>
@@ -2047,43 +2098,22 @@ end</Callback>
     <P Name="Dst">131#in:2</P>
   </Line>
   <Line>
-    <P Name="ZOrder">518</P>
-    <P Name="Src">127#out:1</P>
-    <P Name="Points">[0, -24; 35, 0]</P>
+    <P Name="ZOrder">625</P>
+    <P Name="Src">153#out:1</P>
+    <P Name="Points">[0, -18; 30, 0]</P>
     <P Name="Dst">133#in:1</P>
   </Line>
   <Line>
     <P Name="ZOrder">519</P>
     <P Name="Src">132#out:1</P>
-    <P Name="Points">[0, -24; -25, 0]</P>
+    <P Name="Points">[0, -18; -20, 0]</P>
     <P Name="Dst">133#in:2</P>
   </Line>
   <Line>
-    <P Name="ZOrder">525</P>
-    <P Name="Src">126#out:1</P>
-    <P Name="Points">[-30, 0; 0, -25]</P>
-    <P Name="Dst">135#in:2</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">526</P>
-    <P Name="Src">134#out:1</P>
-    <P Name="Points">[-30, 0; 0, 20]</P>
-    <P Name="Dst">135#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">532</P>
+    <P Name="ZOrder">632</P>
     <P Name="Src">112#out:1</P>
-    <P Name="Dst">134#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">533</P>
-    <P Name="Src">136#out:1</P>
-    <P Name="Dst">126#in:1</P>
-  </Line>
-  <Line>
-    <P Name="ZOrder">534</P>
-    <P Name="Src">135#out:1</P>
-    <P Name="Dst">69#in:2</P>
+    <P Name="Points">[-38, 0; 0, 25]</P>
+    <P Name="Dst">135#in:1</P>
   </Line>
   <Line>
     <P Name="ZOrder">535</P>
@@ -2119,41 +2149,33 @@ end</Callback>
     <P Name="Dst">138#in:2</P>
   </Line>
   <Line>
-    <P Name="ZOrder">548</P>
+    <P Name="ZOrder">662</P>
     <P Name="Src">140#out:1</P>
     <P Name="Points">[23, 0; 0, -20]</P>
-    <P Name="Dst">143#in:1</P>
+    <P Name="Dst">161#in:1</P>
   </Line>
   <Line>
     <P Name="ZOrder">572</P>
     <P Name="Src">145#out:1</P>
-    <P Name="Points">[-40, 0]</P>
+    <P Name="Points">[-170, 0]</P>
     <Branch>
-      <P Name="ZOrder">574</P>
-      <P Name="Points">[-80, 0]</P>
-      <P Name="Dst">127#in:1</P>
+      <P Name="ZOrder">631</P>
+      <P Name="Points">[-70, 0]</P>
+      <P Name="Dst">153#in:1</P>
     </Branch>
     <Branch>
-      <P Name="ZOrder">573</P>
+      <P Name="ZOrder">615</P>
       <P Name="Dst">132#in:1</P>
     </Branch>
-  </Line>
-  <Line>
-    <P Name="Name">Non Linear</P>
-    <P Name="ZOrder">575</P>
-    <P Name="Labels">[3, 1]</P>
-    <P Name="Src">143#out:1</P>
-    <P Name="Points">[19, 0; 0, -70]</P>
-    <P Name="Dst">145#in:2</P>
   </Line>
   <Line>
     <P Name="ZOrder">578</P>
     <P Name="Src">146#out:1</P>
     <P Name="Points">[10, 0]</P>
     <Branch>
-      <P Name="ZOrder">583</P>
+      <P Name="ZOrder">664</P>
       <P Name="Points">[0, -60]</P>
-      <P Name="Dst">143#in:4</P>
+      <P Name="Dst">161#in:4</P>
     </Branch>
     <Branch>
       <P Name="ZOrder">582</P>
@@ -2161,10 +2183,10 @@ end</Callback>
     </Branch>
   </Line>
   <Line>
-    <P Name="ZOrder">581</P>
+    <P Name="ZOrder">661</P>
     <P Name="Src">144#out:1</P>
     <P Name="Points">[18, 0; 0, -70]</P>
-    <P Name="Dst">143#in:3</P>
+    <P Name="Dst">161#in:3</P>
   </Line>
   <Line>
     <P Name="ZOrder">604</P>
@@ -2172,9 +2194,81 @@ end</Callback>
     <P Name="Dst">69#in:1</P>
   </Line>
   <Line>
-    <P Name="ZOrder">605</P>
-    <P Name="Src">147#out:1</P>
-    <P Name="Dst">148#in:2</P>
+    <P Name="ZOrder">682</P>
+    <P Name="Src">152#out:1</P>
+    <P Name="Points">[-21, 0]</P>
+    <Branch>
+      <P Name="ZOrder">686</P>
+      <P Name="Points">[0, -30]</P>
+      <P Name="Dst">167#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">685</P>
+      <P Name="Points">[0, 25]</P>
+      <P Name="Dst">151#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">position</P>
+    <P Name="ZOrder">642</P>
+    <P Name="Labels">[2, 1]</P>
+    <P Name="Src">159#out:1</P>
+    <P Name="Points">[0, -43; 125, 0]</P>
+    <P Name="Dst">152#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">I</P>
+    <P Name="ZOrder">670</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">162#out:1</P>
+    <P Name="Dst">69#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">Non Linear</P>
+    <P Name="ZOrder">665</P>
+    <P Name="Labels">[3, 1]</P>
+    <P Name="Src">161#out:1</P>
+    <P Name="Points">[19, 0; 0, -55]</P>
+    <P Name="Dst">145#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">671</P>
+    <P Name="Src">163#out:1</P>
+    <P Name="Points">[-37, 0; 0, -30]</P>
+    <P Name="Dst">135#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">674</P>
+    <P Name="Src">135#out:1</P>
+    <P Name="Dst">152#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">677</P>
+    <P Name="Src">127#out:1</P>
+    <P Name="Points">[-29, 0; 0, -20]</P>
+    <P Name="Dst">162#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">678</P>
+    <P Name="Src">151#out:1</P>
+    <P Name="Dst">127#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">681</P>
+    <P Name="Src">168#out:1</P>
+    <P Name="Points">[-26, 0; 0, 15]</P>
+    <P Name="Dst">162#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">680</P>
+    <P Name="Src">167#out:1</P>
+    <P Name="Dst">168#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">687</P>
+    <P Name="Src">149#out:1</P>
+    <P Name="Points">[0, 5]</P>
+    <P Name="Dst">148#in:1</P>
   </Line>
   <Annotation SID="36">
     <P Name="Name">Pendulum</P>
@@ -2207,18 +2301,48 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
       <Object PropName="ExplorerBarInfo" ObjectID="4" ClassName="Simulink.ExplorerBarInfo">
         <P Name="Visible" Class="logical">1</P>
       </Object>
-      <Array PropName="EditorsInfo" Type="Simulink.EditorInfo" Dimension="1*2">
+      <Array PropName="EditorsInfo" Type="Simulink.EditorInfo" Dimension="1*5">
         <Object ObjectID="5">
           <P Name="IsActive" Class="logical">1</P>
           <P Name="IsTabbed" Class="logical">1</P>
           <P Name="ViewObjType" Class="char">SimulinkTopLevel</P>
           <P Name="LoadSaveID" Class="char">0</P>
           <P Name="Extents" Class="double">[1816.0, 807.0]</P>
-          <P Name="ZoomFactor" Class="double">1.25</P>
-          <P Name="Offset" Class="double">[-48.776496978277827, -249.18618056762185]</P>
-          <P Name="SceneRectInView" Class="double">[-48.776496978277827, -249.18618056762185, 1452.8, 645.6]</P>
+          <P Name="ZoomFactor" Class="double">1.5</P>
+          <P Name="Offset" Class="double">[177.91411799210945, -275.2580551526213]</P>
+          <P Name="SceneRectInView" Class="double">[177.91411799210945, -275.2580551526213, 1210.6666666666667, 538.0]</P>
         </Object>
         <Object ObjectID="6">
+          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsTabbed" Class="logical">0</P>
+          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
+          <P Name="LoadSaveID" Class="char">16</P>
+          <P Name="Extents" Class="double">[1816.0, 807.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-665.5703125, -362.0]</P>
+          <P Name="SceneRectInView" Class="double">[-665.5703125, -362.0, 1816.0, 807.0]</P>
+        </Object>
+        <Object ObjectID="7">
+          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsTabbed" Class="logical">0</P>
+          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
+          <P Name="LoadSaveID" Class="char">19</P>
+          <P Name="Extents" Class="double">[1816.0, 807.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-733.625, -342.0]</P>
+          <P Name="SceneRectInView" Class="double">[-733.625, -342.0, 1816.0, 807.0]</P>
+        </Object>
+        <Object ObjectID="8">
+          <P Name="IsActive" Class="logical">0</P>
+          <P Name="IsTabbed" Class="logical">0</P>
+          <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
+          <P Name="LoadSaveID" Class="char">4</P>
+          <P Name="Extents" Class="double">[1816.0, 807.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-738.18359375, -295.0]</P>
+          <P Name="SceneRectInView" Class="double">[-738.18359375, -295.0, 1816.0, 807.0]</P>
+        </Object>
+        <Object ObjectID="9">
           <P Name="IsActive" Class="logical">0</P>
           <P Name="IsTabbed" Class="logical">0</P>
           <P Name="ViewObjType" Class="char">SimulinkSubsys</P>
@@ -2230,7 +2354,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
         </Object>
       </Array>
       <Array PropName="DockComponentsInfo" Type="Simulink.DockComponentInfo" Dimension="1*2">
-        <Object ObjectID="7">
+        <Object ObjectID="10">
           <P Name="Type" Class="char">Simulink:Editor:ReferencedFiles</P>
           <P Name="ID" Class="char">Referenced Files</P>
           <P Name="Visible" Class="logical">0</P>
@@ -2243,7 +2367,7 @@ __MWOPC_PART_BEGIN__ /simulink/windowsInfo.xml
           <P Name="Height" Class="int32">480</P>
           <P Name="Minimized" Class="char">Unset</P>
         </Object>
-        <Object ObjectID="8">
+        <Object ObjectID="11">
           <P Name="Type" Class="char">GLUE2:PropertyInspector</P>
           <P Name="ID" Class="char">Property Inspector</P>
           <P Name="Visible" Class="logical">0</P>

@@ -117,7 +117,7 @@ amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)));
 %K_down = lqr(A_down, B_down, Q_down, R_down);
 
 p_down = [-3+2i, -3-2i, -10, -12];
-K_down = place(A_down, B_down, p_down);
+K_down = place(A_down, B_down, p_des);
 
 % Definujeme matici C pro výstup, který nás zajímá (poloha vozíku y)
 C_y = [0 1 0 0]; 
@@ -133,19 +133,19 @@ D_four = zeros(4, 1);
 
 % Přidání integrálního řešení
 A_sloz_down = [A_down, zeros(4,1);
-               -C_y,    0];
+         -C_y,    0];
 B_sloz_down = [B_down; 
-               0];
+          0];
 
 %Q_aug = diag([1, 100, 1, 100, 50]); 
 %R_aug = 1;
 %K_sloz = lqr(A_sloz, B_sloz, Q_aug, R_aug)
 
-p_sloz_down = [-4.2114+13.5160i, -4.2114-13.5160i, -3, -2, -1];
-K_sloz_down = place(A_sloz_down, B_sloz_down, p_sloz_down);
+p_sloz = [-4.2114+13.5160i, -4.2114-13.5160i, -3, -2, -1];
+K_sloz = place(A_sloz_down, B_sloz_down, p_sloz);
 
-K_new_down = K_sloz_down(1:4);
-K_I_down = K_sloz_down(5);
+K_new_down = K_sloz(1:4);
+K_I_down = K_sloz(5);
 
 disp('Nové K (pro stavy):'); disp(K_new_down);
 disp('Nové K_I (pro integrátor):'); disp(K_I_down);
@@ -164,20 +164,20 @@ disp('Nové K_up:'); disp(K_up);
 disp('Nové M_up:'); disp(M_up);
 
 % Přidání integrálního řešení
-A_sloz_up = [A_up, zeros(4,1);
+A_sloz = [A_up, zeros(4,1);
          -C_y,    0];
-B_sloz_up = [B_up; 
+B_sloz = [B_up; 
           0];
 
 %Q_aug = diag([1, 100, 1, 100, 50]); 
 %R_aug = 1;
-%K_sloz = lqr(A_sloz_up, B_sloz_up, Q_aug, R_aug)
+%K_sloz = lqr(A_sloz, B_sloz, Q_aug, R_aug)
 
-p_sloz_up = [-19, -11+3i, -11-3i, -2, -0.5];
-K_sloz_up = place(A_sloz_up, B_sloz_up, p_sloz_up);
+p_sloz_up = [-4.2114+13.5160i, -4.2114-13.5160i, -3, -2, -1];
+K_sloz_up = place(A_sloz, B_sloz, p_sloz);
 
-K_new_up = K_sloz_up(1:4);
-K_I_up = K_sloz_up(5);
+K_new_up = K_sloz(1:4);
+K_I_up = K_sloz(5);
 
-disp('Nové K (pro stavy):'); disp(K_new_up);
-disp('Nové K_I (pro integrátor):'); disp(K_I_up);
+disp('Nové K (pro stavy):'); disp(K_new);
+disp('Nové K_I (pro integrátor):'); disp(K_I);
