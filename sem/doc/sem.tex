@@ -194,7 +194,7 @@ nelineární i lineární signál během řízení v dolní poloze téměř shod
 \end{figure}
 
 \subsection{P regulátor}
-Nejdfříve jsem vyzkoušel řízení pomocí samotného P regulátoru, které ovšem vedlo
+Nejdříve jsem vyzkoušel řízení pomocí samotného P regulátoru, které ovšem vedlo
 na mnoho problémů. Při vysoké hodnotě koeficientu Kp docházelo k velkému
 překmitu a následnému rozkmitání, kvůli kterému se kyvadlo nechtělo ustálit na
 cílové hodnotě - výsledky jsou na obrázku~\ref{fig:P_pos_overshoot}.
@@ -321,9 +321,18 @@ obrázky~\ref{fig:posicast_simulink}~\ref{fig:posicast_x}~\ref{fig:posicast_phi}
 
 \section{Řízení v horní poloze}
 
-\section{Skutečné kyvadlo}
-deadzone: 0.14
-saturace 1
+\section{Navazující úloha - práce se skutečným lineárním kyvadlem}
+Jako navazující úlohu jsem si vybral řízení lineárního kyvadla, které máme k
+dispozici v laboratoři. Práce probíhá podobně jako v simulaci, tedy vytvářím
+program skrz Siumulink, který za běhu ovládá reálné kyvadlo a vrací mi polohu a
+úhel kyvadla. Oproti simulaci má kyvadlo ovšem jiné vlastnosti, kterým budu
+muset přizpůsobit své regulátory.
+
+\subsection{Identifikace systému}
+Nejdříve je nutné identifikovat systém. Přípustné hodnoty vstupního napětí jsou
+v rozsahu $u \in [-1, 1]$, ale reálné napětí je desetkrát větší, tedy $u \in
+[-10, 10] \mathrm{[V]}$. Deadzone jsem postupným zvyšováním napětí (viz obrázek
+TODO doplnit) identifikoval na hodnotu 0.14.
 
 \begin{thebibliography}{9}
 \bibitem{zadani}

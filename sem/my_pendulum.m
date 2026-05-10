@@ -112,6 +112,8 @@ transport_delay = pi/(freq*sqrt(1-damping^2));
 amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)));
 
 %% State control - down position
+% S předfiltrem
+
 %Q_down = diag([1, 100, 1, 100]);
 %R_down = 1;
 %K_down = lqr(A_down, B_down, Q_down, R_down);
@@ -131,7 +133,7 @@ disp(M_down);
 C_four = eye(4);
 D_four = zeros(4, 1);
 
-% Přidání integrálního řešení
+% S integrálním řešením
 A_sloz_down = [A_down, zeros(4,1);
                -C_y,    0];
 B_sloz_down = [B_down; 
@@ -151,6 +153,8 @@ disp('Nové K (pro stavy):'); disp(K_new_down);
 disp('Nové K_I (pro integrátor):'); disp(K_I_down);
 
 %% State control - up position
+% S předfiltrem
+
 %Q_up = diag([1, 100, 1, 100]);
 %R_up = 1;
 %K_up = lqr(A_up, B_up, Q_up, R_up);
@@ -163,7 +167,7 @@ M_up = -1 / (C_y * inv(A_up - B_up * K_up) * B_up);
 disp('Nové K_up:'); disp(K_up);
 disp('Nové M_up:'); disp(M_up);
 
-% Přidání integrálního řešení
+% S integrálním řešením
 A_sloz_up = [A_up, zeros(4,1);
          -C_y,    0];
 B_sloz_up = [B_up; 
@@ -181,3 +185,15 @@ K_I_up = K_sloz_up(5);
 
 disp('Nové K (pro stavy):'); disp(K_new_up);
 disp('Nové K_I (pro integrátor):'); disp(K_I_up);
+
+%% Obserever
+% Dolní poloha
+p_poz_down = [-15, -16, -17, -18]; 
+L_down = place(A_down', C', p_poz_down)';
+
+% Horní poloha
+p_poz_up = [-25, -27, -29, -31]; 
+L_up = place(A_up', C', p_poz_up)';
+
+disp('Matice L_down:'); disp(L_down);
+disp('Matice L_up:'); disp(L_up);
