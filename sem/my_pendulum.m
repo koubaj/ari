@@ -118,7 +118,6 @@ amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)));
 %R_down = 1;
 %K_down = lqr(A_down, B_down, Q_down, R_down);
 
-%p_down = [-3+2i, -3-2i, -10, -12];
 p_down = [-7-13.5160i, -7+13.5160i, -1.2, -1];
 K_down = place(A_down, B_down, p_down);
 
@@ -144,7 +143,7 @@ B_sloz_down = [B_down;
 %R_aug = 1;
 %K_sloz = lqr(A_sloz, B_sloz, Q_aug, R_aug)
 
-p_sloz_down = [-4.2114+13.5160i, -4.2114-13.5160i, -3, -2, -1];
+p_sloz_down = [-7+13.5160i, -7-13.5160i, -3, -2, -1];
 K_sloz_down = place(A_sloz_down, B_sloz_down, p_sloz_down);
 
 K_new_down = K_sloz_down(1:4);
@@ -170,9 +169,9 @@ disp('Nové M_up:'); disp(M_up);
 
 % S integrálním řešením
 A_sloz_up = [A_up, zeros(4,1);
-         -C_y,    0];
+             -C_y,    0];
 B_sloz_up = [B_up; 
-          0];
+             0];
 
 %Q_aug = diag([1, 100, 1, 100, 50]); 
 %R_aug = 1;
@@ -189,11 +188,11 @@ disp('Nové K_I (pro integrátor):'); disp(K_I_up);
 
 %% Obserever
 % Dolní poloha
-p_poz_down = [-15, -16, -17, -18]; 
+p_poz_down = [-17, -17, -16, -15];
 L_down = place(A_down', C', p_poz_down)';
 
 % Horní poloha
-p_poz_up = [-25, -27, -29, -31]; 
+p_poz_up = [-38, -27, -29, -31]; 
 L_up = place(A_up', C', p_poz_up)';
 
 disp('Matice L_down:'); disp(L_down);

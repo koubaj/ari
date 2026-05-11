@@ -120,7 +120,7 @@ viz obrázek~\ref{fig:Deadzone}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.8\textwidth]{img/deadzone.png}
+  \includegraphics[width=0.6\textwidth]{img/deadzone.png}
   \caption{Zjišťování deadzone}\label{fig:Deadzone}
 \end{figure}
 
@@ -173,7 +173,7 @@ Zajímá mě totiž pouze poloha a úhel, tedy druhá a čtvrtá složka vektoru
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{img/simulink_pos_PID.png}
-  \caption{Simulink schéma pro regulátor polohy vozíku}\label{fig:Simulink_pos_PID}
+  \caption{Zapojení v Simulinku pro regulátor polohy vozíku}\label{fig:Simulink_pos_PID}
 \end{figure}
 
 Z linearizovaného modelu vedu signál do Scope pro polohu a pro úhel (rozděluji
@@ -319,7 +319,7 @@ obrázky~\ref{fig:posicast_simulink}~\ref{fig:posicast_x}~\ref{fig:posicast_phi}
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{img/posicast_simulink.png}
-  \caption{Implementace posicastu}\label{fig:posicast_simulink}
+  \caption{Implementace posicastu v Simulinku}\label{fig:posicast_simulink}
 \end{figure}
 
 \begin{figure}[H]
@@ -342,7 +342,7 @@ dolní, ale i v horní poloze.
 \subsection{Řízení pomocí stavové zpětné vazby s předfiltrem}
 \subsubsection{Dolní poloha}
 Nejdříve vypočítám matici K. Určím (zatím pouze odhadnu) póly na $p = [-3+2i,
--3-2i, -10, -12]$ a matici K dostanu funkcí Matlabu \texttt{place()}, která ji
+-3-2i, -10, -12]$ a matici K dostanu funkcí Matlabu \texttt{place}, která ji
 spočítá dle Ackermanova vzorce. Předfiltr vypočítám pomocí vzorce (s
 $\mathbf{D}=0$) $\mathbf{M} = \frac{-1}{\mathbf{C}(\mathbf{A} -
 \mathbf{BK})\mathbf{B}}$.  Schéma zapojím do Simulinku (obsahuje i regulátor pro
@@ -351,7 +351,7 @@ horní polohu), viz obrázek~\ref{fig:state_prefilter_simulink}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{img/state_prefilter_simulink.png}
-  \caption{Zapojení stavové zpětné vazby s předfiltrem}\label{fig:state_prefilter_simulink}
+  \caption{Zapojení stavové zpětné vazby s předfiltrem v Simulinku}\label{fig:state_prefilter_simulink}
 \end{figure}
 
 Z grafu~\ref{fig:state_prefilter_phi_old} vidím, že kyvadlo během pohybu velmi
@@ -407,13 +407,85 @@ Implementace s předfiltrem je ovšem náchylná na poruchy, kvůli kterým vzni
 ustálená odchylka, viz \ref{fig:state_prefilter_x_disorder}, kde jsem přidal
 step o hodnotě 1 v čase 2. Proto je potřeba implementovat integrální řízení.
 
-\subsection{Integrální řešení stavové zpětné vazby}
-
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.6\textwidth]{img/state_prefilter_x_disorder.png}
   \caption{Ustálená odchylka jako reakce na poruchu}\label{fig:state_prefilter_x_disorder}
+\end{figure}
+
+\subsection{Integrální řešení stavové zpětné vazby}
+Pro integrální řešení odstraním matici $\mathbf{M}$ a místo ní přidám integrátor
+za výstup polohy, výslednou zintegrovanou hodnotu vynásobím konstantou $K_i$ a
+odečítám od výstupu z matice $\mathbf{K}$. Schéma je na
+obrázku~\ref{fig:state_integral_simulink}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/state_integral_simulink.png}
+  \caption{Zapojení stavové zpětné vazby s integrálním řešením v Simulinku}\label{fig:state_integral_simulink}
+\end{figure}
+
+V Matlabu musím vypočítat hodnotu $K_i$. Nejdříve vytvořím složené matice
+$\mathbf{A}$ a $\mathbf{B}$: do matice $\mathbf{A}$ přidám řádek s $-\mathbf{C}
+= \begin{bmatrix} 0 & -1 & 0 & 0 \end{bmatrix}$, protože integrální složkou chci
+doladit polohu. Zbytek složených matic doplním nulami. Matice $\mathbf{K}$,
+kterou opět dostanu funkcí \texttt{place}, bude mít tentokráte $5$ hodnot - tou
+pátou bude $K_i$. Póly pro dolní polohu jsem zvolil jako $p = [-7+13.5160i,
+-7-13.5160i, -3, -2, -1]$ a pro horní polohu jako $p=[-19, -11+3i, -11-3i, -2,
+-0.5]$.
+
+Integrální řešení je odolné i vůči konstantnímu působení síly některým směrem
+(mohu si to představit tak, že je rovina s kyvadlem nahnutá z kopce). Následují 
+ukázky grafů s působící konstantní silou o hodnotě $2 \mathrm{V}$ pro dolní a horní polohu 
+kyvadla.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/state_integral_down_x.png}
+  \caption{Stavová zpětná vazba pro dolní polohu: x}\label{fig:state_integral_down_x}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/state_integral_down_phi.png}
+  \caption{Stavová zpětná vazba pro dolní polohu: $\varphi$}\label{fig:state_integral_down_phi}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/state_integral_up_x.png}
+  \caption{Stavová zpětná vazba pro horní polohu: x}\label{fig:state_integral_up_x}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/state_integral_up_phi.png}
+  \caption{Stavová zpětná vazba pro horní polohu: $\varphi$}\label{fig:state_integral_up_phi}
+\end{figure}
+
+\subsection{Pozorovatel}
+Obvzláště pro řízení reálného kyvadla je nutné implementovat pozorovatele, který
+bude určovat rychlost a úhlovou rychlost kyvadla - ty se totiž neměří senzorem.
+Pro pozorovatele na horní i dolní polohu vyberu póly (volil jsem je $\pm2$
+krát rychlejší než rychlé póly regulátoru). a v Matlabu spočítám matici $\mathbf{L}$
+pomocí \texttt{L = place(A', C', p)'}. Následně zapojím do Simulinku jako na
+obrázku~\ref{fig:observer_simulink}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/observer_simulink.png}
+  \caption{Zapojení pozorovatele v Simulinku}\label{fig:observer_simulink}
+\end{figure}
+
+Zapojení pozorovatele jsem otestoval tak, že jsem odpojil zpětnout vazbu, do 
+vozíku poslal sinusový signál, nastavil kyvadlo na $-60^\circ$ stupňů namísto
+$-90^\circ$ a sledoval, jestli pozorovatel dorovná signál z VR modelu, což se
+také stalo, viz obrázek~\ref{fig:observer_test}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.6\textwidth]{img/observer_test.png}
+  \caption{Testování pozorovatele - graf rychlosti a úhlové rychlosti}\label{fig:observer_test}
 \end{figure}
 
 \section{Navazující úloha - práce se skutečným lineárním kyvadlem}

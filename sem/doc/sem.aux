@@ -20,8 +20,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {3}Linearizace}{4}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Řízení polohy vozíku pomocí PID regulátoru}{5}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Zapojení v Simulinku}{5}{subsection.4.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Simulink schéma pro regulátor polohy vozíku}}{5}{figure.3}\protected@file@percent }
-\newlabel{fig:Simulink_pos_PID}{{3}{5}{Simulink schéma pro regulátor polohy vozíku}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Zapojení v Simulinku pro regulátor polohy vozíku}}{5}{figure.3}\protected@file@percent }
+\newlabel{fig:Simulink_pos_PID}{{3}{5}{Zapojení v Simulinku pro regulátor polohy vozíku}{figure.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Zapojení bez saturace a deadzone - vstup}}{6}{figure.4}\protected@file@percent }
 \newlabel{fig:Without_sat_and_deadzone_in}{{4}{6}{Zapojení bez saturace a deadzone - vstup}{figure.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Zapojení bez saturace a deadzone - výstup}}{6}{figure.5}\protected@file@percent }
@@ -48,8 +48,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Kmitání s regulátorem}}{11}{figure.13}\protected@file@percent }
 \newlabel{fig:oscillation_with}{{13}{11}{Kmitání s regulátorem}{figure.13}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Posicast}{11}{subsection.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Implementace posicastu}}{11}{figure.14}\protected@file@percent }
-\newlabel{fig:posicast_simulink}{{14}{11}{Implementace posicastu}{figure.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Implementace posicastu v Simulinku}}{11}{figure.14}\protected@file@percent }
+\newlabel{fig:posicast_simulink}{{14}{11}{Implementace posicastu v Simulinku}{figure.14}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Poloha vozíku s poisicastem}}{12}{figure.15}\protected@file@percent }
 \newlabel{fig:posicast_x}{{15}{12}{Poloha vozíku s poisicastem}{figure.15}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Úhel kyvadla s poisicastem}}{12}{figure.16}\protected@file@percent }
@@ -57,8 +57,8 @@
 \@writefile{toc}{\contentsline {section}{\numberline {6}Řízení pomocí stavové zpětné vazby}{12}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Řízení pomocí stavové zpětné vazby s předfiltrem}{13}{subsection.6.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Dolní poloha}{13}{subsubsection.6.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Zapojení stavové zpětné vazby s předfiltrem}}{13}{figure.17}\protected@file@percent }
-\newlabel{fig:state_prefilter_simulink}{{17}{13}{Zapojení stavové zpětné vazby s předfiltrem}{figure.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Zapojení stavové zpětné vazby s předfiltrem v Simulinku}}{13}{figure.17}\protected@file@percent }
+\newlabel{fig:state_prefilter_simulink}{{17}{13}{Zapojení stavové zpětné vazby s předfiltrem v Simulinku}{figure.17}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Úhel kyvadla s neodladěnými póly}}{13}{figure.18}\protected@file@percent }
 \newlabel{fig:state_prefilter_phi_old}{{18}{13}{Úhel kyvadla s neodladěnými póly}{figure.18}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Poloha vozíku se stavovou zpětnou vazbou}}{14}{figure.19}\protected@file@percent }
@@ -71,10 +71,25 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces }}{15}{figure.22}\protected@file@percent }
 \newlabel{fig:state_prefilter_up_phi}{{22}{15}{}{figure.22}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.3}Problémy implementace s předfiltrem}{15}{subsubsection.6.1.3}\protected@file@percent }
-\bibcite{zadani}{1}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Integrální řešení stavové zpětné vazby}{16}{subsection.6.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Ustálená odchylka jako reakce na poruchu}}{16}{figure.23}\protected@file@percent }
 \newlabel{fig:state_prefilter_x_disorder}{{23}{16}{Ustálená odchylka jako reakce na poruchu}{figure.23}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Navazující úloha - práce se skutečným lineárním kyvadlem}{16}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Identifikace systému}{16}{subsection.7.1}\protected@file@percent }
-\gdef \@abspage@last{16}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Integrální řešení stavové zpětné vazby}{16}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Zapojení stavové zpětné vazby s integrálním řešením v Simulinku}}{16}{figure.24}\protected@file@percent }
+\newlabel{fig:state_integral_simulink}{{24}{16}{Zapojení stavové zpětné vazby s integrálním řešením v Simulinku}{figure.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Stavová zpětná vazba pro dolní polohu: x}}{17}{figure.25}\protected@file@percent }
+\newlabel{fig:state_integral_down_x}{{25}{17}{Stavová zpětná vazba pro dolní polohu: x}{figure.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {26}{\ignorespaces Stavová zpětná vazba pro dolní polohu: $\varphi $}}{17}{figure.26}\protected@file@percent }
+\newlabel{fig:state_integral_down_phi}{{26}{17}{Stavová zpětná vazba pro dolní polohu: $\varphi $}{figure.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {27}{\ignorespaces Stavová zpětná vazba pro horní polohu: x}}{18}{figure.27}\protected@file@percent }
+\newlabel{fig:state_integral_up_x}{{27}{18}{Stavová zpětná vazba pro horní polohu: x}{figure.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {28}{\ignorespaces Stavová zpětná vazba pro horní polohu: $\varphi $}}{18}{figure.28}\protected@file@percent }
+\newlabel{fig:state_integral_up_phi}{{28}{18}{Stavová zpětná vazba pro horní polohu: $\varphi $}{figure.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Pozorovatel}{18}{subsection.6.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Zapojení pozorovatele v Simulinku}}{19}{figure.29}\protected@file@percent }
+\newlabel{fig:observer_simulink}{{29}{19}{Zapojení pozorovatele v Simulinku}{figure.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Testování pozorovatele - graf rychlosti a úhlové rychlosti}}{19}{figure.30}\protected@file@percent }
+\newlabel{fig:observer_test}{{30}{19}{Testování pozorovatele - graf rychlosti a úhlové rychlosti}{figure.30}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Navazující úloha - práce se skutečným lineárním kyvadlem}{19}{section.7}\protected@file@percent }
+\bibcite{zadani}{1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Identifikace systému}{20}{subsection.7.1}\protected@file@percent }
+\gdef \@abspage@last{20}

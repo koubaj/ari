@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1778458191.23601 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1778458192.62312 0
-  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1778458191.0658 18524 0b58b0a909a04cfa6b33caa73d72d341 ""
+["pdflatex"] 1778464663.56599 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1778464665.26206 0
+  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1778464663.38054 21970 dff50da7567e6a4d20b92bc9f1fc25bc ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -132,6 +132,8 @@
   "img/P_pos_overshoot.png" 1777228038.56763 28298 2426806c5b03d1f9bb09c03eed47354f ""
   "img/deadzone.png" 1778448010.82638 24196 2f28be60340b2f0e991b8158a565276b ""
   "img/kontrola_rovnic.jpg" 1777208907.16339 1988522 b44b72eff68a8378fc7c1f41effef175 ""
+  "img/observer_simulink.png" 1778463663.60837 89800 13c8dd2bdafdc332d679bcf931429229 ""
+  "img/observer_test.png" 1778464602.97758 36447 dbb0d0c17717aa42bdc91884cf27df96 ""
   "img/oscillation_with_regulator.png" 1777476181.7649 21677 ddab4628a30bb3294bddcde00739bf6e ""
   "img/oscillation_without_regulator.png" 1777570152.47418 21768 25bafb168e3a11771edaf29be67a0f13 ""
   "img/posicast_phi.png" 1777477630.94795 21691 a7a61e5ec084ad08f0ccc766f3a2b914 ""
@@ -141,6 +143,11 @@
   "img/rltool_phi.png" 1777822724.13202 107438 d6d9dea9b4221543737ba7bac09bef5b ""
   "img/rltool_pid_pos.png" 1777228614.07918 82132 51996bc61752789f86ff0aacd5378fa2 ""
   "img/simulink_pos_PID.png" 1777225410.78437 62027 b93e01c616b6009be7703154009a595d ""
+  "img/state_integral_down_phi.png" 1778461381.22595 23325 42b251b8cf9eb968f9fb2d46677e21b4 ""
+  "img/state_integral_down_x.png" 1778461381.2542 28879 0da6075659f4be2745f0212882b30465 ""
+  "img/state_integral_simulink.png" 1778458318.6848 68721 c2e1c70d1e83da82352765458e111f2c ""
+  "img/state_integral_up_phi.png" 1778461381.31578 23574 b3fdaae110407b81315f0bca434a2b40 ""
+  "img/state_integral_up_x.png" 1778460804.21808 29266 321cab2963a781efec8b0d462a5bb25a ""
   "img/state_prefilter_phi_new.png" 1778454696.09895 23288 d897bb375d46b859206e335b2309b393 ""
   "img/state_prefilter_phi_old.png" 1778453915.76234 23778 a060ef73aa613d11cffc3e724b19af65 ""
   "img/state_prefilter_simulink.png" 1778455458.10416 64785 cdbfe5824c0637bb666cb22e2a2d45c4 ""
@@ -150,9 +157,9 @@
   "img/state_prefilter_x_disorder.png" 1778455232.88958 28533 73483885161858e07b4bf8ae2062acbd ""
   "img/without_sat_and_deadzone_in.png" 1777227255.49261 21008 3e0da4fab1de4f97d391218e0db08efe ""
   "img/without_sat_and_deadzone_out.png" 1777227138.90577 26246 85050b570ce11441e77ee23b54d628c7 ""
-  "sem.aux" 1778458192.54379 8648 131c289151a8b00941e641f83809ac8f "pdflatex"
-  "sem.out" 1778458192.54479 4318 1f64442598f826b53d4397481df66eb5 "pdflatex"
-  "sem.tex" 1778458191.0658 18524 0b58b0a909a04cfa6b33caa73d72d341 ""
+  "sem.aux" 1778464665.17953 10771 c7070bb0a2d8d6dc36a72b461b0778c0 "pdflatex"
+  "sem.out" 1778464665.18053 4431 b53d92b2961b30015cc1dcdfeb3c79c2 "pdflatex"
+  "sem.tex" 1778464663.38054 21970 dff50da7567e6a4d20b92bc9f1fc25bc ""
   (generated)
   "sem.aux"
   "sem.log"
