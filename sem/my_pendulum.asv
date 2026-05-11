@@ -160,7 +160,7 @@ disp('Nové K_I (pro integrátor):'); disp(K_I_down);
 %R_up = 1;
 %K_up = lqr(A_up, B_up, Q_up, R_up);
 
-p_up = [-19, -11+3i, -11-3i, -0.25];
+p_up = [-, -11+3i, -11-3i, -1];
 K_up = place(A_up, B_up, p_up);
 
 M_up = -1 / (C_y * inv(A_up - B_up * K_up) * B_up);
