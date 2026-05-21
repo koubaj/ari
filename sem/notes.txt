@@ -1,0 +1,5 @@
+reakce lin a nelin na nějaké vstupy
+výsledné přenosy
+jen pd regulátor, rozdíl mezi PID (chyba, dedzone) 
+freq u rltool - bode, nyquist
+stavová - zkusit nějakou jinou variantu pólů pro dolní polohu - ať je rycchlý přechod

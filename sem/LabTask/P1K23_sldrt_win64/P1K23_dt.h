@@ -7,9 +7,9 @@
  *
  * Code generation for model "P1K23".
  *
- * Model version              : 9.2
+ * Model version              : 9.5
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Mon May  4 11:40:24 2026
+ * C source code generated on : Mon May 18 12:36:16 2026
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -58,27 +58,31 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&P1K23_B.Motorvoltage), 0, 0, 4 }
+  { (char_T *)(&P1K23_B.Step3), 0, 0, 12 }
   ,
 
-  { (char_T *)(&P1K23_DW.EncoderInput_PWORK), 11, 0, 4 }
+  { (char_T *)(&P1K23_DW.TransportDelay_RWORK.modelTStart), 0, 0, 1 },
+
+  { (char_T *)(&P1K23_DW.TransportDelay_PWORK.TUbufferPtrs[0]), 11, 0, 9 },
+
+  { (char_T *)(&P1K23_DW.TransportDelay_IWORK.Tail), 10, 0, 1 }
 };
 
 /* data type transition table for block I/O structure */
 static DataTypeTransitionTable rtBTransTable = {
-  2U,
+  4U,
   rtBTransitions
 };
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&P1K23_P.AnalogOutput_FinalValue), 0, 0, 9 },
+  { (char_T *)(&P1K23_P.PIDController1_D), 0, 0, 19 },
 
   { (char_T *)(&P1K23_P.DigitalInput_BitMode), 6, 0, 7 },
 
-  { (char_T *)(&P1K23_P.Gain1_Gain), 0, 0, 9 },
+  { (char_T *)(&P1K23_P.Step3_Time), 0, 0, 12 },
 
-  { (char_T *)(&P1K23_P.Directionswitch_CurrentSetting), 3, 0, 1 }
+  { (char_T *)(&P1K23_P.ManualSwitch_CurrentSetting), 3, 0, 2 }
 };
 
 /* data type transition table for Parameters structure */

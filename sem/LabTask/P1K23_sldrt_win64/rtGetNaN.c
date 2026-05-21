@@ -7,9 +7,9 @@
  *
  * Code generation for model "P1K23".
  *
- * Model version              : 9.2
+ * Model version              : 9.5
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Mon May  4 11:40:24 2026
+ * C source code generated on : Mon May 18 12:36:16 2026
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping

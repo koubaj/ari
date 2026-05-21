@@ -7,9 +7,9 @@
  *
  * Code generation for model "P1K23".
  *
- * Model version              : 9.2
+ * Model version              : 9.5
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Mon May  4 11:40:24 2026
+ * C source code generated on : Mon May 18 12:36:16 2026
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,103 +23,173 @@
 
 /* Block parameters (default storage) */
 P_P1K23_T P1K23_P = {
+  /* Mask Parameter: PIDController1_D
+   * Referenced by: '<S79>/Derivative Gain'
+   */
+  7.4102,
+
+  /* Mask Parameter: PIDController_D
+   * Referenced by: '<S31>/Derivative Gain'
+   */
+  16.2,
+
   /* Mask Parameter: AnalogOutput_FinalValue
-   * Referenced by: '<S1>/Analog Output'
+   * Referenced by: '<S3>/Analog Output'
+   */
+  0.0,
+
+  /* Mask Parameter: PIDController_I
+   * Referenced by: '<S34>/Integral Gain'
+   */
+  1.14,
+
+  /* Mask Parameter: PIDController1_InitialConditionForFilter
+   * Referenced by: '<S80>/Filter'
+   */
+  0.0,
+
+  /* Mask Parameter: PIDController_InitialConditionForFilter
+   * Referenced by: '<S32>/Filter'
+   */
+  0.0,
+
+  /* Mask Parameter: PIDController_InitialConditionForIntegrator
+   * Referenced by: '<S37>/Integrator'
    */
   0.0,
 
   /* Mask Parameter: AnalogOutput_InitialValue
-   * Referenced by: '<S1>/Analog Output'
+   * Referenced by: '<S3>/Analog Output'
    */
   0.0,
 
   /* Mask Parameter: EncoderInput_InputFilter
-   * Referenced by: '<S1>/Encoder Input'
+   * Referenced by: '<S3>/Encoder Input'
    */
   0.0,
 
   /* Mask Parameter: EncoderInput_MaxMissedTicks
-   * Referenced by: '<S1>/Encoder Input'
+   * Referenced by: '<S3>/Encoder Input'
    */
   200.0,
 
   /* Mask Parameter: AnalogOutput_MaxMissedTicks
-   * Referenced by: '<S1>/Analog Output'
+   * Referenced by: '<S3>/Analog Output'
    */
   200.0,
 
   /* Mask Parameter: DigitalInput_MaxMissedTicks
-   * Referenced by: '<S1>/Digital Input'
+   * Referenced by: '<S3>/Digital Input'
    */
   100.0,
 
+  /* Mask Parameter: PIDController1_N
+   * Referenced by: '<S88>/Filter Coefficient'
+   */
+  100.0,
+
+  /* Mask Parameter: PIDController_N
+   * Referenced by: '<S40>/Filter Coefficient'
+   */
+  100.0,
+
+  /* Mask Parameter: PIDController1_P
+   * Referenced by: '<S90>/Proportional Gain'
+   */
+  1.0,
+
+  /* Mask Parameter: PIDController_P
+   * Referenced by: '<S42>/Proportional Gain'
+   */
+  10.2,
+
   /* Mask Parameter: EncoderInput_YieldWhenWaiting
-   * Referenced by: '<S1>/Encoder Input'
+   * Referenced by: '<S3>/Encoder Input'
    */
   1.0,
 
   /* Mask Parameter: AnalogOutput_YieldWhenWaiting
-   * Referenced by: '<S1>/Analog Output'
+   * Referenced by: '<S3>/Analog Output'
    */
   1.0,
 
   /* Mask Parameter: DigitalInput_YieldWhenWaiting
-   * Referenced by: '<S1>/Digital Input'
+   * Referenced by: '<S3>/Digital Input'
    */
   0.0,
 
   /* Mask Parameter: DigitalInput_BitMode
-   * Referenced by: '<S1>/Digital Input'
+   * Referenced by: '<S3>/Digital Input'
    */
   0,
 
   /* Mask Parameter: EncoderInput_Channels
-   * Referenced by: '<S1>/Encoder Input'
+   * Referenced by: '<S3>/Encoder Input'
    */
   { 0, 1 },
 
   /* Mask Parameter: AnalogOutput_Channels
-   * Referenced by: '<S1>/Analog Output'
+   * Referenced by: '<S3>/Analog Output'
    */
   0,
 
   /* Mask Parameter: DigitalInput_Channels
-   * Referenced by: '<S1>/Digital Input'
+   * Referenced by: '<S3>/Digital Input'
    */
   2,
 
   /* Mask Parameter: AnalogOutput_RangeMode
-   * Referenced by: '<S1>/Analog Output'
+   * Referenced by: '<S3>/Analog Output'
    */
   1,
 
   /* Mask Parameter: AnalogOutput_VoltRange
-   * Referenced by: '<S1>/Analog Output'
+   * Referenced by: '<S3>/Analog Output'
    */
   0,
 
-  /* Expression: -1
-   * Referenced by: '<Root>/Gain1'
-   */
-  -1.0,
-
   /* Expression: 1
-   * Referenced by: '<Root>/Step'
+   * Referenced by: '<Root>/Step3'
    */
   1.0,
 
   /* Expression: 0
-   * Referenced by: '<Root>/Step'
+   * Referenced by: '<Root>/Step3'
    */
   0.0,
 
-  /* Expression: 0.35
-   * Referenced by: '<Root>/Step'
+  /* Expression: -0.4
+   * Referenced by: '<Root>/Step3'
    */
-  0.35,
+  -0.4,
+
+  /* Expression: 1.6
+   * Referenced by: '<Root>/Transport Delay'
+   */
+  1.6,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/Transport Delay'
+   */
+  0.0,
+
+  /* Expression: 0
+   * Referenced by: '<Root>/Constant1'
+   */
+  0.0,
+
+  /* Expression: -2*pi/4096
+   * Referenced by: '<S3>/Angle conversion'
+   */
+  -0.0015339807878856412,
+
+  /* Expression: -0.3
+   * Referenced by: '<Root>/Constant'
+   */
+  -0.3,
 
   /* Expression: -0.093/4096
-   * Referenced by: '<S1>/Position.  conversion'
+   * Referenced by: '<S3>/Position.  conversion'
    */
   -2.2705078125E-5,
 
@@ -138,13 +208,13 @@ P_P1K23_T P1K23_P = {
    */
   25.0,
 
-  /* Expression: -2*pi/4096
-   * Referenced by: '<S1>/Angle conversion'
+  /* Computed Parameter: ManualSwitch_CurrentSetting
+   * Referenced by: '<Root>/Manual Switch'
    */
-  -0.0015339807878856412,
+  0U,
 
-  /* Computed Parameter: Directionswitch_CurrentSetting
-   * Referenced by: '<Root>/Direction switch'
+  /* Computed Parameter: ManualSwitch1_CurrentSetting
+   * Referenced by: '<Root>/Manual Switch1'
    */
   0U
 };

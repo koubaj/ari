@@ -7,9 +7,9 @@
  *
  * Code generation for model "P1K23".
  *
- * Model version              : 9.2
+ * Model version              : 9.5
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Mon May  4 11:40:24 2026
+ * C source code generated on : Mon May 18 12:36:16 2026
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -53,6 +53,190 @@ DW_P1K23_T P1K23_DW;
 static RT_MODEL_P1K23_T P1K23_M_;
 RT_MODEL_P1K23_T *const P1K23_M = &P1K23_M_;
 static void rate_monotonic_scheduler(void);
+
+/*
+ * Time delay interpolation routine
+ *
+ * The linear interpolation is performed using the formula:
+ *
+ *          (t2 - tMinusDelay)         (tMinusDelay - t1)
+ * u(t)  =  ----------------- * u1  +  ------------------- * u2
+ *              (t2 - t1)                  (t2 - t1)
+ */
+real_T rt_TDelayInterpolate(
+  real_T tMinusDelay,                 /* tMinusDelay = currentSimTime - delay */
+  real_T tStart,
+  real_T *uBuf,
+  int_T bufSz,
+  int_T *lastIdx,
+  int_T oldestIdx,
+  int_T newIdx,
+  real_T initOutput,
+  boolean_T discrete,
+  boolean_T minorStepAndTAtLastMajorOutput)
+{
+  int_T i;
+  real_T yout, t1, t2, u1, u2;
+  real_T* tBuf = uBuf + bufSz;
+
+  /*
+   * If there is only one data point in the buffer, this data point must be
+   * the t= 0 and tMinusDelay > t0, it ask for something unknown. The best
+   * guess if initial output as well
+   */
+  if ((newIdx == 0) && (oldestIdx ==0 ) && (tMinusDelay > tStart))
+    return initOutput;
+
+  /*
+   * If tMinusDelay is less than zero, should output initial value
+   */
+  if (tMinusDelay <= tStart)
+    return initOutput;
+
+  /* For fixed buffer extrapolation:
+   * if tMinusDelay is small than the time at oldestIdx, if discrete, output
+   * tailptr value,  else use tailptr and tailptr+1 value to extrapolate
+   * It is also for fixed buffer. Note: The same condition can happen for transport delay block where
+   * use tStart and and t[tail] other than using t[tail] and t[tail+1].
+   * See below
+   */
+  if ((tMinusDelay <= tBuf[oldestIdx] ) ) {
+    if (discrete) {
+      return(uBuf[oldestIdx]);
+    } else {
+      int_T tempIdx= oldestIdx + 1;
+      if (oldestIdx == bufSz-1)
+        tempIdx = 0;
+      t1= tBuf[oldestIdx];
+      t2= tBuf[tempIdx];
+      u1= uBuf[oldestIdx];
+      u2= uBuf[tempIdx];
+      if (t2 == t1) {
+        if (tMinusDelay >= t2) {
+          yout = u2;
+        } else {
+          yout = u1;
+        }
+      } else {
+        real_T f1 = (t2-tMinusDelay) / (t2-t1);
+        real_T f2 = 1.0 - f1;
+
+        /*
+         * Use Lagrange's interpolation formula.  Exact outputs at t1, t2.
+         */
+        yout = f1*u1 + f2*u2;
+      }
+
+      return yout;
+    }
+  }
+
+  /*
+   * When block does not have direct feedthrough, we use the table of
+   * values to extrapolate off the end of the table for delays that are less
+   * than 0 (less then step size).  This is not completely accurate.  The
+   * chain of events is as follows for a given time t.  Major output - look
+   * in table.  Update - add entry to table.  Now, if we call the output at
+   * time t again, there is a new entry in the table. For very small delays,
+   * this means that we will have a different answer from the previous call
+   * to the output fcn at the same time t.  The following code prevents this
+   * from happening.
+   */
+  if (minorStepAndTAtLastMajorOutput) {
+    /* pretend that the new entry has not been added to table */
+    if (newIdx != 0) {
+      if (*lastIdx == newIdx) {
+        (*lastIdx)--;
+      }
+
+      newIdx--;
+    } else {
+      if (*lastIdx == newIdx) {
+        *lastIdx = bufSz-1;
+      }
+
+      newIdx = bufSz - 1;
+    }
+  }
+
+  i = *lastIdx;
+  if (tBuf[i] < tMinusDelay) {
+    /* Look forward starting at last index */
+    while (tBuf[i] < tMinusDelay) {
+      /* May occur if the delay is less than step-size - extrapolate */
+      if (i == newIdx)
+        break;
+      i = ( i < (bufSz-1) ) ? (i+1) : 0;/* move through buffer */
+    }
+  } else {
+    /*
+     * Look backwards starting at last index which can happen when the
+     * delay time increases.
+     */
+    while (tBuf[i] >= tMinusDelay) {
+      /*
+       * Due to the entry condition at top of function, we
+       * should never hit the end.
+       */
+      i = (i > 0) ? i-1 : (bufSz-1);   /* move through buffer */
+    }
+
+    i = ( i < (bufSz-1) ) ? (i+1) : 0;
+  }
+
+  *lastIdx = i;
+  if (discrete) {
+    /*
+     * tempEps = 128 * eps;
+     * localEps = max(tempEps, tempEps*fabs(tBuf[i]))/2;
+     */
+    double tempEps = (DBL_EPSILON) * 128.0;
+    double localEps = tempEps * fabs(tBuf[i]);
+    if (tempEps > localEps) {
+      localEps = tempEps;
+    }
+
+    localEps = localEps / 2.0;
+    if (tMinusDelay >= (tBuf[i] - localEps)) {
+      yout = uBuf[i];
+    } else {
+      if (i == 0) {
+        yout = uBuf[bufSz-1];
+      } else {
+        yout = uBuf[i-1];
+      }
+    }
+  } else {
+    if (i == 0) {
+      t1 = tBuf[bufSz-1];
+      u1 = uBuf[bufSz-1];
+    } else {
+      t1 = tBuf[i-1];
+      u1 = uBuf[i-1];
+    }
+
+    t2 = tBuf[i];
+    u2 = uBuf[i];
+    if (t2 == t1) {
+      if (tMinusDelay >= t2) {
+        yout = u2;
+      } else {
+        yout = u1;
+      }
+    } else {
+      real_T f1 = (t2-tMinusDelay) / (t2-t1);
+      real_T f2 = 1.0 - f1;
+
+      /*
+       * Use Lagrange's interpolation formula.  Exact outputs at t1, t2.
+       */
+      yout = f1*u1 + f2*u2;
+    }
+  }
+
+  return(yout);
+}
+
 time_T rt_SimUpdateDiscreteEvents(
   int_T rtmNumSampTimes, void *rtmTimingData, int_T *rtmSampleHitPtr, int_T
   *rtmPerTaskSampleHits )
@@ -125,7 +309,7 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
   real_T *f5 = id->f[5];
   real_T hB[6];
   int_T i;
-  int_T nXc = 1;
+  int_T nXc = 4;
   rtsiSetSimTimeStep(si,MINOR_TIME_STEP);
 
   /* Save the state values at time t in y, we'll use x as ynew. */
@@ -224,7 +408,9 @@ static void rt_ertODEUpdateContinuousStates(RTWSolverInfo *si )
 void P1K23_output0(void)               /* Sample time: [0.0s, 0.0s] */
 {
   /* local block i/o variables */
+  real_T rtb_TransportDelay;
   real_T rtb_EncoderInput[2];
+  real_T rtb_Sum_h;
   real_T tmp;
   if (rtmIsMajorTimeStep(P1K23_M)) {
     /* set solver stop time */
@@ -247,37 +433,38 @@ void P1K23_output0(void)               /* Sample time: [0.0s, 0.0s] */
     P1K23_M->Timing.t[0] = rtsiGetT(&P1K23_M->solverInfo);
   }
 
-  /* ManualSwitch: '<Root>/Direction switch' incorporates:
-   *  Step: '<Root>/Step'
-   */
-  if (P1K23_P.Directionswitch_CurrentSetting == 1) {
-    /* Step: '<Root>/Step' */
-    if (P1K23_M->Timing.t[0] < P1K23_P.Step_Time) {
-      /* ManualSwitch: '<Root>/Direction switch' */
-      P1K23_B.Motorvoltage = P1K23_P.Step_Y0;
-    } else {
-      /* ManualSwitch: '<Root>/Direction switch' */
-      P1K23_B.Motorvoltage = P1K23_P.Step_YFinal;
-    }
+  /* Step: '<Root>/Step3' */
+  if (P1K23_M->Timing.t[0] < P1K23_P.Step3_Time) {
+    /* Step: '<Root>/Step3' */
+    P1K23_B.Step3 = P1K23_P.Step3_Y0;
   } else {
-    if (P1K23_M->Timing.t[0] < P1K23_P.Step_Time) {
-      /* Step: '<Root>/Step' */
-      tmp = P1K23_P.Step_Y0;
-    } else {
-      /* Step: '<Root>/Step' */
-      tmp = P1K23_P.Step_YFinal;
-    }
-
-    /* ManualSwitch: '<Root>/Direction switch' incorporates:
-     *  Gain: '<Root>/Gain1'
-     */
-    P1K23_B.Motorvoltage = P1K23_P.Gain1_Gain * tmp;
+    /* Step: '<Root>/Step3' */
+    P1K23_B.Step3 = P1K23_P.Step3_YFinal;
   }
 
-  /* End of ManualSwitch: '<Root>/Direction switch' */
+  /* End of Step: '<Root>/Step3' */
+
+  /* TransportDelay: '<Root>/Transport Delay' */
+  {
+    real_T **uBuffer = (real_T**)&P1K23_DW.TransportDelay_PWORK.TUbufferPtrs[0];
+    real_T simTime = P1K23_M->Timing.t[0];
+    real_T tMinusDelay = simTime - P1K23_P.TransportDelay_Delay;
+    rtb_TransportDelay = rt_TDelayInterpolate(
+      tMinusDelay,
+      0.0,
+      *uBuffer,
+      P1K23_DW.TransportDelay_IWORK.CircularBufSize,
+      &P1K23_DW.TransportDelay_IWORK.Last,
+      P1K23_DW.TransportDelay_IWORK.Tail,
+      P1K23_DW.TransportDelay_IWORK.Head,
+      P1K23_P.TransportDelay_InitOutput,
+      0,
+      0);
+  }
+
   if (rtmIsMajorTimeStep(P1K23_M)) {
-    /* S-Function (sldrtei): '<S1>/Encoder Input' */
-    /* S-Function Block: <S1>/Encoder Input */
+    /* S-Function (sldrtei): '<S3>/Encoder Input' */
+    /* S-Function Block: <S3>/Encoder Input */
     {
       ENCODERINPARM parm;
       parm.quad = (QUADMODE) 2;
@@ -287,21 +474,90 @@ void P1K23_output0(void)               /* Sample time: [0.0s, 0.0s] */
                      &rtb_EncoderInput[0], &parm);
     }
 
-    /* Gain: '<S1>/Position.  conversion' */
+    /* Gain: '<S3>/Angle conversion' */
+    P1K23_B.Angleconversion = P1K23_P.Angleconversion_Gain * rtb_EncoderInput[1];
+
+    /* Sum: '<Root>/Sum1' incorporates:
+     *  Constant: '<Root>/Constant1'
+     */
+    rtb_Sum_h = P1K23_P.Constant1_Value - P1K23_B.Angleconversion;
+
+    /* Gain: '<S90>/Proportional Gain' */
+    P1K23_B.ProportionalGain = P1K23_P.PIDController1_P * rtb_Sum_h;
+
+    /* Gain: '<S79>/Derivative Gain' */
+    P1K23_B.DerivativeGain = P1K23_P.PIDController1_D * rtb_Sum_h;
+
+    /* Gain: '<S3>/Position.  conversion' */
     P1K23_B.Positionconversion = P1K23_P.Positionconversion_Gain *
       rtb_EncoderInput[0];
+
+    /* Sum: '<Root>/Sum' incorporates:
+     *  Constant: '<Root>/Constant'
+     */
+    rtb_Sum_h = P1K23_P.Constant_Value - P1K23_B.Positionconversion;
+
+    /* Gain: '<S42>/Proportional Gain' */
+    P1K23_B.ProportionalGain_m = P1K23_P.PIDController_P * rtb_Sum_h;
+
+    /* Gain: '<S31>/Derivative Gain' */
+    P1K23_B.DerivativeGain_l = P1K23_P.PIDController_D * rtb_Sum_h;
   }
+
+  /* Gain: '<S88>/Filter Coefficient' incorporates:
+   *  Integrator: '<S80>/Filter'
+   *  Sum: '<S80>/SumD'
+   */
+  P1K23_B.FilterCoefficient = (P1K23_B.DerivativeGain - P1K23_X.Filter_CSTATE) *
+    P1K23_P.PIDController1_N;
+
+  /* Gain: '<S40>/Filter Coefficient' incorporates:
+   *  Integrator: '<S32>/Filter'
+   *  Sum: '<S32>/SumD'
+   */
+  P1K23_B.FilterCoefficient_g = (P1K23_B.DerivativeGain_l -
+    P1K23_X.Filter_CSTATE_n) * P1K23_P.PIDController_N;
+
+  /* ManualSwitch: '<Root>/Manual Switch1' incorporates:
+   *  ManualSwitch: '<Root>/Manual Switch'
+   */
+  if (P1K23_P.ManualSwitch1_CurrentSetting == 1) {
+    /* Sum: '<Root>/Sum3' incorporates:
+     *  Sum: '<Root>/Sum5'
+     */
+    P1K23_B.MotorVoltage = P1K23_B.Step3 - rtb_TransportDelay;
+  } else {
+    if (P1K23_P.ManualSwitch_CurrentSetting == 1) {
+      /* ManualSwitch: '<Root>/Manual Switch' */
+      tmp = 0.0;
+    } else {
+      /* ManualSwitch: '<Root>/Manual Switch' incorporates:
+       *  Sum: '<S94>/Sum'
+       */
+      tmp = P1K23_B.ProportionalGain + P1K23_B.FilterCoefficient;
+    }
+
+    /* Sum: '<Root>/Sum3' incorporates:
+     *  Integrator: '<S37>/Integrator'
+     *  Sum: '<Root>/Sum2'
+     *  Sum: '<S46>/Sum'
+     */
+    P1K23_B.MotorVoltage = ((P1K23_B.ProportionalGain_m +
+      P1K23_X.Integrator_CSTATE) + P1K23_B.FilterCoefficient_g) - tmp;
+  }
+
+  /* End of ManualSwitch: '<Root>/Manual Switch1' */
 
   /* TransferFcn: '<Root>/Rychlost' */
   P1K23_B.Speed = 0.0;
   P1K23_B.Speed += P1K23_P.Rychlost_C * P1K23_X.Rychlost_CSTATE;
   P1K23_B.Speed += P1K23_P.Rychlost_D * P1K23_B.Positionconversion;
   if (rtmIsMajorTimeStep(P1K23_M)) {
-    /* Gain: '<S1>/Angle conversion' */
-    P1K23_B.Angleconversion = P1K23_P.Angleconversion_Gain * rtb_EncoderInput[1];
+    /* Gain: '<S34>/Integral Gain' */
+    P1K23_B.IntegralGain = P1K23_P.PIDController_I * rtb_Sum_h;
 
-    /* S-Function (sldrtao): '<S1>/Analog Output' */
-    /* S-Function Block: <S1>/Analog Output */
+    /* S-Function (sldrtao): '<S3>/Analog Output' */
+    /* S-Function Block: <S3>/Analog Output */
     {
       {
         ANALOGIOPARM parm;
@@ -309,7 +565,7 @@ void P1K23_output0(void)               /* Sample time: [0.0s, 0.0s] */
         parm.rangeidx = P1K23_P.AnalogOutput_VoltRange;
         RTBIO_DriverIO(0, ANALOGOUTPUT, IOWRITE, 1,
                        &P1K23_P.AnalogOutput_Channels, ((real_T*)
-          (&P1K23_B.Motorvoltage)), &parm);
+          (&P1K23_B.MotorVoltage)), &parm);
       }
     }
   }
@@ -318,6 +574,25 @@ void P1K23_output0(void)               /* Sample time: [0.0s, 0.0s] */
 /* Model update function for TID0 */
 void P1K23_update0(void)               /* Sample time: [0.0s, 0.0s] */
 {
+  /* Update for TransportDelay: '<Root>/Transport Delay' */
+  {
+    real_T **uBuffer = (real_T**)&P1K23_DW.TransportDelay_PWORK.TUbufferPtrs[0];
+    real_T simTime = P1K23_M->Timing.t[0];
+    P1K23_DW.TransportDelay_IWORK.Head = ((P1K23_DW.TransportDelay_IWORK.Head <
+      (P1K23_DW.TransportDelay_IWORK.CircularBufSize-1)) ?
+      (P1K23_DW.TransportDelay_IWORK.Head+1) : 0);
+    if (P1K23_DW.TransportDelay_IWORK.Head == P1K23_DW.TransportDelay_IWORK.Tail)
+    {
+      P1K23_DW.TransportDelay_IWORK.Tail = ((P1K23_DW.TransportDelay_IWORK.Tail <
+        (P1K23_DW.TransportDelay_IWORK.CircularBufSize-1)) ?
+        (P1K23_DW.TransportDelay_IWORK.Tail+1) : 0);
+    }
+
+    (*uBuffer + P1K23_DW.TransportDelay_IWORK.CircularBufSize)
+      [P1K23_DW.TransportDelay_IWORK.Head] = simTime;
+    (*uBuffer)[P1K23_DW.TransportDelay_IWORK.Head] = P1K23_B.Step3;
+  }
+
   if (rtmIsMajorTimeStep(P1K23_M)) {
     rt_ertODEUpdateContinuousStates(&P1K23_M->solverInfo);
   }
@@ -360,6 +635,15 @@ void P1K23_derivatives(void)
   XDot_P1K23_T *_rtXdot;
   _rtXdot = ((XDot_P1K23_T *) P1K23_M->derivs);
 
+  /* Derivatives for Integrator: '<S80>/Filter' */
+  _rtXdot->Filter_CSTATE = P1K23_B.FilterCoefficient;
+
+  /* Derivatives for Integrator: '<S37>/Integrator' */
+  _rtXdot->Integrator_CSTATE = P1K23_B.IntegralGain;
+
+  /* Derivatives for Integrator: '<S32>/Filter' */
+  _rtXdot->Filter_CSTATE_n = P1K23_B.FilterCoefficient_g;
+
   /* Derivatives for TransferFcn: '<Root>/Rychlost' */
   _rtXdot->Rychlost_CSTATE = 0.0;
   _rtXdot->Rychlost_CSTATE += P1K23_P.Rychlost_A * P1K23_X.Rychlost_CSTATE;
@@ -372,8 +656,8 @@ void P1K23_output2(void)               /* Sample time: [0.005s, 0.0s] */
   /* local block i/o variables */
   boolean_T rtb_DigitalInput;
 
-  /* S-Function (sldrtdi): '<S1>/Digital Input' */
-  /* S-Function Block: <S1>/Digital Input */
+  /* S-Function (sldrtdi): '<S3>/Digital Input' */
+  /* S-Function Block: <S3>/Digital Input */
   {
     double inval[1];
     double* invalp = inval;
@@ -382,12 +666,12 @@ void P1K23_output2(void)               /* Sample time: [0.005s, 0.0s] */
     rtb_DigitalInput = (boolean_T) *invalp++;
   }
 
-  /* Stop: '<S1>/Stop Simulation' */
+  /* Stop: '<S3>/Stop Simulation' */
   if (rtb_DigitalInput) {
     rtmSetStopRequested(P1K23_M, 1);
   }
 
-  /* End of Stop: '<S1>/Stop Simulation' */
+  /* End of Stop: '<S3>/Stop Simulation' */
 }
 
 /* Model update function for TID2 */
@@ -447,9 +731,21 @@ void P1K23_update(int_T tid)
 /* Model initialize function */
 void P1K23_initialize(void)
 {
-  /* Start for S-Function (sldrtao): '<S1>/Analog Output' */
+  /* Start for TransportDelay: '<Root>/Transport Delay' */
+  {
+    real_T *pBuffer = &P1K23_DW.TransportDelay_RWORK.TUbufferArea[0];
+    P1K23_DW.TransportDelay_IWORK.Tail = 0;
+    P1K23_DW.TransportDelay_IWORK.Head = 0;
+    P1K23_DW.TransportDelay_IWORK.Last = 0;
+    P1K23_DW.TransportDelay_IWORK.CircularBufSize = 1024;
+    pBuffer[0] = P1K23_P.TransportDelay_InitOutput;
+    pBuffer[1024] = P1K23_M->Timing.t[0];
+    P1K23_DW.TransportDelay_PWORK.TUbufferPtrs[0] = (void *) &pBuffer[0];
+  }
 
-  /* S-Function Block: <S1>/Analog Output */
+  /* Start for S-Function (sldrtao): '<S3>/Analog Output' */
+
+  /* S-Function Block: <S3>/Analog Output */
   {
     {
       ANALOGIOPARM parm;
@@ -460,9 +756,9 @@ void P1K23_initialize(void)
     }
   }
 
-  /* InitializeConditions for S-Function (sldrtei): '<S1>/Encoder Input' */
+  /* InitializeConditions for S-Function (sldrtei): '<S3>/Encoder Input' */
 
-  /* S-Function Block: <S1>/Encoder Input */
+  /* S-Function Block: <S3>/Encoder Input */
   {
     ENCODERINPARM parm;
     parm.quad = (QUADMODE) 2;
@@ -472,6 +768,16 @@ void P1K23_initialize(void)
                    NULL, &parm);
   }
 
+  /* InitializeConditions for Integrator: '<S80>/Filter' */
+  P1K23_X.Filter_CSTATE = P1K23_P.PIDController1_InitialConditionForFilter;
+
+  /* InitializeConditions for Integrator: '<S37>/Integrator' */
+  P1K23_X.Integrator_CSTATE =
+    P1K23_P.PIDController_InitialConditionForIntegrator;
+
+  /* InitializeConditions for Integrator: '<S32>/Filter' */
+  P1K23_X.Filter_CSTATE_n = P1K23_P.PIDController_InitialConditionForFilter;
+
   /* InitializeConditions for TransferFcn: '<Root>/Rychlost' */
   P1K23_X.Rychlost_CSTATE = 0.0;
 }
@@ -479,9 +785,9 @@ void P1K23_initialize(void)
 /* Model terminate function */
 void P1K23_terminate(void)
 {
-  /* Terminate for S-Function (sldrtao): '<S1>/Analog Output' */
+  /* Terminate for S-Function (sldrtao): '<S3>/Analog Output' */
 
-  /* S-Function Block: <S1>/Analog Output */
+  /* S-Function Block: <S3>/Analog Output */
   {
     {
       ANALOGIOPARM parm;
@@ -632,25 +938,27 @@ RT_MODEL_P1K23_T *P1K23(void)
     P1K23_M->Timing.sampleHits = (&mdlSampleHits[0]);
   }
 
-  rtmSetTFinal(P1K23_M, 2.5);
+  rtmSetTFinal(P1K23_M, 10.0);
   P1K23_M->Timing.stepSize0 = 0.001;
   P1K23_M->Timing.stepSize1 = 0.001;
   P1K23_M->Timing.stepSize2 = 0.005;
 
   /* External mode info */
-  P1K23_M->Sizes.checksums[0] = (2112789199U);
-  P1K23_M->Sizes.checksums[1] = (210657961U);
-  P1K23_M->Sizes.checksums[2] = (2076727260U);
-  P1K23_M->Sizes.checksums[3] = (3344120356U);
+  P1K23_M->Sizes.checksums[0] = (3511948149U);
+  P1K23_M->Sizes.checksums[1] = (2600440148U);
+  P1K23_M->Sizes.checksums[2] = (4234720960U);
+  P1K23_M->Sizes.checksums[3] = (3465127016U);
 
   {
     static const sysRanDType rtAlwaysEnabled = SUBSYS_RAN_BC_ENABLE;
     static RTWExtModeInfo rt_ExtModeInfo;
-    static const sysRanDType *systemRan[2];
+    static const sysRanDType *systemRan[4];
     P1K23_M->extModeInfo = (&rt_ExtModeInfo);
     rteiSetSubSystemActiveVectorAddresses(&rt_ExtModeInfo, systemRan);
     systemRan[0] = &rtAlwaysEnabled;
     systemRan[1] = &rtAlwaysEnabled;
+    systemRan[2] = &rtAlwaysEnabled;
+    systemRan[3] = &rtAlwaysEnabled;
     rteiSetModelMappingInfoPtr(P1K23_M->extModeInfo,
       &P1K23_M->SpecialInfo.mappingInfo);
     rteiSetChecksumsPtr(P1K23_M->extModeInfo, P1K23_M->Sizes.checksums);
@@ -666,10 +974,18 @@ RT_MODEL_P1K23_T *P1K23(void)
   P1K23_M->blockIO = ((void *) &P1K23_B);
 
   {
-    P1K23_B.Motorvoltage = 0.0;
-    P1K23_B.Positionconversion = 0.0;
-    P1K23_B.Speed = 0.0;
+    P1K23_B.Step3 = 0.0;
     P1K23_B.Angleconversion = 0.0;
+    P1K23_B.ProportionalGain = 0.0;
+    P1K23_B.DerivativeGain = 0.0;
+    P1K23_B.FilterCoefficient = 0.0;
+    P1K23_B.Positionconversion = 0.0;
+    P1K23_B.ProportionalGain_m = 0.0;
+    P1K23_B.DerivativeGain_l = 0.0;
+    P1K23_B.FilterCoefficient_g = 0.0;
+    P1K23_B.MotorVoltage = 0.0;
+    P1K23_B.Speed = 0.0;
+    P1K23_B.IntegralGain = 0.0;
   }
 
   /* parameters */
@@ -687,6 +1003,14 @@ RT_MODEL_P1K23_T *P1K23(void)
   P1K23_M->dwork = ((void *) &P1K23_DW);
   (void) memset((void *)&P1K23_DW, 0,
                 sizeof(DW_P1K23_T));
+  P1K23_DW.TransportDelay_RWORK.modelTStart = 0.0;
+
+  {
+    int32_T i;
+    for (i = 0; i < 2048; i++) {
+      P1K23_DW.TransportDelay_RWORK.TUbufferArea[i] = 0.0;
+    }
+  }
 
   /* data type transition information */
   {
@@ -706,16 +1030,16 @@ RT_MODEL_P1K23_T *P1K23(void)
   }
 
   /* Initialize Sizes */
-  P1K23_M->Sizes.numContStates = (1);  /* Number of continuous states */
+  P1K23_M->Sizes.numContStates = (4);  /* Number of continuous states */
   P1K23_M->Sizes.numPeriodicContStates = (0);
                                       /* Number of periodic continuous states */
   P1K23_M->Sizes.numY = (0);           /* Number of model outputs */
   P1K23_M->Sizes.numU = (0);           /* Number of model inputs */
   P1K23_M->Sizes.sysDirFeedThru = (0); /* The model is not direct feedthrough */
   P1K23_M->Sizes.numSampTimes = (3);   /* Number of sample times */
-  P1K23_M->Sizes.numBlocks = (12);     /* Number of blocks */
-  P1K23_M->Sizes.numBlockIO = (4);     /* Number of block outputs */
-  P1K23_M->Sizes.numBlockPrms = (26);  /* Sum of parameter "widths" */
+  P1K23_M->Sizes.numBlocks = (39);     /* Number of blocks */
+  P1K23_M->Sizes.numBlockIO = (12);    /* Number of block outputs */
+  P1K23_M->Sizes.numBlockPrms = (40);  /* Sum of parameter "widths" */
   return P1K23_M;
 }
 

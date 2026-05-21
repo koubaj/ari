@@ -7,9 +7,9 @@
  *
  * Code generation for model "P1K23".
  *
- * Model version              : 9.2
+ * Model version              : 9.5
  * Simulink Coder version : 9.5 (R2021a) 14-Nov-2020
- * C source code generated on : Mon May  4 11:40:24 2026
+ * C source code generated on : Mon May 18 12:36:16 2026
  *
  * Target selection: sldrt.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -20,6 +20,8 @@
 
 #ifndef RTW_HEADER_P1K23_h_
 #define RTW_HEADER_P1K23_h_
+#include <float.h>
+#include <math.h>
 #include <string.h>
 #ifndef P1K23_COMMON_INCLUDES_
 #define P1K23_COMMON_INCLUDES_
@@ -868,35 +870,79 @@
 
 /* Block signals (default storage) */
 typedef struct {
-  real_T Motorvoltage;                 /* '<Root>/Direction switch' */
-  real_T Positionconversion;           /* '<S1>/Position.  conversion' */
+  real_T Step3;                        /* '<Root>/Step3' */
+  real_T Angleconversion;              /* '<S3>/Angle conversion' */
+  real_T ProportionalGain;             /* '<S90>/Proportional Gain' */
+  real_T DerivativeGain;               /* '<S79>/Derivative Gain' */
+  real_T FilterCoefficient;            /* '<S88>/Filter Coefficient' */
+  real_T Positionconversion;           /* '<S3>/Position.  conversion' */
+  real_T ProportionalGain_m;           /* '<S42>/Proportional Gain' */
+  real_T DerivativeGain_l;             /* '<S31>/Derivative Gain' */
+  real_T FilterCoefficient_g;          /* '<S40>/Filter Coefficient' */
+  real_T MotorVoltage;                 /* '<Root>/Sum3' */
   real_T Speed;                        /* '<Root>/Rychlost' */
-  real_T Angleconversion;              /* '<S1>/Angle conversion' */
+  real_T IntegralGain;                 /* '<S34>/Integral Gain' */
 } B_P1K23_T;
 
 /* Block states (default storage) for system '<Root>' */
 typedef struct {
-  void *EncoderInput_PWORK;            /* '<S1>/Encoder Input' */
+  struct {
+    real_T modelTStart;
+    real_T TUbufferArea[2048];
+  } TransportDelay_RWORK;              /* '<Root>/Transport Delay' */
+
+  struct {
+    void *TUbufferPtrs[2];
+  } TransportDelay_PWORK;              /* '<Root>/Transport Delay' */
+
+  void *EncoderInput_PWORK;            /* '<S3>/Encoder Input' */
   struct {
     void *LoggedData;
   } Scope_PWORK;                       /* '<Root>/Scope' */
 
-  void *AnalogOutput_PWORK;            /* '<S1>/Analog Output' */
-  void *DigitalInput_PWORK;            /* '<S1>/Digital Input' */
+  struct {
+    void *LoggedData;
+  } angle_PWORK;                       /* '<Root>/angle' */
+
+  struct {
+    void *LoggedData;
+  } motorvoltage_PWORK;                /* '<Root>/motor voltage' */
+
+  struct {
+    void *LoggedData;
+  } position_PWORK;                    /* '<Root>/position' */
+
+  void *AnalogOutput_PWORK;            /* '<S3>/Analog Output' */
+  void *DigitalInput_PWORK;            /* '<S3>/Digital Input' */
+  struct {
+    int_T Tail;
+    int_T Head;
+    int_T Last;
+    int_T CircularBufSize;
+  } TransportDelay_IWORK;              /* '<Root>/Transport Delay' */
 } DW_P1K23_T;
 
 /* Continuous states (default storage) */
 typedef struct {
+  real_T Filter_CSTATE;                /* '<S80>/Filter' */
+  real_T Integrator_CSTATE;            /* '<S37>/Integrator' */
+  real_T Filter_CSTATE_n;              /* '<S32>/Filter' */
   real_T Rychlost_CSTATE;              /* '<Root>/Rychlost' */
 } X_P1K23_T;
 
 /* State derivatives (default storage) */
 typedef struct {
+  real_T Filter_CSTATE;                /* '<S80>/Filter' */
+  real_T Integrator_CSTATE;            /* '<S37>/Integrator' */
+  real_T Filter_CSTATE_n;              /* '<S32>/Filter' */
   real_T Rychlost_CSTATE;              /* '<Root>/Rychlost' */
 } XDot_P1K23_T;
 
 /* State disabled  */
 typedef struct {
+  boolean_T Filter_CSTATE;             /* '<S80>/Filter' */
+  boolean_T Integrator_CSTATE;         /* '<S37>/Integrator' */
+  boolean_T Filter_CSTATE_n;           /* '<S32>/Filter' */
   boolean_T Rychlost_CSTATE;           /* '<Root>/Rychlost' */
 } XDis_P1K23_T;
 
@@ -927,71 +973,116 @@ typedef struct {
 
 /* Parameters (default storage) */
 struct P_P1K23_T_ {
+  real_T PIDController1_D;             /* Mask Parameter: PIDController1_D
+                                        * Referenced by: '<S79>/Derivative Gain'
+                                        */
+  real_T PIDController_D;              /* Mask Parameter: PIDController_D
+                                        * Referenced by: '<S31>/Derivative Gain'
+                                        */
   real_T AnalogOutput_FinalValue;     /* Mask Parameter: AnalogOutput_FinalValue
-                                       * Referenced by: '<S1>/Analog Output'
+                                       * Referenced by: '<S3>/Analog Output'
                                        */
+  real_T PIDController_I;              /* Mask Parameter: PIDController_I
+                                        * Referenced by: '<S34>/Integral Gain'
+                                        */
+  real_T PIDController1_InitialConditionForFilter;
+                     /* Mask Parameter: PIDController1_InitialConditionForFilter
+                      * Referenced by: '<S80>/Filter'
+                      */
+  real_T PIDController_InitialConditionForFilter;
+                      /* Mask Parameter: PIDController_InitialConditionForFilter
+                       * Referenced by: '<S32>/Filter'
+                       */
+  real_T PIDController_InitialConditionForIntegrator;
+                  /* Mask Parameter: PIDController_InitialConditionForIntegrator
+                   * Referenced by: '<S37>/Integrator'
+                   */
   real_T AnalogOutput_InitialValue; /* Mask Parameter: AnalogOutput_InitialValue
-                                     * Referenced by: '<S1>/Analog Output'
+                                     * Referenced by: '<S3>/Analog Output'
                                      */
   real_T EncoderInput_InputFilter;   /* Mask Parameter: EncoderInput_InputFilter
-                                      * Referenced by: '<S1>/Encoder Input'
+                                      * Referenced by: '<S3>/Encoder Input'
                                       */
   real_T EncoderInput_MaxMissedTicks;
                                   /* Mask Parameter: EncoderInput_MaxMissedTicks
-                                   * Referenced by: '<S1>/Encoder Input'
+                                   * Referenced by: '<S3>/Encoder Input'
                                    */
   real_T AnalogOutput_MaxMissedTicks;
                                   /* Mask Parameter: AnalogOutput_MaxMissedTicks
-                                   * Referenced by: '<S1>/Analog Output'
+                                   * Referenced by: '<S3>/Analog Output'
                                    */
   real_T DigitalInput_MaxMissedTicks;
                                   /* Mask Parameter: DigitalInput_MaxMissedTicks
-                                   * Referenced by: '<S1>/Digital Input'
+                                   * Referenced by: '<S3>/Digital Input'
                                    */
+  real_T PIDController1_N;             /* Mask Parameter: PIDController1_N
+                                        * Referenced by: '<S88>/Filter Coefficient'
+                                        */
+  real_T PIDController_N;              /* Mask Parameter: PIDController_N
+                                        * Referenced by: '<S40>/Filter Coefficient'
+                                        */
+  real_T PIDController1_P;             /* Mask Parameter: PIDController1_P
+                                        * Referenced by: '<S90>/Proportional Gain'
+                                        */
+  real_T PIDController_P;              /* Mask Parameter: PIDController_P
+                                        * Referenced by: '<S42>/Proportional Gain'
+                                        */
   real_T EncoderInput_YieldWhenWaiting;
                                 /* Mask Parameter: EncoderInput_YieldWhenWaiting
-                                 * Referenced by: '<S1>/Encoder Input'
+                                 * Referenced by: '<S3>/Encoder Input'
                                  */
   real_T AnalogOutput_YieldWhenWaiting;
                                 /* Mask Parameter: AnalogOutput_YieldWhenWaiting
-                                 * Referenced by: '<S1>/Analog Output'
+                                 * Referenced by: '<S3>/Analog Output'
                                  */
   real_T DigitalInput_YieldWhenWaiting;
                                 /* Mask Parameter: DigitalInput_YieldWhenWaiting
-                                 * Referenced by: '<S1>/Digital Input'
+                                 * Referenced by: '<S3>/Digital Input'
                                  */
   int32_T DigitalInput_BitMode;        /* Mask Parameter: DigitalInput_BitMode
-                                        * Referenced by: '<S1>/Digital Input'
+                                        * Referenced by: '<S3>/Digital Input'
                                         */
   int32_T EncoderInput_Channels[2];    /* Mask Parameter: EncoderInput_Channels
-                                        * Referenced by: '<S1>/Encoder Input'
+                                        * Referenced by: '<S3>/Encoder Input'
                                         */
   int32_T AnalogOutput_Channels;       /* Mask Parameter: AnalogOutput_Channels
-                                        * Referenced by: '<S1>/Analog Output'
+                                        * Referenced by: '<S3>/Analog Output'
                                         */
   int32_T DigitalInput_Channels;       /* Mask Parameter: DigitalInput_Channels
-                                        * Referenced by: '<S1>/Digital Input'
+                                        * Referenced by: '<S3>/Digital Input'
                                         */
   int32_T AnalogOutput_RangeMode;      /* Mask Parameter: AnalogOutput_RangeMode
-                                        * Referenced by: '<S1>/Analog Output'
+                                        * Referenced by: '<S3>/Analog Output'
                                         */
   int32_T AnalogOutput_VoltRange;      /* Mask Parameter: AnalogOutput_VoltRange
-                                        * Referenced by: '<S1>/Analog Output'
+                                        * Referenced by: '<S3>/Analog Output'
                                         */
-  real_T Gain1_Gain;                   /* Expression: -1
-                                        * Referenced by: '<Root>/Gain1'
+  real_T Step3_Time;                   /* Expression: 1
+                                        * Referenced by: '<Root>/Step3'
                                         */
-  real_T Step_Time;                    /* Expression: 1
-                                        * Referenced by: '<Root>/Step'
+  real_T Step3_Y0;                     /* Expression: 0
+                                        * Referenced by: '<Root>/Step3'
                                         */
-  real_T Step_Y0;                      /* Expression: 0
-                                        * Referenced by: '<Root>/Step'
+  real_T Step3_YFinal;                 /* Expression: -0.4
+                                        * Referenced by: '<Root>/Step3'
                                         */
-  real_T Step_YFinal;                  /* Expression: 0.35
-                                        * Referenced by: '<Root>/Step'
+  real_T TransportDelay_Delay;         /* Expression: 1.6
+                                        * Referenced by: '<Root>/Transport Delay'
+                                        */
+  real_T TransportDelay_InitOutput;    /* Expression: 0
+                                        * Referenced by: '<Root>/Transport Delay'
+                                        */
+  real_T Constant1_Value;              /* Expression: 0
+                                        * Referenced by: '<Root>/Constant1'
+                                        */
+  real_T Angleconversion_Gain;         /* Expression: -2*pi/4096
+                                        * Referenced by: '<S3>/Angle conversion'
+                                        */
+  real_T Constant_Value;               /* Expression: -0.3
+                                        * Referenced by: '<Root>/Constant'
                                         */
   real_T Positionconversion_Gain;      /* Expression: -0.093/4096
-                                        * Referenced by: '<S1>/Position.  conversion'
+                                        * Referenced by: '<S3>/Position.  conversion'
                                         */
   real_T Rychlost_A;                   /* Computed Parameter: Rychlost_A
                                         * Referenced by: '<Root>/Rychlost'
@@ -1002,13 +1093,14 @@ struct P_P1K23_T_ {
   real_T Rychlost_D;                   /* Computed Parameter: Rychlost_D
                                         * Referenced by: '<Root>/Rychlost'
                                         */
-  real_T Angleconversion_Gain;         /* Expression: -2*pi/4096
-                                        * Referenced by: '<S1>/Angle conversion'
-                                        */
-  uint8_T Directionswitch_CurrentSetting;
-                           /* Computed Parameter: Directionswitch_CurrentSetting
-                            * Referenced by: '<Root>/Direction switch'
-                            */
+  uint8_T ManualSwitch_CurrentSetting;
+                              /* Computed Parameter: ManualSwitch_CurrentSetting
+                               * Referenced by: '<Root>/Manual Switch'
+                               */
+  uint8_T ManualSwitch1_CurrentSetting;
+                             /* Computed Parameter: ManualSwitch1_CurrentSetting
+                              * Referenced by: '<Root>/Manual Switch1'
+                              */
 };
 
 /* Real-time Model Data Structure */
@@ -1037,8 +1129,8 @@ struct tag_RTM_P1K23_T {
   boolean_T zCCacheNeedsReset;
   boolean_T derivCacheNeedsReset;
   boolean_T CTOutputIncnstWithState;
-  real_T odeY[1];
-  real_T odeF[6][1];
+  real_T odeY[4];
+  real_T odeF[6][4];
   ODE5_IntgData intgData;
   void *dwork;
 
@@ -1179,7 +1271,106 @@ extern RT_MODEL_P1K23_T *const P1K23_M;
  * Here is the system hierarchy for this model
  *
  * '<Root>' : 'P1K23'
- * '<S1>'   : 'P1K23/Pendulum P1'
- * '<S2>'   : 'P1K23/Ramp'
+ * '<S1>'   : 'P1K23/PID Controller'
+ * '<S2>'   : 'P1K23/PID Controller1'
+ * '<S3>'   : 'P1K23/Pendulum P1'
+ * '<S4>'   : 'P1K23/Ramp'
+ * '<S5>'   : 'P1K23/Ramp1'
+ * '<S6>'   : 'P1K23/PID Controller/Anti-windup'
+ * '<S7>'   : 'P1K23/PID Controller/D Gain'
+ * '<S8>'   : 'P1K23/PID Controller/Filter'
+ * '<S9>'   : 'P1K23/PID Controller/Filter ICs'
+ * '<S10>'  : 'P1K23/PID Controller/I Gain'
+ * '<S11>'  : 'P1K23/PID Controller/Ideal P Gain'
+ * '<S12>'  : 'P1K23/PID Controller/Ideal P Gain Fdbk'
+ * '<S13>'  : 'P1K23/PID Controller/Integrator'
+ * '<S14>'  : 'P1K23/PID Controller/Integrator ICs'
+ * '<S15>'  : 'P1K23/PID Controller/N Copy'
+ * '<S16>'  : 'P1K23/PID Controller/N Gain'
+ * '<S17>'  : 'P1K23/PID Controller/P Copy'
+ * '<S18>'  : 'P1K23/PID Controller/Parallel P Gain'
+ * '<S19>'  : 'P1K23/PID Controller/Reset Signal'
+ * '<S20>'  : 'P1K23/PID Controller/Saturation'
+ * '<S21>'  : 'P1K23/PID Controller/Saturation Fdbk'
+ * '<S22>'  : 'P1K23/PID Controller/Sum'
+ * '<S23>'  : 'P1K23/PID Controller/Sum Fdbk'
+ * '<S24>'  : 'P1K23/PID Controller/Tracking Mode'
+ * '<S25>'  : 'P1K23/PID Controller/Tracking Mode Sum'
+ * '<S26>'  : 'P1K23/PID Controller/Tsamp - Integral'
+ * '<S27>'  : 'P1K23/PID Controller/Tsamp - Ngain'
+ * '<S28>'  : 'P1K23/PID Controller/postSat Signal'
+ * '<S29>'  : 'P1K23/PID Controller/preSat Signal'
+ * '<S30>'  : 'P1K23/PID Controller/Anti-windup/Passthrough'
+ * '<S31>'  : 'P1K23/PID Controller/D Gain/Internal Parameters'
+ * '<S32>'  : 'P1K23/PID Controller/Filter/Cont. Filter'
+ * '<S33>'  : 'P1K23/PID Controller/Filter ICs/Internal IC - Filter'
+ * '<S34>'  : 'P1K23/PID Controller/I Gain/Internal Parameters'
+ * '<S35>'  : 'P1K23/PID Controller/Ideal P Gain/Passthrough'
+ * '<S36>'  : 'P1K23/PID Controller/Ideal P Gain Fdbk/Disabled'
+ * '<S37>'  : 'P1K23/PID Controller/Integrator/Continuous'
+ * '<S38>'  : 'P1K23/PID Controller/Integrator ICs/Internal IC'
+ * '<S39>'  : 'P1K23/PID Controller/N Copy/Disabled'
+ * '<S40>'  : 'P1K23/PID Controller/N Gain/Internal Parameters'
+ * '<S41>'  : 'P1K23/PID Controller/P Copy/Disabled'
+ * '<S42>'  : 'P1K23/PID Controller/Parallel P Gain/Internal Parameters'
+ * '<S43>'  : 'P1K23/PID Controller/Reset Signal/Disabled'
+ * '<S44>'  : 'P1K23/PID Controller/Saturation/Passthrough'
+ * '<S45>'  : 'P1K23/PID Controller/Saturation Fdbk/Disabled'
+ * '<S46>'  : 'P1K23/PID Controller/Sum/Sum_PID'
+ * '<S47>'  : 'P1K23/PID Controller/Sum Fdbk/Disabled'
+ * '<S48>'  : 'P1K23/PID Controller/Tracking Mode/Disabled'
+ * '<S49>'  : 'P1K23/PID Controller/Tracking Mode Sum/Passthrough'
+ * '<S50>'  : 'P1K23/PID Controller/Tsamp - Integral/Passthrough'
+ * '<S51>'  : 'P1K23/PID Controller/Tsamp - Ngain/Passthrough'
+ * '<S52>'  : 'P1K23/PID Controller/postSat Signal/Forward_Path'
+ * '<S53>'  : 'P1K23/PID Controller/preSat Signal/Forward_Path'
+ * '<S54>'  : 'P1K23/PID Controller1/Anti-windup'
+ * '<S55>'  : 'P1K23/PID Controller1/D Gain'
+ * '<S56>'  : 'P1K23/PID Controller1/Filter'
+ * '<S57>'  : 'P1K23/PID Controller1/Filter ICs'
+ * '<S58>'  : 'P1K23/PID Controller1/I Gain'
+ * '<S59>'  : 'P1K23/PID Controller1/Ideal P Gain'
+ * '<S60>'  : 'P1K23/PID Controller1/Ideal P Gain Fdbk'
+ * '<S61>'  : 'P1K23/PID Controller1/Integrator'
+ * '<S62>'  : 'P1K23/PID Controller1/Integrator ICs'
+ * '<S63>'  : 'P1K23/PID Controller1/N Copy'
+ * '<S64>'  : 'P1K23/PID Controller1/N Gain'
+ * '<S65>'  : 'P1K23/PID Controller1/P Copy'
+ * '<S66>'  : 'P1K23/PID Controller1/Parallel P Gain'
+ * '<S67>'  : 'P1K23/PID Controller1/Reset Signal'
+ * '<S68>'  : 'P1K23/PID Controller1/Saturation'
+ * '<S69>'  : 'P1K23/PID Controller1/Saturation Fdbk'
+ * '<S70>'  : 'P1K23/PID Controller1/Sum'
+ * '<S71>'  : 'P1K23/PID Controller1/Sum Fdbk'
+ * '<S72>'  : 'P1K23/PID Controller1/Tracking Mode'
+ * '<S73>'  : 'P1K23/PID Controller1/Tracking Mode Sum'
+ * '<S74>'  : 'P1K23/PID Controller1/Tsamp - Integral'
+ * '<S75>'  : 'P1K23/PID Controller1/Tsamp - Ngain'
+ * '<S76>'  : 'P1K23/PID Controller1/postSat Signal'
+ * '<S77>'  : 'P1K23/PID Controller1/preSat Signal'
+ * '<S78>'  : 'P1K23/PID Controller1/Anti-windup/Disabled'
+ * '<S79>'  : 'P1K23/PID Controller1/D Gain/Internal Parameters'
+ * '<S80>'  : 'P1K23/PID Controller1/Filter/Cont. Filter'
+ * '<S81>'  : 'P1K23/PID Controller1/Filter ICs/Internal IC - Filter'
+ * '<S82>'  : 'P1K23/PID Controller1/I Gain/Disabled'
+ * '<S83>'  : 'P1K23/PID Controller1/Ideal P Gain/Passthrough'
+ * '<S84>'  : 'P1K23/PID Controller1/Ideal P Gain Fdbk/Disabled'
+ * '<S85>'  : 'P1K23/PID Controller1/Integrator/Disabled'
+ * '<S86>'  : 'P1K23/PID Controller1/Integrator ICs/Disabled'
+ * '<S87>'  : 'P1K23/PID Controller1/N Copy/Disabled'
+ * '<S88>'  : 'P1K23/PID Controller1/N Gain/Internal Parameters'
+ * '<S89>'  : 'P1K23/PID Controller1/P Copy/Disabled'
+ * '<S90>'  : 'P1K23/PID Controller1/Parallel P Gain/Internal Parameters'
+ * '<S91>'  : 'P1K23/PID Controller1/Reset Signal/Disabled'
+ * '<S92>'  : 'P1K23/PID Controller1/Saturation/Passthrough'
+ * '<S93>'  : 'P1K23/PID Controller1/Saturation Fdbk/Disabled'
+ * '<S94>'  : 'P1K23/PID Controller1/Sum/Sum_PD'
+ * '<S95>'  : 'P1K23/PID Controller1/Sum Fdbk/Disabled'
+ * '<S96>'  : 'P1K23/PID Controller1/Tracking Mode/Disabled'
+ * '<S97>'  : 'P1K23/PID Controller1/Tracking Mode Sum/Passthrough'
+ * '<S98>'  : 'P1K23/PID Controller1/Tsamp - Integral/Disabled wSignal Specification'
+ * '<S99>'  : 'P1K23/PID Controller1/Tsamp - Ngain/Passthrough'
+ * '<S100>' : 'P1K23/PID Controller1/postSat Signal/Forward_Path'
+ * '<S101>' : 'P1K23/PID Controller1/preSat Signal/Forward_Path'
  */
 #endif                                 /* RTW_HEADER_P1K23_h_ */

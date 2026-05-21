@@ -357,7 +357,7 @@ horní polohu), viz obrázek~\ref{fig:state_prefilter_simulink}.
 Z grafu~\ref{fig:state_prefilter_phi_old} vidím, že kyvadlo během pohybu velmi
 kmitá. Toto kmitání bych chtěl utlumit, zvolím proto komplexně sdružené póly
 tak, aby měly stejnou imaginární hodnotu, jako matice $\mathbf{A}$, ale větší
-imaginární hodnotu. Zbylé dva póly zmenším tak, abych vstupním napětím
+reálnou hodnotu. Zbylé dva póly zmenším tak, abych vstupním napětím
 nedosahoval na saturaci, tedy $p = [-7-13.52i, -7+13.52i, -1.2, -1]$.
 Výsledek vidím na obrázcích~\ref{fig:state_prefilter_x}
 a~\ref{fig:state_prefilter_phi_new}.
@@ -500,6 +500,17 @@ Nejdříve je nutné identifikovat systém. Přípustné hodnoty vstupního nap�
 v rozsahu $u \in [-1, 1]$, ale reálné napětí je desetkrát větší, tedy $u \in
 [-10, 10] \mathrm{[V]}$. Deadzone jsem postupným zvyšováním napětí (viz obrázek
 TODO doplnit) identifikoval na hodnotu 0.14.
+
+$l=1.1$
+$T = 10.07-9.45 = 0.62$
+$\omega = \frac{2\pi}{T} = 10.134$
+$J = \frac{mg\frac{l}{2}}{\omega^2} = 0.0014$
+
+$A = \frac{1}{5}\mathrm{ln}\left(\frac{A_1}{A_5}\right) = \frac{1}{5}\mathrm{ln}\left(\frac{1.655}{1.215}\right) = 0.174$
+
+$\delta = \frac{2JA}{T} = $
+
+$\tau = 0.26 \mathrm{s}$
 
 \begin{thebibliography}{9}
 \bibitem{zadani}
