@@ -106,10 +106,11 @@ pdf zadání, viz obr.~\ref{fig:kontrola}.
   \caption{Kontrola rovnic}\label{fig:kontrola}
 \end{figure}
 
-Rovnice vypadají po přepsání stejně, až na to, že v Matlabu se vyskytuje $2l$
-všude, kde je v pdf napsáno $l$. Dále budu pokračovat s údaji z Matlabu. Ještě
-jsem si všimnul, že v pdf zadání se nachází drobná chyba v jednotkách pro $J_p$:
-setrvačnost musí mít jednotku [kg\,m$^2$]. 
+Rovnice vypadají po přepsání stejně, až na to, že v Matlabu je hodnota $l$ všude
+vynásobena $2$. Jedná se o chybu ve značení mezi délkou celého kyvadla a
+vzdáleností od konce kyvaldla po jeho těžiště. Dále budu pokračovat s údaji z
+Matlabu. Ještě jsem si všimnul, že v pdf zadání se nachází drobná chyba v
+jednotkách pro $J_p$: setrvačnost musí mít jednotku [kg\,m$^2$]. 
  
 \subsection{Omezení vstupu a výstupu}
 Pro vstupní napětí je v zadaném programu uvedena saturace: vozík bude přijímat
@@ -120,7 +121,7 @@ viz obrázek~\ref{fig:Deadzone}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/deadzone.png}
+  \includegraphics[width=0.8\textwidth]{img/deadzone.png}
   \caption{Zjišťování deadzone}\label{fig:Deadzone}
 \end{figure}
 
@@ -190,13 +191,13 @@ a~\ref{fig:Without_sat_and_deadzone_out}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/without_sat_and_deadzone_in.png}
+  \includegraphics[width=0.8\textwidth]{img/without_sat_and_deadzone_in.png}
   \caption{Zapojení bez saturace a deadzone - vstup}\label{fig:Without_sat_and_deadzone_in}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/without_sat_and_deadzone_out.png}
+  \includegraphics[width=0.8\textwidth]{img/without_sat_and_deadzone_out.png}
   \caption{Zapojení bez saturace a deadzone - výstup}\label{fig:Without_sat_and_deadzone_out}
 \end{figure}
 
@@ -208,7 +209,7 @@ cílové hodnotě - výsledky jsou na obrázku~\ref{fig:P_pos_overshoot}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/P_pos_overshoot.png}
+  \includegraphics[width=0.8\textwidth]{img/P_pos_overshoot.png}
   \caption{Překmir P regulátoru}\label{fig:P_pos_overshoot}
 \end{figure}
 
@@ -219,7 +220,7 @@ existencí pásma necitlivosti, které dělá tento problém neřešitelným.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/P_pos_inf_error.png}
+  \includegraphics[width=0.8\textwidth]{img/P_pos_inf_error.png}
   \caption{Ustálení na špatné hodnotě}\label{fig:P_pos_inf_error}
 \end{figure}
 
@@ -234,13 +235,13 @@ překmit menší než $15 \%$ a dobu ustálení na $90 \%$ reference za $11
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/rltool_pid_pos.png}
+  \includegraphics[width=0.8\textwidth]{img/rltool_pid_pos.png}
   \caption{Hledání parametrů PID regulátoru pomocí rltool}\label{fig:rltool_pid_pos}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/PID_pos.png}
+  \includegraphics[width=0.8\textwidth]{img/PID_pos.png}
   \caption{Regulace vozíku na polohu $x=1$}\label{fig:PID_pos}
 \end{figure}
 
@@ -258,7 +259,7 @@ obrázku~\ref{fig:reference_model}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/reference_model.png}
+  \includegraphics[width=0.8\textwidth]{img/reference_model.png}
   \caption{Regulace vozíku s modelem reference}\label{fig:reference_model}
 \end{figure}
 
@@ -281,7 +282,7 @@ otpimální regulátor na obrázku~\ref{fig:rltool_phi}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/rltool_phi.png}
+  \includegraphics[width=0.8\textwidth]{img/rltool_phi.png}
   \caption{Hlednání paramterů D regulátoru pomocí rltool}\label{fig:rltool_phi}
 \end{figure}
 
@@ -292,13 +293,13 @@ obrázku~\ref{fig:oscillation_with}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/oscillation_without_regulator.png}
+  \includegraphics[width=0.8\textwidth]{img/oscillation_without_regulator.png}
   \caption{Kmitání bez regulátoru}\label{fig:oscillation_without}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/oscillation_with_regulator.png}
+  \includegraphics[width=0.8\textwidth]{img/oscillation_with_regulator.png}
   \caption{Kmitání s regulátorem}\label{fig:oscillation_with}
 \end{figure}
 
@@ -318,19 +319,19 @@ obrázky~\ref{fig:posicast_simulink}~\ref{fig:posicast_x}~\ref{fig:posicast_phi}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/posicast_simulink.png}
+  \includegraphics[width=0.8\textwidth]{img/posicast_simulink.png}
   \caption{Implementace posicastu v Simulinku}\label{fig:posicast_simulink}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/posicast_x.png}
+  \includegraphics[width=0.8\textwidth]{img/posicast_x.png}
   \caption{Poloha vozíku s poisicastem}\label{fig:posicast_x}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/posicast_phi.png}
+  \includegraphics[width=0.8\textwidth]{img/posicast_phi.png}
   \caption{Úhel kyvadla s poisicastem}\label{fig:posicast_phi}
 \end{figure}
 
@@ -350,7 +351,7 @@ horní polohu), viz obrázek~\ref{fig:state_prefilter_simulink}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_prefilter_simulink.png}
+  \includegraphics[width=0.8\textwidth]{img/state_prefilter_simulink.png}
   \caption{Zapojení stavové zpětné vazby s předfiltrem v Simulinku}\label{fig:state_prefilter_simulink}
 \end{figure}
 
@@ -364,19 +365,19 @@ a~\ref{fig:state_prefilter_phi_new}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_prefilter_phi_old.png}
+  \includegraphics[width=0.8\textwidth]{img/state_prefilter_phi_old.png}
   \caption{Úhel kyvadla s neodladěnými póly}\label{fig:state_prefilter_phi_old}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_prefilter_x.png}
+  \includegraphics[width=0.8\textwidth]{img/state_prefilter_x.png}
   \caption{Poloha vozíku se stavovou zpětnou vazbou}\label{fig:state_prefilter_x}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_prefilter_phi_new.png}
+  \includegraphics[width=0.8\textwidth]{img/state_prefilter_phi_new.png}
   \caption{Úhel kyvadla se stavovou zpětnou vazbou}\label{fig:state_prefilter_phi_new}
 \end{figure}
 
@@ -391,13 +392,13 @@ a~\ref{fig:state_prefilter_up_phi}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_prefilter_up_x.png}
+  \includegraphics[width=0.8\textwidth]{img/state_prefilter_up_x.png}
   \caption{}\label{fig:state_prefilter_up_x}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_prefilter_up_phi.png}
+  \includegraphics[width=0.8\textwidth]{img/state_prefilter_up_phi.png}
   \caption{}\label{fig:state_prefilter_up_phi}
 \end{figure}
 
@@ -409,7 +410,7 @@ step o hodnotě 1 v čase 2. Proto je potřeba implementovat integrální říze
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_prefilter_x_disorder.png}
+  \includegraphics[width=0.8\textwidth]{img/state_prefilter_x_disorder.png}
   \caption{Ustálená odchylka jako reakce na poruchu}\label{fig:state_prefilter_x_disorder}
 \end{figure}
 
@@ -421,7 +422,7 @@ obrázku~\ref{fig:state_integral_simulink}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_integral_simulink.png}
+  \includegraphics[width=0.8\textwidth]{img/state_integral_simulink.png}
   \caption{Zapojení stavové zpětné vazby s integrálním řešením v Simulinku}\label{fig:state_integral_simulink}
 \end{figure}
 
@@ -441,25 +442,25 @@ kyvadla.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_integral_down_x.png}
+  \includegraphics[width=0.8\textwidth]{img/state_integral_down_x.png}
   \caption{Stavová zpětná vazba pro dolní polohu: x}\label{fig:state_integral_down_x}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_integral_down_phi.png}
+  \includegraphics[width=0.8\textwidth]{img/state_integral_down_phi.png}
   \caption{Stavová zpětná vazba pro dolní polohu: $\varphi$}\label{fig:state_integral_down_phi}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_integral_up_x.png}
+  \includegraphics[width=0.8\textwidth]{img/state_integral_up_x.png}
   \caption{Stavová zpětná vazba pro horní polohu: x}\label{fig:state_integral_up_x}
 \end{figure}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/state_integral_up_phi.png}
+  \includegraphics[width=0.8\textwidth]{img/state_integral_up_phi.png}
   \caption{Stavová zpětná vazba pro horní polohu: $\varphi$}\label{fig:state_integral_up_phi}
 \end{figure}
 
@@ -473,7 +474,7 @@ obrázku~\ref{fig:observer_simulink}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/observer_simulink.png}
+  \includegraphics[width=0.8\textwidth]{img/observer_simulink.png}
   \caption{Zapojení pozorovatele v Simulinku}\label{fig:observer_simulink}
 \end{figure}
 
@@ -484,7 +485,7 @@ také stalo, viz obrázek~\ref{fig:observer_test}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.6\textwidth]{img/observer_test.png}
+  \includegraphics[width=0.8\textwidth]{img/observer_test.png}
   \caption{Testování pozorovatele - graf rychlosti a úhlové rychlosti}\label{fig:observer_test}
 \end{figure}
 
@@ -496,21 +497,109 @@ program skrz Siumulink, který za běhu ovládá reálné kyvadlo a vrací mi po
 muset přizpůsobit své regulátory.
 
 \subsection{Identifikace systému}
-Nejdříve je nutné identifikovat systém. Přípustné hodnoty vstupního napětí jsou
-v rozsahu $u \in [-1, 1]$, ale reálné napětí je desetkrát větší, tedy $u \in
-[-10, 10] \mathrm{[V]}$. Deadzone jsem postupným zvyšováním napětí (viz obrázek
-TODO doplnit) identifikoval na hodnotu 0.14.
+Nejdříve je nutné identifikovat systém. Rozhodl jsem se pro zjištění parametrů
+kyvadla, abych dostal nové matice $\mathbf{A}$ a $\mathbf{B}$ a mohl použít
+stejné výpočty, jako v simulaci, pouze s novými maticemi. Přípustné hodnoty
+vstupního napětí jsou v rozsahu $u \in [-1, 1]$, ale reálné napětí je desetkrát
+větší, tedy $u \in [-10, 10] \mathrm{[V]}$. Deadzone jsem postupným zvyšováním
+napětí identifikoval přibližně na hodnotu 0.14.
 
-$l=1.1$
-$T = 10.07-9.45 = 0.62$
-$\omega = \frac{2\pi}{T} = 10.134$
-$J = \frac{mg\frac{l}{2}}{\omega^2} = 0.0014$
+Co se samotných veličin týče, tak délku kyvadla jsem změřil na $l=0.11
+\mathrm{m}$ a vzdálenost od konce kyvadla k jeho těžišti na $l_{cm} = 0.04
+\mathrm{m}$. Hmotnost kyvadla jsem zvážil kuchyňskou váhodu jako $m=0.157
+\mathrm{kg}$ a hmotnost vozízku jako $M=0.55 \mathrm{Kg}$.
 
-$A = \frac{1}{5}\mathrm{ln}\left(\frac{A_1}{A_5}\right) = \frac{1}{5}\mathrm{ln}\left(\frac{1.655}{1.215}\right) = 0.174$
+Dále jsem potřeboval zjistit moment hybnosti kyvadla. Nechal zabrzdil jsem vozík
+a nechal kyvadlo volně kmitat. Perioda mezi kmity vyšla jako $T=0.58
+\mathrm{s}$, z čehož dostávám úhlovou rychlost $\omega=\frac{2\pi}{T} = 10.83
+\mathrm{rad} \cdot \mathrm{s}^{-1}$. Moment hybnosti spočítám jako $J =
+\frac{mgl_{cm}}{\omega^2} = 5.64\cdot10^{-4} \mathrm{kg}\cdot\mathrm{m}^{-2}$.
 
-$\delta = \frac{2JA}{T} = $
+Pro konstantu tření vozíku vezmu opět graf, při kterém kyvadlo volně kmitá,
+Vyberu si první a pátý kmit, vypočítám logaritmus podílu jejich amplitud a
+vydělím $5$: $\Lambda =
+\frac{1}{5}\mathrm{ln}\left(\frac{\Lambda_1}{\Lambda_5}\right) =
+\frac{1}{5}\mathrm{ln}\left(\frac{1.655}{1.215}\right) = 0.174$
 
-$\tau = 0.26 \mathrm{s}$
+Už mi chybí pouze konstanta tření vozíku a podíl vstupního napětí vůči působící
+síle.  Pro test odmontuji kyvadlo, aby neovlivňovalo pohyb vozíku. Chci
+provést přechodový děj - do kyvadla pustím konstantní napětí $U_{in} = 4
+\mathrm{V}$ po dobu $1.6 \mathrm{s}$. Zjistím čas $\tau=0.26\mathrm{s}$, za
+který kyvadlo dosáhne $63\%$ rychlosti. Konstantu tření vozíku spočítám jako $b
+= \frac{M}{\tau} = 2.12$.  Podíl vstupního napětí vůči působící síle získám jako
+$k_f = b\frac{v_{max}}{U_{in}} = 2.96 \mathrm{N}\cdot \mathrm{V}^{-1}$.
+
+\subsection{PID regulátor polohy s tlumením kmitů}
+Schéma zapojení zůstává stejné, jako v simulaci. Získal jsem nové matice 
+představující kyvadlo, takže pomocí pomocí nástroje \texttt{rltool} odladím
+hodnoty regulátoru pro pohyb vozíku a pro tlumení kyvadla. Grafy lze vidět na
+obrázcích~\ref{fig:real_rltool_pid_pos} a~\ref{fig:real_rltool_phi}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/real/rltool_pid_pos.png}
+  \caption{Hledání parametrů PID regulátoru pomocí rltool}\label{fig:real_rltool_pid_pos}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/real/rltool_phi.png}
+  \caption{Hledání parametrů D regulátoru pomocí rltool}\label{fig:real_rltool_phi}
+\end{figure}
+
+Dále uvádím grafy ukazující samotný pohyb kyvadla bez zapnutého tlumení
+kmitů~\ref{fig:real_pid_pos_without_d} a s tlumením
+kmitů~\ref{fig:real_pid_pos_with_d}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/real/pid_pos_without_phi.png}
+  \caption{PID regulátor polohy kyvadla bez tlumení kmitů}\label{fig:real_pid_pos_without_d}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/real/pid_pos_with_d.png}
+  \caption{PID regulátor polohy kyvadla s tlumením kmitů}\label{fig:real_pid_pos_with_d}
+\end{figure}
+
+\subsection{Stavová zpětná vazba}
+Pro obě řešení jsem rovnou zvolil metodu s integrálním řešením a s pozorovatelem, protže jsou nejefektivnější.
+
+\subsubsection{Dolní poloha}
+Reálné kyvadlo má v dolní poloze následující póly: $0$, $-3.0172$, $-0.5191 \pm
+11.4508\,\mathrm{i}$. Stejným postupem jako v simulaci si vyberu následující
+póly pro stavové řízení s integrální složkou: "$-9+11.4508i$, $-9-11.4508i$,
+$-4$, $-1$, $-3$. Výsledný graf pro regulaci na bod $-0.3$ je na
+obrázku~\ref{fig:real_state_down}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/real/state_down.png}
+  \caption{Stavová zpětná vazba pro dolní polohu kyvadla}\label{fig:real_state_down}
+\end{figure}
+
+\subsubsection{Horní poloha}
+Pro horní polohu má kyvadlo následující póly: $0$, $-2.9651$, $-12.1210$,
+$11.0306$.  Pro regulátor si vyberu póly $-15$, $-11\pm3i$, $-4$, $-2$. Výsledek
+pro řízení kyvadla v horní poloze, když jsem mu jako referenci dával sinusový
+signál s amplitudou $0.2$ a frekvenci $0.5 \mathrm{rad}\cdot\mathrm{s}^{-1}$ je
+na obrázku~\ref{fig:real_state_up}. Graf pro regulaci v bodě nula, když jsem k
+signálu přidával poruchu o velikosti $d = 2 \mathrm{V}$ je na
+obrázku~\ref{fig:real_state_up_disorder}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/real/state_up.png}
+  \caption{Stavová zpětná vazba pro horní polohu kyvadla}\label{fig:real_state_up}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/real/state_up_with_disorder.png}
+  \caption{Stavová zpětná vazba pro horní polohu kyvadla s poruchu}\label{fig:real_state_up_disorder}
+\end{figure}
+
 
 \begin{thebibliography}{9}
 \bibitem{zadani}

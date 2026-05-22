@@ -10,9 +10,8 @@ T = 0.58;
 omega = 2*pi/T;
 J = m*g*lcm/(omega^2);       % [kg/m^2] pendulum moment of inertia
 
-dlt_old = 0.0028; % [] friction constant of the pivot
 Lambda = 0.174;
-dlt = J*Lambda/T;
+dlt = J*Lambda/T; % [] friction constant of the pivot
 
 tau = 0.26;
 b = M/tau;          % [] friction constant of the cart
@@ -102,7 +101,7 @@ sys_tf_down
 G1 = sys_ss_down(1, 1)
 G2 = sys_ss_up(1, 1)
 
-%rltool(G1);
+rltool(G1);
 
 Kp = 0.522;
 Ki = 0.136;
@@ -121,36 +120,14 @@ transport_delay = pi/(freq*sqrt(1-damping^2));
 amplitude = 1/(1+exp(-(pi*damping)/sqrt(1-damping^2)));
 
 %% State control - down position
-% S předfiltrem
-
-%Q_down = diag([1, 100, 1, 100]);
-%R_down = 1;
-%K_down = lqr(A_down, B_down, Q_down, R_down);
-
-p_down = [-7-11.4508i, -7+11.4508i, -1.2, -1];
-K_down = place(A_down, B_down, p_down);
-
 % Definujeme matici C pro výstup, který nás zajímá (poloha vozíku y)
 C_y = [0 1 0 0]; 
-
-% Výpočet předfiltru M podle vzorce z prezentace
-M_down = -1 / (C_y * inv(A_down - B_down * K_down) * B_down);
-
-disp('Hodnota předfiltru M:');
-disp(M_down);
-
-C_four = eye(4);
-D_four = zeros(4, 1);
 
 % S integrálním řešením
 A_sloz_down = [A_down, zeros(4,1);
                -C_y,    0];
 B_sloz_down = [B_down; 
                0];
-
-%Q_aug = diag([1, 100, 1, 100, 50]); 
-%R_aug = 1;
-%K_sloz = lqr(A_sloz, B_sloz, Q_aug, R_aug)
 
 p_sloz_down = [-9+11.4508i, -9-11.4508i, -4, -1, -3];
 K_sloz_down = place(A_sloz_down, B_sloz_down, p_sloz_down);
@@ -162,29 +139,11 @@ disp('Nové K (pro stavy):'); disp(K_new_down);
 disp('Nové K_I (pro integrátor):'); disp(K_I_down);
 
 %% State control - up position
-% S předfiltrem
-
-%Q_up = diag([1, 100, 1, 100]);
-%R_up = 1;
-%K_up = lqr(A_up, B_up, Q_up, R_up);
-
-p_up = [-19, -11+3i, -11-3i, -0.25];
-K_up = place(A_up, B_up, p_up);
-
-M_up = -1 / (C_y * inv(A_up - B_up * K_up) * B_up);
-
-disp('Nové K_up:'); disp(K_up);
-disp('Nové M_up:'); disp(M_up);
-
 % S integrálním řešením
 A_sloz_up = [A_up, zeros(4,1);
              -C_y,    0];
 B_sloz_up = [B_up; 
              0];
-
-%Q_aug = diag([1, 100, 1, 100, 50]); 
-%R_aug = 1;
-%K_sloz = lqr(A_sloz_up, B_sloz_up, Q_aug, R_aug)
 
 p_sloz_up = [-15, -11+3i, -11-3i, -4, -2];
 K_sloz_up = place(A_sloz_up, B_sloz_up, p_sloz_up);

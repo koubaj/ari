@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1779361072.33042 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1779361074.88397 0
-  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1779361071.93284 22258 67a66926453556ca2e6cd0b941e9a20f ""
+["pdflatex"] 1779451227.09087 "/home/jx2004/Documents/ari/sem/doc/sem.tex" "sem.pdf" "sem" 1779451229.24519 0
+  "/home/jx2004/Documents/ari/sem/doc/sem.tex" 1779451224.67981 26929 1a3354da079193788050103211260197 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/home/jx2004/snap/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -139,6 +139,13 @@
   "img/posicast_phi.png" 1777477630.94795 21691 a7a61e5ec084ad08f0ccc766f3a2b914 ""
   "img/posicast_simulink.png" 1778448799.97219 18620 8c2c51aaf4a835cdc3eccce2e39a59e1 ""
   "img/posicast_x.png" 1777477630.98391 28030 9234dc5b63fa404c3f16e6be024dd9bb ""
+  "img/real/pid_pos_with_d.png" 1779360608 42531 8836a7d34d91775f66edc710327a05e8 ""
+  "img/real/pid_pos_without_phi.png" 1779360776 37011 964f0462f085b0c6d72185cf0df6cd53 ""
+  "img/real/rltool_phi.png" 1779400191.02362 88196 bb606c60468575aa5fdedc5de319dba4 ""
+  "img/real/rltool_pid_pos.png" 1779400191.03396 82387 ffab4c20e9a46e941a3a2b8f53177ae3 ""
+  "img/real/state_down.png" 1779363390 45419 c58c7b9548e24b5269f9c81abd517a74 ""
+  "img/real/state_up.png" 1779364006 96180 ea01eb606ee97f366b5b3c20fc154f97 ""
+  "img/real/state_up_with_disorder.png" 1779364108 58980 e8d2b903d9c6a773cf9550e4ec7c2fd2 ""
   "img/reference_model.png" 1777244426.22974 27627 cfe745db1567c6854bb05fc1efc809f2 ""
   "img/rltool_phi.png" 1777822724.13202 107438 d6d9dea9b4221543737ba7bac09bef5b ""
   "img/rltool_pid_pos.png" 1777228614.07918 82132 51996bc61752789f86ff0aacd5378fa2 ""
@@ -157,9 +164,9 @@
   "img/state_prefilter_x_disorder.png" 1778455232.88958 28533 73483885161858e07b4bf8ae2062acbd ""
   "img/without_sat_and_deadzone_in.png" 1777227255.49261 21008 3e0da4fab1de4f97d391218e0db08efe ""
   "img/without_sat_and_deadzone_out.png" 1777227138.90577 26246 85050b570ce11441e77ee23b54d628c7 ""
-  "sem.aux" 1779361074.79582 10771 c7070bb0a2d8d6dc36a72b461b0778c0 "pdflatex"
-  "sem.out" 1779361074.79682 4431 b53d92b2961b30015cc1dcdfeb3c79c2 "pdflatex"
-  "sem.tex" 1779361071.93284 22258 67a66926453556ca2e6cd0b941e9a20f ""
+  "sem.aux" 1779451229.15882 13237 d7295075edd6d787227df84341fa0bc0 "pdflatex"
+  "sem.out" 1779451229.15982 5139 e730c37c7f362e4042dbbc74899093ff "pdflatex"
+  "sem.tex" 1779451224.67981 26929 1a3354da079193788050103211260197 ""
   (generated)
   "sem.aux"
   "sem.log"
