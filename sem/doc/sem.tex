@@ -101,7 +101,7 @@ Prvním krokem mé práce bylo ověřit, zda se zadané rovnice v obou souborech
 shodují. Obě rovnice z Matlabu jsem přepsal do stejné formy, jako jsou napsané v
 pdf zadání, viz obr.~\ref{fig:equation_check}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \includegraphics[width=1\textwidth]{img/equation_check.jpg}
   \caption{Kontrola rovnic}\label{fig:equation_check}
 \end{figure}
@@ -119,7 +119,7 @@ nereaguje na napětí s hodnotou $\mathrm{abs}(u)\leq0.2$. Test jsem provedl
 postupným zvyšováním napětí na vstupu, dokud se vozík nezačal pohybovat, 
 viz obrázek~\ref{fig:Deadzone}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/deadzone.png}
   \caption{Zjišťování deadzone}\label{fig:Deadzone}
@@ -156,19 +156,19 @@ pouštět sinusový signál o různé amplitudě. Mohu pozorovat, že pro slabý
 signál dochází k problémům s deadzonem, viz
 obrázky~\ref{fig:lin_testing_deadzone_x} a~\ref{fig:lin_testing_deadzone_phi}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/lin_testing_simulink.png}
   \caption{Zapojení v Simulinku pro testování linearizace}\label{fig:lin_testing_simulink}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/lin_testing_deadzone_x.png}
   \caption{Testování linearizace pro polohu vozíku s amplitudou vstupu 1}\label{fig:lin_testing_deadzone_x}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/lin_testing_deadzone_phi.png}
   \caption{Testování linearizace pro úhel kyvadla s amplitudou vstupu 1}\label{fig:lin_testing_deadzone_phi}
@@ -178,7 +178,7 @@ Pro vyšší amplitudy (zvolil jsem 10) už dochází k nepřesnosti linearizace
 špičkách, jak ukazuje obrázek~\ref{fig:lin_testing_error}. Pro signály s větší 
 amplitudou by docházelo k chybě kvůli saturaci.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/lin_testing_error.png}
   \caption{Testování linearizace pro úhel kyvadla s amplitudou vstupu 10}\label{fig:lin_testing_error}
@@ -208,7 +208,7 @@ Matice C a D jsou v tomto stavu, protože mě zajímá poloha vozíku a úhel ky
 tedy $2.$ a $4.$ složka systému. Póly pro dolní polohu jsou na
 obrázku~\ref{fig:poles_down} a pro horní polohu na~\ref{fig:poles_up}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \begin{minipage}{0.49\textwidth}
     \centering
@@ -283,7 +283,7 @@ Pro zprovoznění simulace jsem nejdříve zapojil schéma v Simulinku
 do kterého jsem dal matice \texttt{A\_down}, \texttt{B\_down}, \texttt{C} a
 \texttt{D}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/simulink_pos_PID.png}
   \caption{Zapojení v Simulinku pro regulátor polohy vozíku}\label{fig:Simulink_pos_PID}
@@ -301,13 +301,13 @@ signál během řízení v dolní poloze téměř shodné,
 viz~\ref{fig:Without_sat_and_deadzone_in}
 a~\ref{fig:Without_sat_and_deadzone_out}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/without_sat_and_deadzone_in.png}
   \caption{Zapojení bez saturace a deadzone - vstup}\label{fig:Without_sat_and_deadzone_in}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/without_sat_and_deadzone_out.png}
   \caption{Zapojení bez saturace a deadzone - výstup}\label{fig:Without_sat_and_deadzone_out}
@@ -319,7 +319,7 @@ na mnoho problémů. Při vysoké hodnotě koeficientu Kp docházelo k velkému
 překmitu a následnému rozkmitání, kvůli kterému se kyvadlo nechtělo ustálit na
 cílové hodnotě - výsledky jsou na obrázku~\ref{fig:P_pos_overshoot}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/P_pos_overshoot.png}
   \caption{Překmit P regulátoru}\label{fig:P_pos_overshoot}
@@ -333,19 +333,19 @@ pásma necitlivosti, které dělá tento problém neřešitelným. Pro P regulá
 Bodeho a Nyquistova grafu na obrázku~\ref{fig:bode_nyquist_p} vychází 
 $\mathrm{GM} = \infty$, $\mathrm{PM} = 39.2^\circ$.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/rltool_p_pos.png}
   \caption{Root locus pro P regulátor}\label{fig:rltool_p_pos}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/bode_nyquist_p.png}
   \caption{Bodeho a Nyquistův graf pro P regulátor}\label{fig:bode_nyquist_p}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/P_pos_inf_error.png}
   \caption{Ustálení na špatné hodnotě P regulátoru}\label{fig:P_pos_inf_error}
@@ -358,19 +358,19 @@ v programu \texttt{rltool}~\ref{fig:rltool_pd_pos} na hodnoty $K_p = 6.28$, $K_d
 = 14.5$. Z obrázku~\ref{fig:bode_nyquist_pd} mám $\mathrm{GM} = \infty$,
 $\mathrm{PM} = 85.2^\circ$.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/rltool_pd_pos.png}
   \caption{Root locus pro PD regulátor}\label{fig:rltool_pd_pos}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/bode_nyquist_pd.png}
   \caption{Bodeho a Nyquistův graf pro PD regulátor}\label{fig:bode_nyquist_pd}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/PD_pos.png}
   \caption{Řízení polohy vozíku s PD regulátorem}\label{fig:PD_pos}
@@ -387,19 +387,19 @@ překmit menší než $15 \%$ a dobu ustálení na $90 \%$ reference za $11
 \mathrm{s}$. Podle grafů Bodeho a Nyquista na obrázku~\ref{fig:bode_nyquist_pid} znám 
 $\mathrm{GM} = \infty$, $\mathrm{PM} = 80.5^\circ$.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/rltool_pid_pos.png}
   \caption{Root locus pro PID regulátor}\label{fig:rltool_pid_pos}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/bode_nyquist_pid.png}
   \caption{Bodeho a Nyquistův graf}\label{fig:bode_nyquist_pid}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/PID_pos.png}
   \caption{Regulace vozíku na polohu $x=1$}\label{fig:PID_pos}
@@ -417,7 +417,7 @@ vozíku. Pro přenos $\frac{1}{0.05s^2 + s + 1}$ dostávám překmit $5 \%$ a v
 rozmezí $\pm 5 \%$ od cílové hodnoty bude vozík za $2.6 \mathrm{s}$. Graf je na
 obrázku~\ref{fig:reference_model}. 
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/reference_model.png}
   \caption{Regulace vozíku s modelem reference}\label{fig:reference_model}
@@ -442,13 +442,13 @@ optimální regulátor na obrázku~\ref{fig:rltool_phi}. Z Bodeho a Nyquistova g
 na obrázku~\ref{fig:bode_nyquist_phi} vidím, že $\mathrm{GM} = \infty$. $0 \mathrm{dB}$ 
 protínám ve dvou bodech s $\mathrm{PM} = 114^\circ$ a $116^\circ$.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/rltool_phi.png}
   \caption{Hledání parametrů D regulátoru pomocí rltool}\label{fig:rltool_phi}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/bode_nyquist_phi.png}
   \caption{Bodeho a Nyquistův graf pro úhel kyvadla}\label{fig:bode_nyquist_phi}
@@ -459,13 +459,13 @@ malých kmitů, tzv. při přesunu vozíku vykoná kyvadlo pouze dva kmity. Zlep
 oproti původnímu stavu~\ref{fig:oscillation_without} je vidět na
 obrázku~\ref{fig:oscillation_with}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/oscillation_without_regulator.png}
   \caption{Kmitání bez regulátoru}\label{fig:oscillation_without}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/oscillation_with_regulator.png}
   \caption{Kmitání s regulátorem}\label{fig:oscillation_with}
@@ -485,19 +485,19 @@ Posicast rozdělí referenční signál na dva skoky, čímž vyruší kmitání
 výsledné pozici. Pro implementaci a výsledky posicastu viz
 obrázky~\ref{fig:posicast_simulink}~\ref{fig:posicast_x}~\ref{fig:posicast_phi}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/posicast_simulink.png}
   \caption{Implementace posicastu v Simulinku}\label{fig:posicast_simulink}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/posicast_x.png}
   \caption{Poloha vozíku s poisicastem}\label{fig:posicast_x}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/posicast_phi.png}
   \caption{Úhel kyvadla s poisicastem}\label{fig:posicast_phi}
@@ -517,7 +517,7 @@ $\mathbf{D}=0$) $\mathbf{M} = \frac{-1}{\mathbf{C}(\mathbf{A} -
 \mathbf{BK})\mathbf{B}}$.  Schéma zapojím do Simulinku (obsahuje i regulátor pro
 horní polohu), viz obrázek~\ref{fig:state_prefilter_simulink}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_prefilter_simulink.png}
   \caption{Zapojení stavové zpětné vazby s předfiltrem v Simulinku}\label{fig:state_prefilter_simulink}
@@ -531,19 +531,19 @@ nedosahoval na saturaci, tedy $p = [-7-13.52i, -7+13.52i, -1.2, -1]$.
 Výsledek vidím na obrázcích~\ref{fig:state_prefilter_x}
 a~\ref{fig:state_prefilter_phi_new}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_prefilter_phi_old.png}
   \caption{Úhel kyvadla s neodladěnými póly}\label{fig:state_prefilter_phi_old}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_prefilter_x.png}
   \caption{Poloha vozíku se stavovou zpětnou vazbou}\label{fig:state_prefilter_x}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_prefilter_phi_new.png}
   \caption{Úhel kyvadla se stavovou zpětnou vazbou}\label{fig:state_prefilter_phi_new}
@@ -554,20 +554,20 @@ S póly $p = [-19, -11+3i, -11-3i, -0.25]$ jsem schopen kyvadlo udržet v horní
 poloze. Rychlý pól v poloze $-19$ jsem zvolil tak, aby odpovídal pólu kyvadla v
 $-18.98$, komplexně sdružené póly vyrovnávají padání kyvadla - jeho nestabilní
 pól v bodě $10.56$. Poslední pól jsem volil tak, aby se kyvadlo drželo v horní
-poloze s minimalní změnou úhlu a zároveň co nejdříve dojelo na stanovenou
+poloze s minimální změnou úhlu a zároveň co nejdříve dojelo na stanovenou
 pozici. Výsledky jsou na obrázcích~\ref{fig:state_prefilter_up_x}
 a~\ref{fig:state_prefilter_up_phi}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_prefilter_up_x.png}
-  \caption{}\label{fig:state_prefilter_up_x}
+  \caption{Stavová zpětná vazba pro horní polohu kyvadla s předfiltrem - poloha}\label{fig:state_prefilter_up_x}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_prefilter_up_phi.png}
-  \caption{}\label{fig:state_prefilter_up_phi}
+  \caption{Stavová zpětná vazba pro horní polohu kyvadla s předfiltrem - úhel}\label{fig:state_prefilter_up_phi}
 \end{figure}
 
 
@@ -576,7 +576,7 @@ Implementace s předfiltrem je ovšem náchylná na poruchy, kvůli kterým vzni
 ustálená odchylka, viz \ref{fig:state_prefilter_x_disorder}, kde jsem přidal
 step o hodnotě 1 v čase 2. Proto je potřeba implementovat integrální řízení.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_prefilter_x_disorder.png}
   \caption{Ustálená odchylka jako reakce na poruchu}\label{fig:state_prefilter_x_disorder}
@@ -588,7 +588,7 @@ za výstup polohy, výslednou zintegrovanou hodnotu vynásobím konstantou $K_i$
 odečítám od výstupu z matice $\mathbf{K}$. Schéma je na
 obrázku~\ref{fig:state_integral_simulink}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_integral_simulink.png}
   \caption{Zapojení stavové zpětné vazby s integrálním řešením v Simulinku}\label{fig:state_integral_simulink}
@@ -608,25 +608,25 @@ Integrální řešení je odolné i vůči konstantnímu působení síly někte
 ukázky grafů s působící konstantní silou o hodnotě $2 \mathrm{V}$ pro dolní a horní polohu 
 kyvadla.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_integral_down_x.png}
   \caption{Stavová zpětná vazba pro dolní polohu: x}\label{fig:state_integral_down_x}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_integral_down_phi.png}
   \caption{Stavová zpětná vazba pro dolní polohu: $\varphi$}\label{fig:state_integral_down_phi}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_integral_up_x.png}
   \caption{Stavová zpětná vazba pro horní polohu: x}\label{fig:state_integral_up_x}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_integral_up_phi.png}
   \caption{Stavová zpětná vazba pro horní polohu: $\varphi$}\label{fig:state_integral_up_phi}
@@ -640,7 +640,7 @@ krát rychlejší než rychlé póly regulátoru) a v Matlabu spočítám matici
 pomocí \texttt{L = place(A', C', p)'}. Následně zapojím do Simulinku jako na
 obrázku~\ref{fig:observer_simulink}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/observer_simulink.png}
   \caption{Zapojení pozorovatele v Simulinku}\label{fig:observer_simulink}
@@ -651,7 +651,7 @@ vozíku poslal sinusový signál, nastavil kyvadlo na $-60^\circ$ stupňů namí
 $-90^\circ$ a sledoval, jestli pozorovatel dorovná signál z VR modelu, což se
 také stalo, viz obrázek~\ref{fig:observer_test}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/observer_test.png}
   \caption{Testování pozorovatele - graf rychlosti a úhlové rychlosti}\label{fig:observer_test}
@@ -662,13 +662,13 @@ S pozorovatelem vyzkouším ještě volbu pólů pro co nejrychlejší přechod 
 ohledu na kyvadlo, zvolil jsem $p = [-8+13.5i, -8-13.5i, -10, -8, -1]$. Výsledky
 jsou na obrázcích~\ref{fig:state_fast_x} a~\ref{fig:state_fast_phi}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_fast_x.png}
   \caption{Rychlá regulace na bod 1 - poloha}\label{fig:state_fast_x}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/state_fast_phi.png}
   \caption{Rychlá regulace na bod 1 - úhel}\label{fig:state_fast_phi}
@@ -720,13 +720,13 @@ představující kyvadlo, takže pomocí nástroje \texttt{rltool} odladím
 hodnoty regulátoru pro pohyb vozíku a pro tlumení kyvadla. Grafy lze vidět na
 obrázcích~\ref{fig:real_rltool_pid_pos} a~\ref{fig:real_rltool_phi}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/real/rltool_pid_pos.png}
   \caption{Hledání parametrů PID regulátoru pomocí rltool}\label{fig:real_rltool_pid_pos}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/real/rltool_phi.png}
   \caption{Hledání parametrů D regulátoru pomocí rltool}\label{fig:real_rltool_phi}
@@ -736,13 +736,13 @@ Dále uvádím grafy ukazující samotný pohyb kyvadla bez zapnutého tlumení
 kmitů~\ref{fig:real_pid_pos_without_d} a s tlumením
 kmitů~\ref{fig:real_pid_pos_with_d}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/real/pid_pos_without_phi.png}
   \caption{PID regulátor polohy kyvadla bez tlumení kmitů}\label{fig:real_pid_pos_without_d}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/real/pid_pos_with_d.png}
   \caption{PID regulátor polohy kyvadla s tlumením kmitů}\label{fig:real_pid_pos_with_d}
@@ -754,11 +754,11 @@ Pro obě řešení jsem rovnou zvolil metodu s integrálním řešením a s pozo
 \subsubsection{Dolní poloha}
 Reálné kyvadlo má v dolní poloze následující póly: $0$, $-3.0172$, $-0.5191 \pm
 11.4508\,\mathrm{i}$. Stejným postupem jako v simulaci si vyberu následující
-póly pro stavové řízení s integrální složkou: "$-9+11.4508i$, $-9-11.4508i$,
-$-4$, $-1$, $-3$. Výsledný graf pro regulaci na bod $-0.3$ je na
+póly pro stavové řízení s integrální složkou: $p = [-9+11.4508\mathrm{i}, -9-11.4508\mathrm{i},
+-4, -1, -3]$. Výsledný graf pro regulaci na bod $-0.3$ je na
 obrázku~\ref{fig:real_state_down}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/real/state_down.png}
   \caption{Stavová zpětná vazba pro dolní polohu kyvadla}\label{fig:real_state_down}
@@ -773,13 +773,13 @@ na obrázku~\ref{fig:real_state_up}. Graf pro regulaci v bodě nula, když jsem 
 signálu přidával poruchu o velikosti $d = 2 \mathrm{V}$ je na
 obrázku~\ref{fig:real_state_up_disorder}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/real/state_up.png}
   \caption{Stavová zpětná vazba pro horní polohu kyvadla}\label{fig:real_state_up}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/real/state_up_with_disorder.png}
   \caption{Stavová zpětná vazba pro horní polohu kyvadla s poruchu}\label{fig:real_state_up_disorder}
