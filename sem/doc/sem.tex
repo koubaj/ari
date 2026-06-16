@@ -97,24 +97,24 @@ vozíku, $\delta$~[kg\,m$^2$\,s$^{-1}$] je koeficient viskózního tření v klo
 kyvadla.
 
 \subsection{Kontrola zadání}
-Prvním krokem mé práce bylo ověřit, zda se zadáné rovnice v obou souborech
+Prvním krokem mé práce bylo ověřit, zda se zadané rovnice v obou souborech
 shodují. Obě rovnice z Matlabu jsem přepsal do stejné formy, jako jsou napsané v
-pdf zadání, viz obr.~\ref{fig:kontrola}.
+pdf zadání, viz obr.~\ref{fig:equation_check}.
 
 \begin{figure}[H]
-  \includegraphics[width=1\textwidth]{img/kontrola_rovnic.jpg}
-  \caption{Kontrola rovnic}\label{fig:kontrola}
+  \includegraphics[width=1\textwidth]{img/equation_check.jpg}
+  \caption{Kontrola rovnic}\label{fig:equation_check}
 \end{figure}
 
 Rovnice vypadají po přepsání stejně, až na to, že v Matlabu je hodnota $l$ všude
 vynásobena $2$. Jedná se o chybu ve značení mezi délkou celého kyvadla a
-vzdáleností od konce kyvaldla po jeho těžiště. Dále budu pokračovat s údaji z
+vzdáleností od konce kyvadla po jeho těžiště. Dále budu pokračovat s údaji z
 Matlabu. Ještě jsem si všimnul, že v pdf zadání se nachází drobná chyba v
 jednotkách pro $J_p$: setrvačnost musí mít jednotku [kg\,m$^2$]. 
  
 \subsection{Omezení vstupu a výstupu}
 Pro vstupní napětí je v zadaném programu uvedena saturace: vozík bude přijímat
-ignál v rozsahu $u \in [-10; 10]$.  Dále jsem zjistil hodnotu deadzone - vozík
+signál v rozsahu $u \in [-10; 10]$.  Dále jsem zjistil hodnotu deadzone - vozík
 nereaguje na napětí s hodnotou $\mathrm{abs}(u)\leq0.2$. Test jsem provedl 
 postupným zvyšováním napětí na vstupu, dokud se vozík nezačal pohybovat, 
 viz obrázek~\ref{fig:Deadzone}.
@@ -129,47 +129,159 @@ viz obrázek~\ref{fig:Deadzone}.
 Abych mohl efektivně pracovat s rovnicemi, tak je potřebuji linearizovat v
 určitých bodech. Pro účely úlohy potřebuji získat linearizované rovnice kyvadla
 pro $\varphi = -90$° (kyvadlo míří kolmo dolů) a pro $\varphi = 90$° (kyvadlo
-míří kolmo nahoru). Linearizaci pro dolní polohu provedu pomocí Matlabu
+míří kolmo nahoru). Linearizaci pro dolní a horní polohu provedu pomocí Matlabu
 následovně:
 
 \begin{verbatim}
+A_sym = jacobian(f, X);
+B_sym = jacobian(f, u);
+
 X = [v; y; w; phi]; 
 f = [dv; dy; dw; dphi];
 
-%% Evaluate at DOWN Position (Stable: phi = -pi/2)
-% Equilibrium states: [v=0; y=0; w=0; phi=-pi/2], u=0
 X_down = [0; 0; 0; -pi/2];
-
+u_eq = 0;
 A_down = double(subs(A_sym, [X; u], [X_down; u_eq]));
 B_down = double(subs(B_sym, [X; u], [X_down; u_eq]));
+
+X_up = [0; 0; 0; pi/2];
+A_up = double(subs(A_sym, [X; u], [X_up; u_eq]));
+B_up = double(subs(B_sym, [X; u], [X_up; u_eq]));
 \end{verbatim}
 
-Linearizace pro horní polohu je téměř identická, pouze zvolím úhel $\varphi = \pi/2$.
+\subsection{Rekce lineárního a nelineárního systému na vstupy}
+Systém zapojím podle obrázku~\ref{fig:lin_testing_simulink}. Budu testovat pouze dolní
+polohu, horní je nestabilní (viz níže) a kyvadlo by hned spadlo. Na vstup budu
+pouštět sinusový signál o různé amplitudě. Mohu pozorovat, že pro slabý vstupní
+signál dochází k problémům s deadzonem, viz
+obrázky~\ref{fig:lin_testing_deadzone_x} a~\ref{fig:lin_testing_deadzone_phi}.
 
-Zobrazením nul jsem si potvrdil, že systém s kyvadlem v dolní poloze je stabilní
-(má všechny póly v levé polorovině), zatímco systém s kyvadlem v horní poloze je
-nestabilní (obsahuje jeden pól v bodě $10.56$).
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/lin_testing_simulink.png}
+  \caption{Zapojení v Simulinku pro testování linearizace}\label{fig:lin_testing_simulink}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/lin_testing_deadzone_x.png}
+  \caption{Testování linearizace pro polohu vozíku s amplitudou vstupu 1}\label{fig:lin_testing_deadzone_x}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/lin_testing_deadzone_phi.png}
+  \caption{Testování linearizace pro úhel kyvadla s amplitudou vstupu 1}\label{fig:lin_testing_deadzone_phi}
+\end{figure}
+
+Pro vyšší amplitudy (zvolil jsem 10) už dochází k nepřesnosti linearizace ve
+špičkách, jak ukazuje obrázek~\ref{fig:lin_testing_error}. Pro signály s větší 
+amplitudou by docházelo k chybě kvůli saturaci.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/lin_testing_error.png}
+  \caption{Testování linearizace pro úhel kyvadla s amplitudou vstupu 10}\label{fig:lin_testing_error}
+\end{figure}
+
+\section{Vlastnosti systému - otevřené smyčky}
+\subsection{Póly}
+Zajímají mě póly a nuly systému pro obě polohy - mohu si tak například potvrdit
+stabilitu, respektive nestabilitu dolní, respektive horní polohy, popřípadě je
+využít v při pozdějším návrhu regulátorů. Číselné hodnoty pólů mohu dostat
+například pomocí příkazu \texttt{eig(A\_down)} zavolaného na matici A. Ovšem
+vhodnější bude grafické znázornění, do kterého vložím stavový popis systému:
+
+\begin{verbatim}
+C = [0 1 0 0;
+     0 0 0 1];
+D = [0; 0];
+
+sys_ss_down =  ss(A_down, B_down, C, D);
+sys_ss_up =  ss(A_up, B_up, C, D);
+
+pzmap(sys_ss_down);
+pzmap(sys_ss_up);
+\end{verbatim}
+
+Matice C a D jsou v tomto stavu, protože mě zajímá poloha vozíku a úhel kyvadla, 
+tedy $2.$ a $4.$ složka systému. Póly pro dolní polohu jsou na
+obrázku~\ref{fig:poles_down} a pro horní polohu na~\ref{fig:poles_up}.
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/poles_down.png}
+    \caption{Póly pro dolní polohu}\label{fig:poles_down}
+  \end{minipage}\hfill
+  \begin{minipage}{0.49\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{img/poles_up.png}
+    \caption{Póly pro horní polohu}\label{fig:poles_up}
+  \end{minipage}
+\end{figure}
+
+Pro dolní polohu mám následující póly:
+
+\begin{itemize}
+  \item $0$...integrátor - vozík nemá tendenci se vracet
+  \item $-0.27$...reálný pomalý pól - tření vozíku
+  \item $-4.21 \pm 13.52 i$...komplexně sdružená dvojice - kyvadlo kmitá
+  frekvencí $13.52 \mathrm{rad}\cdot\mathrm{s}^{-1}$ a $-4.21$ je tlumení
+  třením kyvadla.
+\end{itemize}
+
+A pro horní polohu mám následující póly:
+
+\begin{itemize}
+  \item $0$...integrátor - vozík nemá tendenci se vracet
+  \item $-0.27$...reálný pomalý pól - tření vozíku
+  \item $18.98$...rychlý reálný pól - prudké tlumení kyvadla
+  \item $10.56$...nestabilní pól - gravitace, která shazuje kyvadlo dolů
+\end{itemize}
+
+\subsection{Přenos}
+Systém má jeden vstup, ale dva výstupy (SIMO). Neexistují frekvence na vstupu,
+které by zablokovaly oba výstupy najednou. Proto nevidím žádné nuly celého
+systému.  Ale z jednotlivých přenosů napětí $\rightarrow$ poloha a napětí
+$\rightarrow$ úhel bych nuly získal.
+
+Přenosové funkce pro dolní polohu:
+\begin{align*}
+    G_{down, x}(s) &= \frac{0.18 s^2 + 1.07 s + 25.86}{s(s^3 + 8.69 s^2 + 202.7 s + 54.31)} \\
+    G_{down, \phi}(s) &= \frac{-2.64 s}{s^3 + 8.69 s^2 + 202.7 s + 54.31}
+\end{align*}
+
+Přenosové funkce pro horní polohu:
+\begin{align*}
+    G_{up, x}(s) &= \frac{0.18 s^2 + 1.07 s - 25.86}{s(s^3 + 8.69 s^2 - 198.2 s - 54.31)} \\
+    G_{up, \phi}(s) &= \frac{2.64 s}{s^3 + 8.69 s^2 - 198.2 s - 54.31}
+\end{align*}
+
+Z přenosů mohu zjistit nějaké zajímavé vlastnosti. Například oba přenosy pro
+polohu mají pól v $0$, tedy integrátor. Nula v počátku pro oba přenosy pro úhel
+znamená, že statické zesílení těchto přenosů je rovno nule - při jízdě vozíku
+konstantní rychlostí by kyvadlo viselo dolů, popřípadě nahoru.
+
+Nuly pro přenos polohy v dolní poloze kyvadla vycházejí na $s = -3.05 \pm 11.7i$. Dostávám tak 
+antirezonanční frekvenci - pokud bych zanedbal tření, tak se bude kyvadlo kývat, ale 
+vozík se nepohne.
+
+Pro horní polohu a její přenos pro polohu dostávám následují nuly: $-15.5$, $9.41$. Nula v 
+pravé polorovině mi dává neminimální fázi - abych pohnul s vozíkem a kyvadlo mi nespadlo, 
+musím nejdřív pohnout na opačnou stranu.
 
 \section{Řízení polohy vozíku pomocí PID regulátoru}
 Jako první úlohu jsem si zvolil řízení polohy vozíku - dostanu zadaný bod na ose
 x a cílem je, aby na něj vozík dojel. Během této fáze budu zcela ignorovat pohyb
-kvadla.
+kyvadla.
 
 \subsection{Zapojení v Simulinku}
-Pro zprovoznění simulace jsem nejdříve zapojil zapojit shcéma v Simulinku
+Pro zprovoznění simulace jsem nejdříve zapojil schéma v Simulinku
 \ref{fig:Simulink_pos_PID}. Linearizaci provádím přes blok \texttt{State-Space},
 do kterého jsem dal matice \texttt{A\_down}, \texttt{B\_down}, \texttt{C} a
-\texttt{D}.  První dvě matice jsem již zmínil v předchozím textu, pro zbylé
-platí: 
-$C = \begin{bmatrix}
-0 & 1 & 0 & 0 \\    
-0 & 0 & 0 & 1 \\    
-\end{bmatrix}, $
-$D = \begin{bmatrix}
-0 \\
-0 \\
-\end{bmatrix}.$  
-Zajímá mě totiž pouze poloha a úhel, tedy druhá a čtvrtá složka vektoru vstupu.
+\texttt{D}.
 
 \begin{figure}[H]
   \centering
@@ -180,8 +292,8 @@ Zajímá mě totiž pouze poloha a úhel, tedy druhá a čtvrtá složka vektoru
 Z linearizovaného modelu vedu signál do Scope pro polohu a pro úhel (rozděluji
 ho pomocí bloku Demux), úhel musím převést na stupně.
 
-Ve zpětné vazbě mám regulátor, do kterého později dosadním získané hodnoty.
-Regulátor sám o sobě obsahuje omezení na  saturaci a implementaci řešení
+Ve zpětné vazbě mám regulátor, do kterého později dosadím získané hodnoty.
+Regulátor sám o sobě obsahuje omezení na saturaci a implementaci řešení
 wind-upu (zvolil jsem metodu clamping - když signál přesahuje hodnotu saturace,
 tak dále nenačítám I složku regulátoru). Následuje blok, který signál ořízne,
 pokud se nachází v deadzone. Po přidání těchto bloků jsou nelineární i lineární
@@ -210,19 +322,60 @@ cílové hodnotě - výsledky jsou na obrázku~\ref{fig:P_pos_overshoot}.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{img/P_pos_overshoot.png}
-  \caption{Překmir P regulátoru}\label{fig:P_pos_overshoot}
+  \caption{Překmit P regulátoru}\label{fig:P_pos_overshoot}
 \end{figure}
 
-I pro výsledky s kvalitně odladěnou hodnotou Kp nastával klasický problém u P
-regulátoru, že se kyvadlo neustálí na cílové hodnotě, jako na 
-obrázku~\ref{fig:P_pos_inf_error}. Tento jev je navíc výrazně podpořen 
-existencí pásma necitlivosti, které dělá tento problém neřešitelným.
+I pro výsledky s řádně odladěnou hodnotou $K_p = 1.1$ (viz
+obr.~\ref{fig:rltool_p_pos}) nastával klasický problém u P regulátoru, a to že
+se kyvadlo neustálí na cílové hodnotě, jako na
+obrázku~\ref{fig:P_pos_inf_error}. Tento jev je navíc výrazně podpořen existencí
+pásma necitlivosti, které dělá tento problém neřešitelným. Pro P regulátor mi z
+Bodeho a Nyquistova grafu na obrázku~\ref{fig:bode_nyquist_p} vychází 
+$\mathrm{GM} = \infty$, $\mathrm{PM} = 39.2^\circ$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/rltool_p_pos.png}
+  \caption{Root locus pro P regulátor}\label{fig:rltool_p_pos}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/bode_nyquist_p.png}
+  \caption{Bodeho a Nyquistův graf pro P regulátor}\label{fig:bode_nyquist_p}
+\end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{img/P_pos_inf_error.png}
-  \caption{Ustálení na špatné hodnotě}\label{fig:P_pos_inf_error}
+  \caption{Ustálení na špatné hodnotě P regulátoru}\label{fig:P_pos_inf_error}
 \end{figure}
+
+\subsection{PD regulátor}
+Přidáním D složky jsem schopen omezit překmit téměř na minimum, ale stále se
+nezbavím odchylky v nekonečnu, viz obr.~\ref{fig:PD_pos}. Regulátor jsem odladil
+v programu \texttt{rltool}~\ref{fig:rltool_pd_pos} na hodnoty $K_p = 6.28$, $K_d
+= 14.5$. Z obrázku~\ref{fig:bode_nyquist_pd} mám $\mathrm{GM} = \infty$,
+$\mathrm{PM} = 85.2^\circ$.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/rltool_pd_pos.png}
+  \caption{Root locus pro PD regulátor}\label{fig:rltool_pd_pos}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/bode_nyquist_pd.png}
+  \caption{Bodeho a Nyquistův graf pro PD regulátor}\label{fig:bode_nyquist_pd}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/PD_pos.png}
+  \caption{Řízení polohy vozíku s PD regulátorem}\label{fig:PD_pos}
+\end{figure}
+
 
 Z výše zmíněných důvodů je nutné implementovat PID regulátor.
 
@@ -231,12 +384,19 @@ PID už zvládá vozík regulovat dostatečně dobře. Hodnoty jsem odladil pomo
 programu \texttt{rltool}~\ref{fig:rltool_pid_pos} a dosadil je do schématu
 Simulinku.  Výsledná regulace na polohu $x=1$ (na obrázku~\ref{fig:PID_pos}) má
 překmit menší než $15 \%$ a dobu ustálení na $90 \%$ reference za $11
-\mathrm{s}$.
+\mathrm{s}$. Podle grafů Bodeho a Nyquista na obrázku~\ref{fig:bode_nyquist_pid} znám 
+$\mathrm{GM} = \infty$, $\mathrm{PM} = 80.5^\circ$.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{img/rltool_pid_pos.png}
-  \caption{Hledání parametrů PID regulátoru pomocí rltool}\label{fig:rltool_pid_pos}
+  \caption{Root locus pro PID regulátor}\label{fig:rltool_pid_pos}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/bode_nyquist_pid.png}
+  \caption{Bodeho a Nyquistův graf}\label{fig:bode_nyquist_pid}
 \end{figure}
 
 \begin{figure}[H]
@@ -276,17 +436,25 @@ Následujícím cílem mé práce je utlumit kmitání kyvadla během posunu voz
 Budu testovat PD a D regulátor. Do simulinku si přidám blok regulátoru, do
 kterého vede jako vstup úhel kyvadla. Jedná se o tlumení, takže výsledná
 hodnota pro regulaci musí být vždy záporná. Hodnoty regulátoru budu chtít
-odlatit pomocí programu \texttt{rltool} (vkládám systém se záporným znaménkem),
+odladit pomocí programu \texttt{rltool} (vkládám systém se záporným znaménkem),
 pro D regulátor umístím jednu nulu do bodu 0 a budu hýbat s póly, dokud nezískám
-otpimální regulátor na obrázku~\ref{fig:rltool_phi}.
+optimální regulátor na obrázku~\ref{fig:rltool_phi}. Z Bodeho a Nyquistova grafu 
+na obrázku~\ref{fig:bode_nyquist_phi} vidím, že $\mathrm{GM} = \infty$. $0 \mathrm{dB}$ 
+protínám ve dvou bodech s $\mathrm{PM} = 114^\circ$ a $116^\circ$.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{img/rltool_phi.png}
-  \caption{Hlednání paramterů D regulátoru pomocí rltool}\label{fig:rltool_phi}
+  \caption{Hledání parametrů D regulátoru pomocí rltool}\label{fig:rltool_phi}
 \end{figure}
 
-Hodntou jsem odladil na $k_d = 7.4102$. Regulátorem dojde k úplnému utlumení
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/bode_nyquist_phi.png}
+  \caption{Bodeho a Nyquistův graf pro úhel kyvadla}\label{fig:bode_nyquist_phi}
+\end{figure}
+
+Hodnotu jsem odladil na $k_d = 7.41$. Regulátorem dojde k úplnému utlumení
 malých kmitů, tzv. při přesunu vozíku vykoná kyvadlo pouze dva kmity. Zlepšení
 oproti původnímu stavu~\ref{fig:oscillation_without} je vidět na
 obrázku~\ref{fig:oscillation_with}.
@@ -303,9 +471,9 @@ obrázku~\ref{fig:oscillation_with}.
   \caption{Kmitání s regulátorem}\label{fig:oscillation_with}
 \end{figure}
 
-Přidáním P regulátoru bych sice dosáhlu zmenšení prvního kmitu o $\sim 20 \%$, ale
+Přidáním P regulátoru bych sice dosáhl zmenšení prvního kmitu o $\sim 20 \%$, ale
 jinak PD regulátor nepřináší žádné výrazné zlepšení, proto ho nebudu
-implementovat. Vyvýjím tak totiž zbytečně velkou sílu na vozík.
+implementovat. Vyvíjím tak totiž zbytečně velkou sílu na vozík.
 
 \subsection{Posicast}
 Dále jsem implementoval feedforward řízení posicast. Pomocí funkce
@@ -313,7 +481,7 @@ Dále jsem implementoval feedforward řízení posicast. Pomocí funkce
 pólů: $\omega_n = 14.2 \mathrm{rad}\cdot\mathrm{s}^{-1}$ a $\zeta = 0.297$.
 Dosadil jsem do vzorců $\tau = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}} =
 0.2317\mathrm{s}$ a $\Phi = \frac{1}{1 + e^{-\tau\zeta\omega_n}}=0.7265$.
-Poisicast rozdělí referenční signál na dva skoky, čímž vyruší kmitání kyvadla ve
+Posicast rozdělí referenční signál na dva skoky, čímž vyruší kmitání kyvadla ve
 výsledné pozici. Pro implementaci a výsledky posicastu viz
 obrázky~\ref{fig:posicast_simulink}~\ref{fig:posicast_x}~\ref{fig:posicast_phi}.
 
@@ -465,10 +633,10 @@ kyvadla.
 \end{figure}
 
 \subsection{Pozorovatel}
-Obvzláště pro řízení reálného kyvadla je nutné implementovat pozorovatele, který
+Obzvláště pro řízení reálného kyvadla je nutné implementovat pozorovatele, který
 bude určovat rychlost a úhlovou rychlost kyvadla - ty se totiž neměří senzorem.
 Pro pozorovatele na horní i dolní polohu vyberu póly (volil jsem je $\pm2$
-krát rychlejší než rychlé póly regulátoru). a v Matlabu spočítám matici $\mathbf{L}$
+krát rychlejší než rychlé póly regulátoru) a v Matlabu spočítám matici $\mathbf{L}$
 pomocí \texttt{L = place(A', C', p)'}. Následně zapojím do Simulinku jako na
 obrázku~\ref{fig:observer_simulink}.
 
@@ -489,6 +657,23 @@ také stalo, viz obrázek~\ref{fig:observer_test}.
   \caption{Testování pozorovatele - graf rychlosti a úhlové rychlosti}\label{fig:observer_test}
 \end{figure}
 
+\subsubsection{Rychlejší přechod}
+S pozorovatelem vyzkouším ještě volbu pólů pro co nejrychlejší přechod bez
+ohledu na kyvadlo, zvolil jsem $p = [-8+13.5i, -8-13.5i, -10, -8, -1]$. Výsledky
+jsou na obrázcích~\ref{fig:state_fast_x} a~\ref{fig:state_fast_phi}.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/state_fast_x.png}
+  \caption{Rychlá regulace na bod 1 - poloha}\label{fig:state_fast_x}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{img/state_fast_phi.png}
+  \caption{Rychlá regulace na bod 1 - úhel}\label{fig:state_fast_phi}
+\end{figure}
+
 \section{Navazující úloha - práce se skutečným lineárním kyvadlem}
 Jako navazující úlohu jsem si vybral řízení lineárního kyvadla, které máme k
 dispozici v laboratoři. Práce probíhá podobně jako v simulaci, tedy vytvářím
@@ -506,32 +691,32 @@ napětí identifikoval přibližně na hodnotu 0.14.
 
 Co se samotných veličin týče, tak délku kyvadla jsem změřil na $l=0.11
 \mathrm{m}$ a vzdálenost od konce kyvadla k jeho těžišti na $l_{cm} = 0.04
-\mathrm{m}$. Hmotnost kyvadla jsem zvážil kuchyňskou váhodu jako $m=0.157
-\mathrm{kg}$ a hmotnost vozízku jako $M=0.55 \mathrm{Kg}$.
+\mathrm{m}$. Hmotnost kyvadla jsem zvážil kuchyňskou váhou jako $m=0.157
+\mathrm{kg}$ a hmotnost vozíku jako $M=0.55 \mathrm{kg}$.
 
-Dále jsem potřeboval zjistit moment hybnosti kyvadla. Nechal zabrzdil jsem vozík
+Dále jsem potřeboval zjistit moment hybnosti kyvadla. Zabrzdil jsem vozík
 a nechal kyvadlo volně kmitat. Perioda mezi kmity vyšla jako $T=0.58
 \mathrm{s}$, z čehož dostávám úhlovou rychlost $\omega=\frac{2\pi}{T} = 10.83
 \mathrm{rad} \cdot \mathrm{s}^{-1}$. Moment hybnosti spočítám jako $J =
-\frac{mgl_{cm}}{\omega^2} = 5.64\cdot10^{-4} \mathrm{kg}\cdot\mathrm{m}^{-2}$.
+\frac{m g l_{cm}}{\omega^2} = 5.64\cdot10^{-4} \mathrm{kg}\cdot\mathrm{m}^{-2}$.
 
-Pro konstantu tření vozíku vezmu opět graf, při kterém kyvadlo volně kmitá,
+Pro konstantu tření vozíku vezmu opět graf, při kterém kyvadlo volně kmitá.
 Vyberu si první a pátý kmit, vypočítám logaritmus podílu jejich amplitud a
 vydělím $5$: $\Lambda =
-\frac{1}{5}\mathrm{ln}\left(\frac{\Lambda_1}{\Lambda_5}\right) =
-\frac{1}{5}\mathrm{ln}\left(\frac{1.655}{1.215}\right) = 0.174$
+\frac{1}{5}\ln\left(\frac{\Lambda_1}{\Lambda_5}\right) =
+\frac{1}{5}\ln\left(\frac{1.655}{1.215}\right) = 0.174$
 
 Už mi chybí pouze konstanta tření vozíku a podíl vstupního napětí vůči působící
-síle.  Pro test odmontuji kyvadlo, aby neovlivňovalo pohyb vozíku. Chci
-provést přechodový děj - do kyvadla pustím konstantní napětí $U_{in} = 4
+síle. Pro test odmontuji kyvadlo, aby neovlivňovalo pohyb vozíku. Chci
+provést přechodový děj - do vozíku pustím konstantní napětí $U_{in} = 4
 \mathrm{V}$ po dobu $1.6 \mathrm{s}$. Zjistím čas $\tau=0.26\mathrm{s}$, za
-který kyvadlo dosáhne $63\%$ rychlosti. Konstantu tření vozíku spočítám jako $b
-= \frac{M}{\tau} = 2.12$.  Podíl vstupního napětí vůči působící síle získám jako
+který vozík dosáhne $63\%$ rychlosti. Konstantu tření vozíku spočítám jako $b
+= \frac{M}{\tau} = 2.12$. Podíl vstupního napětí vůči působící síle získám jako
 $k_f = b\frac{v_{max}}{U_{in}} = 2.96 \mathrm{N}\cdot \mathrm{V}^{-1}$.
 
 \subsection{PID regulátor polohy s tlumením kmitů}
 Schéma zapojení zůstává stejné, jako v simulaci. Získal jsem nové matice 
-představující kyvadlo, takže pomocí pomocí nástroje \texttt{rltool} odladím
+představující kyvadlo, takže pomocí nástroje \texttt{rltool} odladím
 hodnoty regulátoru pro pohyb vozíku a pro tlumení kyvadla. Grafy lze vidět na
 obrázcích~\ref{fig:real_rltool_pid_pos} a~\ref{fig:real_rltool_phi}.
 
@@ -564,7 +749,7 @@ kmitů~\ref{fig:real_pid_pos_with_d}.
 \end{figure}
 
 \subsection{Stavová zpětná vazba}
-Pro obě řešení jsem rovnou zvolil metodu s integrálním řešením a s pozorovatelem, protže jsou nejefektivnější.
+Pro obě řešení jsem rovnou zvolil metodu s integrálním řešením a s pozorovatelem, protože jsou nejefektivnější.
 
 \subsubsection{Dolní poloha}
 Reálné kyvadlo má v dolní poloze následující póly: $0$, $-3.0172$, $-0.5191 \pm

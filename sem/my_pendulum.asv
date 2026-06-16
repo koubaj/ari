@@ -93,7 +93,7 @@ sys_tf_up
 G1 = sys_ss_down(1, 1)
 G2 = sys_ss_up(1, 1)
 
-rltool(G1);
+%rltool(G1);
 
 Kp = 10.2;
 Ki = 1.14;
@@ -149,7 +149,7 @@ B_sloz_down = [B_down;
 %K_sloz = lqr(A_sloz, B_sloz, Q_aug, R_aug)
 
 %p_sloz_down = [-7+13.5160i, -7-13.5160i, -3, -2, -1];
-p_sloz_down = [-8+13.5i, -8-13.5i, -10, -8, -1];
+p_sloz_down = [-4.5+13.5i, -4.5-13.5i, -2, -1.5, -0.5];
 K_sloz_down = place(A_sloz_down, B_sloz_down, p_sloz_down);
 
 K_new_down = K_sloz_down(1:4);
