@@ -93,7 +93,7 @@ sys_tf_up
 G1 = sys_ss_down(1, 1)
 G2 = sys_ss_up(1, 1)
 
-rltool(G1);
+%rltool(G1);
 
 Kp = 10.2;
 Ki = 1.14;

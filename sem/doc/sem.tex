@@ -4,12 +4,13 @@
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage{hyperref}
 \usepackage{geometry}
 \geometry{margin=1in}
 \usepackage{float}
+\usepackage{placeins}
 \usepackage[T1]{fontenc}
 \usepackage[czech]{babel}
+\usepackage{hyperref}
 
 \title{Řízení lineárního kyvadla v předmětu ARI}
 \author{Jáchym Kouba}
@@ -41,6 +42,7 @@
 \maketitle
 \newpage
 
+\FloatBarrier
 \section{Úvod}
 V rámci semestrální práce předmětu ARI jsem si zvolil projekt týkající se řízení
 lineárního kyvadla. K dispozici mám matematicky popsaný model kyvadla a jeho
@@ -49,6 +51,7 @@ diskutoval s profesorem Martinem Hromčíkem, nakonec jsem své cíle stanovil n
 dva cíle: řízení polohy vozíku se stabilizací kyvadla v dolní poloze a
 stabilizaci inverzního kyvadla.
 
+\FloatBarrier
 \section{Popis kyvadla}
 Pro popis kyvadla jsem měl k dispozici dva zdroje - pdf soubor s matematickým
 popisem lineárního kyvadla a kód v Matlabu s předpřipravenou simulací v
@@ -66,7 +69,7 @@ s jedním vstupem
 \end{itemize}
 a dvěma výstupy:
 \begin{itemize}
-  \item úhel natočení kyvadla měřený od vodorovné polohy $\varphi$ [°],
+  \item úhel natočení kyvadla měřený od vodorovné polohy $\varphi$ [$^\circ$],
   \item poloha vozíku $x$ [m].
 \end{itemize}
 
@@ -125,10 +128,11 @@ viz obrázek~\ref{fig:Deadzone}.
   \caption{Zjišťování deadzone}\label{fig:Deadzone}
 \end{figure}
 
+\FloatBarrier
 \section{Linearizace}
 Abych mohl efektivně pracovat s rovnicemi, tak je potřebuji linearizovat v
 určitých bodech. Pro účely úlohy potřebuji získat linearizované rovnice kyvadla
-pro $\varphi = -90$° (kyvadlo míří kolmo dolů) a pro $\varphi = 90$° (kyvadlo
+pro $\varphi = -90^\circ$ (kyvadlo míří kolmo dolů) a pro $\varphi = 90^\circ$ (kyvadlo
 míří kolmo nahoru). Linearizaci pro dolní a horní polohu provedu pomocí Matlabu
 následovně:
 
@@ -149,7 +153,7 @@ A_up = double(subs(A_sym, [X; u], [X_up; u_eq]));
 B_up = double(subs(B_sym, [X; u], [X_up; u_eq]));
 \end{verbatim}
 
-\subsection{Rekce lineárního a nelineárního systému na vstupy}
+\subsection{Reakce lineárního a nelineárního systému na vstupy}
 Systém zapojím podle obrázku~\ref{fig:lin_testing_simulink}. Budu testovat pouze dolní
 polohu, horní je nestabilní (viz níže) a kyvadlo by hned spadlo. Na vstup budu
 pouštět sinusový signál o různé amplitudě. Mohu pozorovat, že pro slabý vstupní
@@ -184,6 +188,7 @@ amplitudou by docházelo k chybě kvůli saturaci.
   \caption{Testování linearizace pro úhel kyvadla s amplitudou vstupu 10}\label{fig:lin_testing_error}
 \end{figure}
 
+\FloatBarrier
 \section{Vlastnosti systému - otevřené smyčky}
 \subsection{Póly}
 Zajímají mě póly a nuly systému pro obě polohy - mohu si tak například potvrdit
@@ -272,6 +277,7 @@ Pro horní polohu a její přenos pro polohu dostávám následují nuly: $-15.5
 pravé polorovině mi dává neminimální fázi - abych pohnul s vozíkem a kyvadlo mi nespadlo, 
 musím nejdřív pohnout na opačnou stranu.
 
+\FloatBarrier
 \section{Řízení polohy vozíku pomocí PID regulátoru}
 Jako první úlohu jsem si zvolil řízení polohy vozíku - dostanu zadaný bod na ose
 x a cílem je, aby na něj vozík dojel. Během této fáze budu zcela ignorovat pohyb
@@ -313,6 +319,7 @@ a~\ref{fig:Without_sat_and_deadzone_out}.
   \caption{Zapojení bez saturace a deadzone - výstup}\label{fig:Without_sat_and_deadzone_out}
 \end{figure}
 
+\FloatBarrier
 \subsection{P regulátor}
 Nejdříve jsem vyzkoušel řízení pomocí samotného P regulátoru, které ovšem vedlo
 na mnoho problémů. Při vysoké hodnotě koeficientu Kp docházelo k velkému
@@ -351,6 +358,7 @@ $\mathrm{GM} = \infty$, $\mathrm{PM} = 39.2^\circ$.
   \caption{Ustálení na špatné hodnotě P regulátoru}\label{fig:P_pos_inf_error}
 \end{figure}
 
+\FloatBarrier
 \subsection{PD regulátor}
 Přidáním D složky jsem schopen omezit překmit téměř na minimum, ale stále se
 nezbavím odchylky v nekonečnu, viz obr.~\ref{fig:PD_pos}. Regulátor jsem odladil
@@ -379,6 +387,7 @@ $\mathrm{PM} = 85.2^\circ$.
 
 Z výše zmíněných důvodů je nutné implementovat PID regulátor.
 
+\FloatBarrier
 \subsection{PID regulátor}
 PID už zvládá vozík regulovat dostatečně dobře. Hodnoty jsem odladil pomocí
 programu \texttt{rltool}~\ref{fig:rltool_pid_pos} a dosadil je do schématu
@@ -427,6 +436,7 @@ Tímto způsobem, s přenosem $\frac{1}{0.03s^2 + 2.8s + 1}$, jsem dosáhl i ř�
 polohy vozíku s překmitem méně než $1 \%$, do intervalu $1 \%$ od cílové hodnoty
 se vozík dostane za $9 \mathrm{s}$.
 
+\FloatBarrier
 \section{Řízení polohy vozíku pomocí PID regulátoru s přidaným tlumením kmitů}
 Řízení polohy vozíku už funguje, teď se budu snažit, abych utlumil kmitání
 kyvadla během pohybu vozíku.
@@ -494,15 +504,16 @@ obrázky~\ref{fig:posicast_simulink}~\ref{fig:posicast_x}~\ref{fig:posicast_phi}
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/posicast_x.png}
-  \caption{Poloha vozíku s poisicastem}\label{fig:posicast_x}
+  \caption{Poloha vozíku s posicastem}\label{fig:posicast_x}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.8\textwidth]{img/posicast_phi.png}
-  \caption{Úhel kyvadla s poisicastem}\label{fig:posicast_phi}
+  \caption{Úhel kyvadla s posicastem}\label{fig:posicast_phi}
 \end{figure}
 
+\FloatBarrier
 \section{Řízení pomocí stavové zpětné vazby}
 Pomocí stavových metod (moje lineární kyvadlo má 4 stavy - polohu, rychlost,
 úhel, úhlovou rychlost) bych chtěl implementovat řízení s kyvadlem nejen v
@@ -674,6 +685,7 @@ jsou na obrázcích~\ref{fig:state_fast_x} a~\ref{fig:state_fast_phi}.
   \caption{Rychlá regulace na bod 1 - úhel}\label{fig:state_fast_phi}
 \end{figure}
 
+\FloatBarrier
 \section{Navazující úloha - práce se skutečným lineárním kyvadlem}
 Jako navazující úlohu jsem si vybral řízení lineárního kyvadla, které máme k
 dispozici v laboratoři. Práce probíhá podobně jako v simulaci, tedy vytvářím
@@ -785,7 +797,7 @@ obrázku~\ref{fig:real_state_up_disorder}.
   \caption{Stavová zpětná vazba pro horní polohu kyvadla s poruchu}\label{fig:real_state_up_disorder}
 \end{figure}
 
-
+\FloatBarrier
 \begin{thebibliography}{9}
 \bibitem{zadani}
 Prof. Martin Hromčík. \textit{Inverzni\_kyvadlo\_new.pdf}.

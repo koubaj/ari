@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  17 JUN 2026 00:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.16)  18 JUN 2026 00:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -190,12 +190,65 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
-(/home/jx2004/snap/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
+(/home/jx2004/snap/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/home/jx2004/snap/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count288
+\Gm@cntv=\count289
+\c@Gm@tempcnt=\count290
+\Gm@bindingoffset=\dimen157
+\Gm@wd@mp=\dimen158
+\Gm@odd@mp=\dimen159
+\Gm@even@mp=\dimen160
+\Gm@layoutwidth=\dimen161
+\Gm@layoutheight=\dimen162
+\Gm@layouthoffset=\dimen163
+\Gm@layoutvoffset=\dimen164
+\Gm@dimlist=\toks32
 )
+(/home/jx2004/snap/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count291
+\float@exts=\toks33
+\float@box=\box56
+\@float@everytoks=\toks34
+\@floatcapt=\box57
+)
+(/home/jx2004/snap/texlive/texmf-dist/tex/latex/placeins/placeins.sty
+Package: placeins 2005/04/18  v 2.2
+)
+(/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2024/08/29 v24.9 The Babel package
+\babel@savecnt=\count292
+\U@D=\dimen165
+\l@unhyphenated=\language89
+
+(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count293
+
+(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel-czech/czech.ldf
+Language: czech 2008/07/06 v3.1a Czech support from the babel system
+Package babel Info: Making " an active character on input line 172.
+\cs@wordlen=\count294
+Package babel Info: Making - an active character on input line 226.
+))
+(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel/locale/cs/babel-czech.t
+ex
+Package babel Info: Importing font and identification data for czech
+(babel)             from babel-cs.ini. Reported on input line 11.
+) (/home/jx2004/snap/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
+
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 )
@@ -233,18 +286,18 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/home/jx2004/snap/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count288
+\c@section@level=\count295
 ) (/home/jx2004/snap/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count289
+\etb@tempcnta=\count296
 )
 (/home/jx2004/snap/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen157
-\Hy@linkcounter=\count290
-\Hy@pagecounter=\count291
+\@linkdim=\dimen166
+\Hy@linkcounter=\count297
+\Hy@pagecounter=\count298
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
@@ -254,7 +307,7 @@ Now handling font encoding PD1 ...
 (/home/jx2004/snap/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count292
+\Hy@SavedSpaceFactor=\count299
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
@@ -268,14 +321,14 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count293
+\c@Hy@tempcnt=\count300
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen158
+\XeTeXLinkMargin=\dimen167
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -284,9 +337,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count294
-\Field@Width=\dimen159
-\Fld@charsize=\dimen160
+\Fld@menulength=\count301
+\Field@Width=\dimen168
+\Fld@charsize=\dimen169
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -299,9 +352,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count295
-\c@Item=\count296
-\c@Hfootnote=\count297
+\Hy@abspage=\count302
+\c@Item=\count303
+\c@Hfootnote=\count304
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -313,8 +366,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count298
-\c@bookmark@seq@number=\count299
+\Fld@listcount=\count305
+\c@bookmark@seq@number=\count306
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.s
 ty
@@ -328,56 +381,6 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
 \Hy@SectionHShift=\skip57
-) (/home/jx2004/snap/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-
-(/home/jx2004/snap/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-)
-\Gm@cnth=\count300
-\Gm@cntv=\count301
-\c@Gm@tempcnt=\count302
-\Gm@bindingoffset=\dimen161
-\Gm@wd@mp=\dimen162
-\Gm@odd@mp=\dimen163
-\Gm@even@mp=\dimen164
-\Gm@layoutwidth=\dimen165
-\Gm@layoutheight=\dimen166
-\Gm@layouthoffset=\dimen167
-\Gm@layoutvoffset=\dimen168
-\Gm@dimlist=\toks32
-)
-(/home/jx2004/snap/texlive/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count303
-\float@exts=\toks33
-\float@box=\box56
-\@float@everytoks=\toks34
-\@floatcapt=\box57
-)
-(/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-)
-(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2024/08/29 v24.9 The Babel package
-\babel@savecnt=\count304
-\U@D=\dimen169
-\l@unhyphenated=\language89
-
-(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@readstream=\read2
-\bbl@dirlevel=\count305
-
-(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel-czech/czech.ldf
-Language: czech 2008/07/06 v3.1a Czech support from the babel system
-Package babel Info: Making " an active character on input line 172.
-\cs@wordlen=\count306
-Package babel Info: Making - an active character on input line 226.
-))
-(/home/jx2004/snap/texlive/texmf-dist/tex/generic/babel/locale/cs/babel-czech.t
-ex
-Package babel Info: Importing font and identification data for czech
-(babel)             from babel-cs.ini. Reported on input line 11.
 ) (/home/jx2004/snap/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/05/25 1.10b listings language file
 )
@@ -386,27 +389,40 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count307
 \l__pdf_internal_box=\box58
 ) (./sem.aux)
+Runaway argument?
+{{23}{19}{Hledání parametrů D reg 
+! File ended while scanning use of \@newl@bel.
+<inserted text> 
+                \par 
+l.41 \begin{document}
+                     
+? 
+! Interruption.
+\@filef@und ->"sem.aux" 
+                        
+l.41 \begin{document}
+                     
+? 
 \openout1 = `sem.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 (/home/jx2004/snap/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count308
@@ -423,28 +439,14 @@ LaTeX Font Info:    ... okay on input line 40.
 )
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-(/home/jx2004/snap/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \c@lstlisting=\count314
-Package hyperref Info: Link coloring OFF on input line 40.
-
-(./sem.out) (./sem.out)
-\@outlinefile=\write3
-\openout3 = `sem.out'.
-
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -480,12 +482,18 @@ Package hyperref Info: Link coloring OFF on input line 40.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+Package hyperref Info: Link coloring OFF on input line 41.
+(./sem.out) (./sem.out)
+\@outlinefile=\write3
+\openout3 = `sem.out'.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
 
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -496,716 +504,510 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/home/jx2004/snap/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/home/
 jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<img/equation_check.jpg, id=146, 2998.20125pt x 2514.39375pt>
+
+LaTeX Warning: Citation `zadani' on page 2 undefined on input line 61.
+
+<img/equation_check.jpg, id=145, 2998.20125pt x 2514.39375pt>
 File: img/equation_check.jpg Graphic file (type jpg)
 <use img/equation_check.jpg>
-Package pdftex.def Info: img/equation_check.jpg  used on input line 105.
+Package pdftex.def Info: img/equation_check.jpg  used on input line 108.
 (pdftex.def)             Requested size: 469.75502pt x 393.94733pt.
 
 
 [2{/home/jx2004/snap/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.e
 nc}]
-
-[3
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.121 
-       <./img/equation_check.jpg>]
-<img/deadzone.png, id=169, 600.2425pt x 575.14874pt>
+<img/deadzone.png, id=163, 600.2425pt x 575.14874pt>
 File: img/deadzone.png Graphic file (type png)
 <use img/deadzone.png>
-Package pdftex.def Info: img/deadzone.png  used on input line 124.
+Package pdftex.def Info: img/deadzone.png  used on input line 127.
 (pdftex.def)             Requested size: 375.80544pt x 360.10773pt.
+
+
+[3 <./img/equation_check.jpg>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 1
-35.
+39.
 
 (/home/jx2004/snap/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 
-[4
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.150 \end{verbatim}
-                     <./img/deadzone.png>]
-<img/lin_testing_simulink.png, id=181, 961.5925pt x 493.845pt>
+[4 <./img/deadzone.png>]
+<img/lin_testing_simulink.png, id=180, 961.5925pt x 493.845pt>
 File: img/lin_testing_simulink.png Graphic file (type png)
 <use img/lin_testing_simulink.png>
-Package pdftex.def Info: img/lin_testing_simulink.png  used on input line 161.
+Package pdftex.def Info: img/lin_testing_simulink.png  used on input line 165.
 (pdftex.def)             Requested size: 375.80544pt x 193.00568pt.
-<img/lin_testing_deadzone_x.png, id=182, 958.58125pt x 576.1525pt>
+<img/lin_testing_deadzone_x.png, id=181, 958.58125pt x 576.1525pt>
 File: img/lin_testing_deadzone_x.png Graphic file (type png)
 <use img/lin_testing_deadzone_x.png>
-Package pdftex.def Info: img/lin_testing_deadzone_x.png  used on input line 167
+Package pdftex.def Info: img/lin_testing_deadzone_x.png  used on input line 171
 .
 (pdftex.def)             Requested size: 375.80544pt x 225.8766pt.
-<img/lin_testing_deadzone_phi.png, id=183, 958.58125pt x 576.1525pt>
+<img/lin_testing_deadzone_phi.png, id=182, 958.58125pt x 576.1525pt>
 File: img/lin_testing_deadzone_phi.png Graphic file (type png)
 <use img/lin_testing_deadzone_phi.png>
 Package pdftex.def Info: img/lin_testing_deadzone_phi.png  used on input line 1
-73.
+77.
 (pdftex.def)             Requested size: 375.80544pt x 225.8766pt.
-<img/lin_testing_error.png, id=185, 958.58125pt x 576.1525pt>
+<img/lin_testing_error.png, id=184, 958.58125pt x 576.1525pt>
 File: img/lin_testing_error.png Graphic file (type png)
 <use img/lin_testing_error.png>
-Package pdftex.def Info: img/lin_testing_error.png  used on input line 183.
+Package pdftex.def Info: img/lin_testing_error.png  used on input line 187.
 (pdftex.def)             Requested size: 375.80544pt x 225.8766pt.
 
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.205 \end{verbatim}
-                     <./img/lin_testing_simulink.png>]
+[5 <./img/lin_testing_simulink.png>]
 
-[6
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.205 \end{verbatim}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.205 \end{verbatim}
-                     <./img/lin_testing_deadzone_x.png> <./img/lin_testing_dead
-zone_phi.png>]
-<img/poles_down.png, id=204, 429.10312pt x 338.76563pt>
+[6 <./img/lin_testing_deadzone_x.png> <./img/lin_testing_deadzone_phi.png>]
+<img/poles_down.png, id=203, 429.10312pt x 338.76563pt>
 File: img/poles_down.png Graphic file (type png)
 <use img/poles_down.png>
-Package pdftex.def Info: img/poles_down.png  used on input line 215.
+Package pdftex.def Info: img/poles_down.png  used on input line 220.
 (pdftex.def)             Requested size: 230.18253pt x 181.72629pt.
-<img/poles_up.png, id=205, 429.10312pt x 338.76563pt>
+<img/poles_up.png, id=204, 429.10312pt x 338.76563pt>
 File: img/poles_up.png Graphic file (type png)
 <use img/poles_up.png>
-Package pdftex.def Info: img/poles_up.png  used on input line 220.
+Package pdftex.def Info: img/poles_up.png  used on input line 225.
 (pdftex.def)             Requested size: 230.18253pt x 181.72629pt.
 
 
-[7
-pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.249 
-       <./img/lin_testing_error.png>]
+[7 <./img/lin_testing_error.png>]
 
-[8
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.280 \subsection
-                 {Zapojení v Simulinku}
-pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.280 \subsection
-                 {Zapojení v Simulinku} <./img/poles_down.png (PNG copy)> <./i
-mg/poles_up.png (PNG copy)>]
-<img/simulink_pos_PID.png, id=219, 911.405pt x 675.52374pt>
+[8 <./img/poles_down.png (PNG copy)> <./img/poles_up.png (PNG copy)>]
+<img/simulink_pos_PID.png, id=218, 911.405pt x 675.52374pt>
 File: img/simulink_pos_PID.png Graphic file (type png)
 <use img/simulink_pos_PID.png>
-Package pdftex.def Info: img/simulink_pos_PID.png  used on input line 288.
+Package pdftex.def Info: img/simulink_pos_PID.png  used on input line 294.
 (pdftex.def)             Requested size: 375.80544pt x 278.5436pt.
-<img/without_sat_and_deadzone_in.png, id=222, 738.76pt x 494.84875pt>
+
+
+[9 <./img/simulink_pos_PID.png>]
+<img/without_sat_and_deadzone_in.png, id=227, 738.76pt x 494.84875pt>
 File: img/without_sat_and_deadzone_in.png Graphic file (type png)
 <use img/without_sat_and_deadzone_in.png>
 Package pdftex.def Info: img/without_sat_and_deadzone_in.png  used on input lin
-e 306.
+e 312.
 (pdftex.def)             Requested size: 375.80544pt x 251.7277pt.
-<img/without_sat_and_deadzone_out.png, id=223, 723.70375pt x 501.875pt>
+<img/without_sat_and_deadzone_out.png, id=228, 723.70375pt x 501.875pt>
 File: img/without_sat_and_deadzone_out.png Graphic file (type png)
 <use img/without_sat_and_deadzone_out.png>
 Package pdftex.def Info: img/without_sat_and_deadzone_out.png  used on input li
-ne 312.
+ne 318.
 (pdftex.def)             Requested size: 375.80544pt x 260.61656pt.
-<img/P_pos_overshoot.png, id=225, 723.70375pt x 501.875pt>
+
+
+[10 <./img/without_sat_and_deadzone_in.png>]
+<img/P_pos_overshoot.png, id=237, 723.70375pt x 501.875pt>
 File: img/P_pos_overshoot.png Graphic file (type png)
 <use img/P_pos_overshoot.png>
-Package pdftex.def Info: img/P_pos_overshoot.png  used on input line 324.
+Package pdftex.def Info: img/P_pos_overshoot.png  used on input line 331.
 (pdftex.def)             Requested size: 375.80544pt x 260.61656pt.
-
-
-[9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.326 \end{figure}
-                   <./img/simulink_pos_PID.png>]
-
-[10
-pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.326 \end{figure}
-                  
-pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.326 \end{figure}
-                   <./img/without_sat_and_deadzone_in.png> <./img/without_sat_a
-nd_deadzone_out.png>]
-<img/rltool_p_pos.png, id=243, 1387.1825pt x 845.1575pt>
+<img/rltool_p_pos.png, id=241, 1387.1825pt x 845.1575pt>
 File: img/rltool_p_pos.png Graphic file (type png)
 <use img/rltool_p_pos.png>
-Package pdftex.def Info: img/rltool_p_pos.png  used on input line 338.
+Package pdftex.def Info: img/rltool_p_pos.png  used on input line 345.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/bode_nyquist_p.png, id=244, 1387.1825pt x 845.1575pt>
+<img/bode_nyquist_p.png, id=242, 1387.1825pt x 845.1575pt>
 File: img/bode_nyquist_p.png Graphic file (type png)
 <use img/bode_nyquist_p.png>
-Package pdftex.def Info: img/bode_nyquist_p.png  used on input line 344.
+Package pdftex.def Info: img/bode_nyquist_p.png  used on input line 351.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/P_pos_inf_error.png, id=245, 958.58125pt x 555.07375pt>
+<img/P_pos_inf_error.png, id=243, 958.58125pt x 555.07375pt>
 File: img/P_pos_inf_error.png Graphic file (type png)
 <use img/P_pos_inf_error.png>
-Package pdftex.def Info: img/P_pos_inf_error.png  used on input line 350.
+Package pdftex.def Info: img/P_pos_inf_error.png  used on input line 357.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/rltool_pd_pos.png, id=249, 1387.1825pt x 845.1575pt>
+
+
+[11 <./img/without_sat_and_deadzone_out.png>]
+
+[12 <./img/P_pos_overshoot.png> <./img/rltool_p_pos.png>]
+
+[13 <./img/bode_nyquist_p.png> <./img/P_pos_inf_error.png>]
+<img/rltool_pd_pos.png, id=269, 1387.1825pt x 845.1575pt>
 File: img/rltool_pd_pos.png Graphic file (type png)
 <use img/rltool_pd_pos.png>
-Package pdftex.def Info: img/rltool_pd_pos.png  used on input line 363.
+Package pdftex.def Info: img/rltool_pd_pos.png  used on input line 371.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/bode_nyquist_pd.png, id=250, 1387.1825pt x 845.1575pt>
+<img/bode_nyquist_pd.png, id=270, 1387.1825pt x 845.1575pt>
 File: img/bode_nyquist_pd.png Graphic file (type png)
 <use img/bode_nyquist_pd.png>
-Package pdftex.def Info: img/bode_nyquist_pd.png  used on input line 369.
+Package pdftex.def Info: img/bode_nyquist_pd.png  used on input line 377.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/PD_pos.png, id=251, 958.58125pt x 555.07375pt>
+<img/PD_pos.png, id=271, 958.58125pt x 555.07375pt>
 File: img/PD_pos.png Graphic file (type png)
 <use img/PD_pos.png>
-Package pdftex.def Info: img/PD_pos.png  used on input line 375.
+Package pdftex.def Info: img/PD_pos.png  used on input line 383.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/rltool_pid_pos.png, id=255, 1387.1825pt x 845.1575pt>
+
+
+[14 <./img/rltool_pd_pos.png>]
+
+[15 <./img/bode_nyquist_pd.png> <./img/PD_pos.png>]
+<img/rltool_pid_pos.png, id=289, 1387.1825pt x 845.1575pt>
 File: img/rltool_pid_pos.png Graphic file (type png)
 <use img/rltool_pid_pos.png>
-Package pdftex.def Info: img/rltool_pid_pos.png  used on input line 392.
+Package pdftex.def Info: img/rltool_pid_pos.png  used on input line 401.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/bode_nyquist_pid.png, id=256, 1387.1825pt x 845.1575pt>
+<img/bode_nyquist_pid.png, id=290, 1387.1825pt x 845.1575pt>
 File: img/bode_nyquist_pid.png Graphic file (type png)
 <use img/bode_nyquist_pid.png>
-Package pdftex.def Info: img/bode_nyquist_pid.png  used on input line 398.
+Package pdftex.def Info: img/bode_nyquist_pid.png  used on input line 407.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/PID_pos.png, id=257, 723.70375pt x 501.875pt>
+<img/PID_pos.png, id=291, 723.70375pt x 501.875pt>
 File: img/PID_pos.png Graphic file (type png)
 <use img/PID_pos.png>
-Package pdftex.def Info: img/PID_pos.png  used on input line 404.
+Package pdftex.def Info: img/PID_pos.png  used on input line 413.
 (pdftex.def)             Requested size: 375.80544pt x 260.61656pt.
-
-
-[11
-pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
- <./img/P_pos_overshoot.png>]
-
-[12
-pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
-
-pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
- <./img/rltool_p_pos.png> <./img/bode_nyquist_p.png>]
-
-[13
-pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
-
-pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
- <./img/P_pos_inf_error.png> <./img/rltool_pd_pos.png>]
-
-[14
-pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
-
-pdfTeX warning (ext4): destination with the same identifier (name{figure.18}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
- <./img/bode_nyquist_pd.png> <./img/PD_pos.png>]
-
-[15
-pdfTeX warning (ext4): destination with the same identifier (name{figure.19}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
-
-pdfTeX warning (ext4): destination with the same identifier (name{figure.20}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 Z
-       atím jsem měl jako referenci nastavenou konstantu, jednalo se vlast...
- <./img/rltool_pid_pos.png> <./img/bode_nyquist_pid.png>]
-<img/reference_model.png, id=299, 682.55pt x 467.7475pt>
+<img/reference_model.png, id=293, 682.55pt x 467.7475pt>
 File: img/reference_model.png Graphic file (type png)
 <use img/reference_model.png>
-Package pdftex.def Info: img/reference_model.png  used on input line 422.
+Package pdftex.def Info: img/reference_model.png  used on input line 431.
 (pdftex.def)             Requested size: 375.80544pt x 257.54025pt.
 
 
-[16
-pdfTeX warning (ext4): destination with the same identifier (name{figure.21}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.444 
-       <./img/PID_pos.png>]
-<img/rltool_phi.png, id=308, 1387.1825pt x 845.1575pt>
+[16 <./img/rltool_pid_pos.png>]
+
+[17 <./img/bode_nyquist_pid.png> <./img/PID_pos.png>]
+
+LaTeX Warning: Reference `fig:rltool_phi' on page 18 undefined on input line 45
+1.
+
+
+LaTeX Warning: Reference `fig:bode_nyquist_phi' on page 18 undefined on input l
+ine 452.
+
+<img/rltool_phi.png, id=309, 1387.1825pt x 845.1575pt>
 File: img/rltool_phi.png Graphic file (type png)
 <use img/rltool_phi.png>
-Package pdftex.def Info: img/rltool_phi.png  used on input line 447.
+Package pdftex.def Info: img/rltool_phi.png  used on input line 457.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/bode_nyquist_phi.png, id=309, 1387.1825pt x 845.1575pt>
+<img/bode_nyquist_phi.png, id=310, 1387.1825pt x 845.1575pt>
 File: img/bode_nyquist_phi.png Graphic file (type png)
 <use img/bode_nyquist_phi.png>
-Package pdftex.def Info: img/bode_nyquist_phi.png  used on input line 453.
+Package pdftex.def Info: img/bode_nyquist_phi.png  used on input line 463.
 (pdftex.def)             Requested size: 375.80544pt x 228.95644pt.
-<img/oscillation_without_regulator.png, id=312, 714.67pt x 611.28375pt>
+
+LaTeX Warning: Reference `fig:oscillation_without' on page 18 undefined on inpu
+t line 469.
+
+
+LaTeX Warning: Reference `fig:oscillation_with' on page 18 undefined on input l
+ine 470.
+
+<img/oscillation_without_regulator.png, id=311, 958.58125pt x 555.07375pt>
 File: img/oscillation_without_regulator.png Graphic file (type png)
 <use img/oscillation_without_regulator.png>
 Package pdftex.def Info: img/oscillation_without_regulator.png  used on input l
-ine 464.
-(pdftex.def)             Requested size: 375.80544pt x 321.44179pt.
-<img/oscillation_with_regulator.png, id=313, 694.595pt x 551.05875pt>
+ine 474.
+(pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
+<img/oscillation_with_regulator.png, id=312, 958.58125pt x 555.07375pt>
 File: img/oscillation_with_regulator.png Graphic file (type png)
 <use img/oscillation_with_regulator.png>
 Package pdftex.def Info: img/oscillation_with_regulator.png  used on input line
- 470.
-(pdftex.def)             Requested size: 375.80544pt x 298.15587pt.
-<img/posicast_simulink.png, id=317, 901.3675pt x 202.7575pt>
+ 480.
+(pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
+
+LaTeX Warning: Reference `fig:posicast_simulink' on page 18 undefined on input 
+line 496.
+
+
+LaTeX Warning: Reference `fig:posicast_x' on page 18 undefined on input line 49
+6.
+
+
+LaTeX Warning: Reference `fig:posicast_phi' on page 18 undefined on input line 
+496.
+
+
+
+[18 <./img/reference_model.png>]
+
+[19 <./img/rltool_phi.png> <./img/bode_nyquist_phi.png>]
+
+[20 <./img/oscillation_without_regulator.png> <./img/oscillation_with_regulator
+.png>]
+<img/posicast_simulink.png, id=335, 901.3675pt x 202.7575pt>
 File: img/posicast_simulink.png Graphic file (type png)
 <use img/posicast_simulink.png>
-Package pdftex.def Info: img/posicast_simulink.png  used on input line 490.
+Package pdftex.def Info: img/posicast_simulink.png  used on input line 500.
 (pdftex.def)             Requested size: 375.80544pt x 84.5357pt.
-<img/posicast_x.png, id=318, 682.55pt x 467.7475pt>
+<img/posicast_x.png, id=336, 682.55pt x 467.7475pt>
 File: img/posicast_x.png Graphic file (type png)
 <use img/posicast_x.png>
-Package pdftex.def Info: img/posicast_x.png  used on input line 496.
+Package pdftex.def Info: img/posicast_x.png  used on input line 506.
 (pdftex.def)             Requested size: 375.80544pt x 257.54025pt.
-<img/posicast_phi.png, id=319, 694.595pt x 551.05875pt>
+<img/posicast_phi.png, id=337, 958.58125pt x 555.07375pt>
 File: img/posicast_phi.png Graphic file (type png)
 <use img/posicast_phi.png>
-Package pdftex.def Info: img/posicast_phi.png  used on input line 502.
-(pdftex.def)             Requested size: 375.80544pt x 298.15587pt.
+Package pdftex.def Info: img/posicast_phi.png  used on input line 512.
+(pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
 
 
-[17
-pdfTeX warning (ext4): destination with the same identifier (name{figure.22}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem} <./
-img/reference_model.png>]
+[21 <./img/posicast_simulink.png> <./img/posicast_x.png>]
 
-[18
-pdfTeX warning (ext4): destination with the same identifier (name{figure.23}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem}
-pdfTeX warning (ext4): destination with the same identifier (name{figure.24}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem} <./
-img/rltool_phi.png> <./img/bode_nyquist_phi.png>]
+LaTeX Warning: Reference `fig:state_prefilter_simulink' on page 22 undefined on
+ input line 529.
 
-[19
-pdfTeX warning (ext4): destination with the same identifier (name{figure.25}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem} <./
-img/oscillation_without_regulator.png>]
-
-[20
-pdfTeX warning (ext4): destination with the same identifier (name{figure.26}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem}
-pdfTeX warning (ext4): destination with the same identifier (name{figure.27}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem} <./
-img/oscillation_with_regulator.png> <./img/posicast_simulink.png>]
-
-[21
-pdfTeX warning (ext4): destination with the same identifier (name{figure.28}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem}
-pdfTeX warning (ext4): destination with the same identifier (name{figure.29}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.511 \subsection
-                 {Řízení pomocí stavové zpětné vazby s předfiltrem} <./
-img/posicast_x.png> <./img/posicast_phi.png>]
-<img/state_prefilter_simulink.png, id=360, 964.60374pt x 726.715pt>
+<img/state_prefilter_simulink.png, id=349, 964.60374pt x 726.715pt>
 File: img/state_prefilter_simulink.png Graphic file (type png)
 <use img/state_prefilter_simulink.png>
 Package pdftex.def Info: img/state_prefilter_simulink.png  used on input line 5
-22.
+33.
 (pdftex.def)             Requested size: 375.80544pt x 283.1183pt.
-<img/state_prefilter_phi_old.png, id=364, 958.58125pt x 555.07375pt>
+
+LaTeX Warning: Reference `fig:state_prefilter_phi_old' on page 22 undefined on 
+input line 537.
+
+
+LaTeX Warning: Reference `fig:state_prefilter_x' on page 22 undefined on input 
+line 542.
+
+
+LaTeX Warning: Reference `fig:state_prefilter_phi_new' on page 22 undefined on 
+input line 543.
+
+<img/state_prefilter_phi_old.png, id=350, 958.58125pt x 555.07375pt>
 File: img/state_prefilter_phi_old.png Graphic file (type png)
 <use img/state_prefilter_phi_old.png>
-Package pdftex.def Info: img/state_prefilter_phi_old.png  used on input line 53
-6.
+Package pdftex.def Info: img/state_prefilter_phi_old.png  used on input line 54
+7.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_prefilter_x.png, id=365, 958.58125pt x 555.07375pt>
+<img/state_prefilter_x.png, id=351, 958.58125pt x 555.07375pt>
 File: img/state_prefilter_x.png Graphic file (type png)
 <use img/state_prefilter_x.png>
-Package pdftex.def Info: img/state_prefilter_x.png  used on input line 542.
+Package pdftex.def Info: img/state_prefilter_x.png  used on input line 553.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_prefilter_phi_new.png, id=366, 958.58125pt x 555.07375pt>
+<img/state_prefilter_phi_new.png, id=352, 958.58125pt x 555.07375pt>
 File: img/state_prefilter_phi_new.png Graphic file (type png)
 <use img/state_prefilter_phi_new.png>
-Package pdftex.def Info: img/state_prefilter_phi_new.png  used on input line 54
-8.
+Package pdftex.def Info: img/state_prefilter_phi_new.png  used on input line 55
+9.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
 
+LaTeX Warning: Reference `fig:state_prefilter_up_x' on page 22 undefined on inp
+ut line 569.
 
-[22
-pdfTeX warning (ext4): destination with the same identifier (name{figure.30}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.560 
-       <./img/state_prefilter_simulink.png>]
 
-[23
-pdfTeX warning (ext4): destination with the same identifier (name{figure.31}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.560 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.32}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.560 
-       <./img/state_prefilter_phi_old.png> <./img/state_prefilter_x.png>]
-<img/state_prefilter_up_x.png, id=387, 958.58125pt x 555.07375pt>
+LaTeX Warning: Reference `fig:state_prefilter_up_phi' on page 22 undefined on i
+nput line 570.
+
+<img/state_prefilter_up_x.png, id=353, 958.58125pt x 555.07375pt>
 File: img/state_prefilter_up_x.png Graphic file (type png)
 <use img/state_prefilter_up_x.png>
-Package pdftex.def Info: img/state_prefilter_up_x.png  used on input line 563.
+Package pdftex.def Info: img/state_prefilter_up_x.png  used on input line 574.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_prefilter_up_phi.png, id=388, 958.58125pt x 555.07375pt>
+<img/state_prefilter_up_phi.png, id=354, 958.58125pt x 555.07375pt>
 File: img/state_prefilter_up_phi.png Graphic file (type png)
 <use img/state_prefilter_up_phi.png>
-Package pdftex.def Info: img/state_prefilter_up_phi.png  used on input line 569
+Package pdftex.def Info: img/state_prefilter_up_phi.png  used on input line 580
 .
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_prefilter_x_disorder.png, id=390, 958.58125pt x 555.07375pt>
+
+LaTeX Warning: Reference `fig:state_prefilter_x_disorder' on page 22 undefined 
+on input line 587.
+
+
+
+[22 <./img/posicast_phi.png>]
+
+[23 <./img/state_prefilter_simulink.png> <./img/state_prefilter_phi_old.png>]
+
+[24 <./img/state_prefilter_x.png> <./img/state_prefilter_phi_new.png>]
+
+[25 <./img/state_prefilter_up_x.png> <./img/state_prefilter_up_phi.png>]
+<img/state_prefilter_x_disorder.png, id=388, 958.58125pt x 555.07375pt>
 File: img/state_prefilter_x_disorder.png Graphic file (type png)
 <use img/state_prefilter_x_disorder.png>
 Package pdftex.def Info: img/state_prefilter_x_disorder.png  used on input line
- 581.
+ 592.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_integral_simulink.png, id=392, 964.60374pt x 726.715pt>
+
+
+LaTeX Warning: Reference `fig:state_integral_simulink' on page 26 undefined on 
+input line 600.
+
+<img/state_integral_simulink.png, id=389, 964.60374pt x 726.715pt>
 File: img/state_integral_simulink.png Graphic file (type png)
 <use img/state_integral_simulink.png>
-Package pdftex.def Info: img/state_integral_simulink.png  used on input line 59
-3.
+Package pdftex.def Info: img/state_integral_simulink.png  used on input line 60
+4.
 (pdftex.def)             Requested size: 375.80544pt x 283.1183pt.
-<img/state_integral_down_x.png, id=393, 958.58125pt x 555.07375pt>
+<img/state_integral_down_x.png, id=390, 958.58125pt x 555.07375pt>
 File: img/state_integral_down_x.png Graphic file (type png)
 <use img/state_integral_down_x.png>
-Package pdftex.def Info: img/state_integral_down_x.png  used on input line 613.
+Package pdftex.def Info: img/state_integral_down_x.png  used on input line 624.
 
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_integral_down_phi.png, id=394, 958.58125pt x 555.07375pt>
+<img/state_integral_down_phi.png, id=391, 958.58125pt x 555.07375pt>
 File: img/state_integral_down_phi.png Graphic file (type png)
 <use img/state_integral_down_phi.png>
-Package pdftex.def Info: img/state_integral_down_phi.png  used on input line 61
-9.
+Package pdftex.def Info: img/state_integral_down_phi.png  used on input line 63
+0.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_integral_up_x.png, id=395, 958.58125pt x 555.07375pt>
+<img/state_integral_up_x.png, id=392, 958.58125pt x 555.07375pt>
 File: img/state_integral_up_x.png Graphic file (type png)
 <use img/state_integral_up_x.png>
-Package pdftex.def Info: img/state_integral_up_x.png  used on input line 625.
+Package pdftex.def Info: img/state_integral_up_x.png  used on input line 636.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_integral_up_phi.png, id=396, 958.58125pt x 555.07375pt>
+<img/state_integral_up_phi.png, id=393, 958.58125pt x 555.07375pt>
 File: img/state_integral_up_phi.png Graphic file (type png)
 <use img/state_integral_up_phi.png>
-Package pdftex.def Info: img/state_integral_up_phi.png  used on input line 631.
+Package pdftex.def Info: img/state_integral_up_phi.png  used on input line 642.
 
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
 
+LaTeX Warning: Reference `fig:observer_simulink' on page 26 undefined on input 
+line 652.
 
-[24
-pdfTeX warning (ext4): destination with the same identifier (name{figure.33}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-       <./img/state_prefilter_phi_new.png>]
-
-[25
-pdfTeX warning (ext4): destination with the same identifier (name{figure.34}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.35}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-       <./img/state_prefilter_up_x.png> <./img/state_prefilter_up_phi.png>]
-
-[26
-pdfTeX warning (ext4): destination with the same identifier (name{figure.36}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.37}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-       <./img/state_prefilter_x_disorder.png> <./img/state_integral_simulink.pn
-g>]
-
-[27
-pdfTeX warning (ext4): destination with the same identifier (name{figure.38}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.39}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-       <./img/state_integral_down_x.png> <./img/state_integral_down_phi.png>]
-
-[28
-pdfTeX warning (ext4): destination with the same identifier (name{figure.40}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.41}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.642 
-       <./img/state_integral_up_x.png> <./img/state_integral_up_phi.png>]
-<img/observer_simulink.png, id=436, 1132.23pt x 753.81625pt>
+<img/observer_simulink.png, id=394, 1132.23pt x 753.81625pt>
 File: img/observer_simulink.png Graphic file (type png)
 <use img/observer_simulink.png>
-Package pdftex.def Info: img/observer_simulink.png  used on input line 645.
+Package pdftex.def Info: img/observer_simulink.png  used on input line 656.
 (pdftex.def)             Requested size: 375.80544pt x 250.19792pt.
-<img/observer_test.png, id=438, 950.55125pt x 624.3325pt>
+
+
+[26 <./img/state_prefilter_x_disorder.png>]
+
+[27 <./img/state_integral_simulink.png> <./img/state_integral_down_x.png>]
+
+[28 <./img/state_integral_down_phi.png> <./img/state_integral_up_x.png>]
+
+LaTeX Warning: Reference `fig:observer_test' on page 29 undefined on input line
+ 663.
+
+<img/observer_test.png, id=417, 950.55125pt x 624.3325pt>
 File: img/observer_test.png Graphic file (type png)
 <use img/observer_test.png>
-Package pdftex.def Info: img/observer_test.png  used on input line 656.
+Package pdftex.def Info: img/observer_test.png  used on input line 667.
 (pdftex.def)             Requested size: 375.80544pt x 246.8325pt.
-<img/state_fast_x.png, id=441, 958.58125pt x 555.07375pt>
+
+LaTeX Warning: Reference `fig:state_fast_x' on page 29 undefined on input line 
+674.
+
+
+LaTeX Warning: Reference `fig:state_fast_phi' on page 29 undefined on input lin
+e 674.
+
+<img/state_fast_x.png, id=418, 958.58125pt x 555.07375pt>
 File: img/state_fast_x.png Graphic file (type png)
 <use img/state_fast_x.png>
-Package pdftex.def Info: img/state_fast_x.png  used on input line 667.
+Package pdftex.def Info: img/state_fast_x.png  used on input line 678.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
-<img/state_fast_phi.png, id=442, 958.58125pt x 555.07375pt>
+<img/state_fast_phi.png, id=419, 958.58125pt x 555.07375pt>
 File: img/state_fast_phi.png Graphic file (type png)
 <use img/state_fast_phi.png>
-Package pdftex.def Info: img/state_fast_phi.png  used on input line 673.
+Package pdftex.def Info: img/state_fast_phi.png  used on input line 684.
 (pdftex.def)             Requested size: 375.80544pt x 217.61282pt.
 
 
-[29
-pdfTeX warning (ext4): destination with the same identifier (name{figure.42}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.691 
-       <./img/observer_simulink.png>]
+[29 <./img/state_integral_up_phi.png>]
 
-[30
-pdfTeX warning (ext4): destination with the same identifier (name{figure.43}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.691 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.44}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.691 
-       <./img/observer_test.png> <./img/state_fast_x.png>]
+[30 <./img/observer_simulink.png> <./img/observer_test.png>]
 
-[31
-pdfTeX warning (ext4): destination with the same identifier (name{figure.45}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.722 
-       <./img/state_fast_phi.png>]
-<img/real/rltool_pid_pos.png, id=466, 1232.605pt x 869.2475pt>
+[31 <./img/state_fast_x.png> <./img/state_fast_phi.png>]
+
+LaTeX Warning: Reference `fig:real_rltool_pid_pos' on page 32 undefined on inpu
+t line 733.
+
+
+LaTeX Warning: Reference `fig:real_rltool_phi' on page 32 undefined on input li
+ne 733.
+
+<img/real/rltool_pid_pos.png, id=443, 1232.605pt x 869.2475pt>
 File: img/real/rltool_pid_pos.png Graphic file (type png)
 <use img/real/rltool_pid_pos.png>
-Package pdftex.def Info: img/real/rltool_pid_pos.png  used on input line 725.
+Package pdftex.def Info: img/real/rltool_pid_pos.png  used on input line 737.
 (pdftex.def)             Requested size: 375.80544pt x 265.02061pt.
-<img/real/rltool_phi.png, id=467, 1232.605pt x 869.2475pt>
+<img/real/rltool_phi.png, id=444, 1232.605pt x 869.2475pt>
 File: img/real/rltool_phi.png Graphic file (type png)
 <use img/real/rltool_phi.png>
-Package pdftex.def Info: img/real/rltool_phi.png  used on input line 731.
+Package pdftex.def Info: img/real/rltool_phi.png  used on input line 743.
 (pdftex.def)             Requested size: 375.80544pt x 265.02061pt.
-<img/real/pid_pos_without_phi.png, id=470, 722.7pt x 435.12563pt>
+
+LaTeX Warning: Reference `fig:real_pid_pos_without_d' on page 32 undefined on i
+nput line 748.
+
+
+LaTeX Warning: Reference `fig:real_pid_pos_with_d' on page 32 undefined on inpu
+t line 749.
+
+<img/real/pid_pos_without_phi.png, id=445, 722.7pt x 435.12563pt>
 File: img/real/pid_pos_without_phi.png Graphic file (type png)
 <use img/real/pid_pos_without_phi.png>
 Package pdftex.def Info: img/real/pid_pos_without_phi.png  used on input line 7
-41.
+53.
 (pdftex.def)             Requested size: 375.80544pt x 226.26662pt.
-<img/real/pid_pos_with_d.png, id=471, 722.7pt x 434.37282pt>
+<img/real/pid_pos_with_d.png, id=446, 722.7pt x 434.37282pt>
 File: img/real/pid_pos_with_d.png Graphic file (type png)
 <use img/real/pid_pos_with_d.png>
-Package pdftex.def Info: img/real/pid_pos_with_d.png  used on input line 747.
+Package pdftex.def Info: img/real/pid_pos_with_d.png  used on input line 759.
 (pdftex.def)             Requested size: 375.80544pt x 225.87515pt.
-<img/real/state_down.png, id=473, 812.28468pt x 420.82219pt>
+
+LaTeX Warning: Reference `fig:real_state_down' on page 32 undefined on input li
+ne 771.
+
+
+
+[32]
+
+[33 <./img/real/rltool_pid_pos.png> <./img/real/rltool_phi.png>]
+
+[34 <./img/real/pid_pos_without_phi.png> <./img/real/pid_pos_with_d.png>]
+<img/real/state_down.png, id=467, 812.28468pt x 420.82219pt>
 File: img/real/state_down.png Graphic file (type png)
 <use img/real/state_down.png>
-Package pdftex.def Info: img/real/state_down.png  used on input line 763.
+Package pdftex.def Info: img/real/state_down.png  used on input line 775.
 (pdftex.def)             Requested size: 375.80544pt x 194.69142pt.
 
 
-[32
-pdfTeX warning (ext4): destination with the same identifier (name{figure.46}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.775 
-       <./img/real/rltool_pid_pos.png>]
+LaTeX Warning: Reference `fig:real_state_up' on page 35 undefined on input line
+ 784.
 
-[33
-pdfTeX warning (ext4): destination with the same identifier (name{figure.47}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.775 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.48}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.775 
-       <./img/real/rltool_phi.png> <./img/real/pid_pos_without_phi.png>]
 
-[34
-pdfTeX warning (ext4): destination with the same identifier (name{figure.49}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.775 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.50}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.775 
-       <./img/real/pid_pos_with_d.png> <./img/real/state_down.png>]
-<img/real/state_up.png, id=499, 814.54312pt x 418.56375pt>
+LaTeX Warning: Reference `fig:real_state_up_disorder' on page 35 undefined on i
+nput line 786.
+
+<img/real/state_up.png, id=468, 814.54312pt x 418.56375pt>
 File: img/real/state_up.png Graphic file (type png)
 <use img/real/state_up.png>
-Package pdftex.def Info: img/real/state_up.png  used on input line 778.
+Package pdftex.def Info: img/real/state_up.png  used on input line 790.
 (pdftex.def)             Requested size: 375.80544pt x 193.11008pt.
-<img/real/state_up_with_disorder.png, id=500, 813.79031pt x 417.81094pt>
+<img/real/state_up_with_disorder.png, id=469, 813.79031pt x 417.81094pt>
 File: img/real/state_up_with_disorder.png Graphic file (type png)
 <use img/real/state_up_with_disorder.png>
 Package pdftex.def Info: img/real/state_up_with_disorder.png  used on input lin
-e 784.
+e 796.
 (pdftex.def)             Requested size: 375.80544pt x 192.94127pt.
 
 
-[35
-pdfTeX warning (ext4): destination with the same identifier (name{figure.51}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.794 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{figure.52}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.794 \end{document}
-                     <./img/real/state_up.png> <./img/real/state_up_with_disord
-er.png>] (./sem.aux)
+[35 <./img/real/state_down.png>]
+
+[36 <./img/real/state_up.png> <./img/real/state_up_with_disorder.png>]
+
+[37] (./sem.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `sem.out' has not changed.
-(rerunfilecheck)             Checksum: D7642EBE2ECF2EBAE72D14DD3B19364B;6184.
+(rerunfilecheck)             Checksum: 1544F6B455147820404CDA7987C5396D;6189.
  ) 
 Here is how much of TeX's memory you used:
- 14162 strings out of 473579
- 222543 string characters out of 5727228
- 816298 words of memory out of 5000000
- 36757 multiletter control sequences out of 15000+600000
+ 14152 strings out of 473579
+ 222272 string characters out of 5727228
+ 815213 words of memory out of 5000000
+ 36744 multiletter control sequences out of 15000+600000
  572975 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,540b,603s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,540b,598s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.p
 fb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.p
 fb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.
@@ -1227,10 +1029,10 @@ pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfrm2074.
 pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sfti1200.
 pfb></home/jx2004/snap/texlive/texmf-dist/fonts/type1/public/cm-super/sftt1200.
 pfb>
-Output written on sem.pdf (35 pages, 3903267 bytes).
+Output written on sem.pdf (37 pages, 3908102 bytes).
 PDF statistics:
- 627 PDF objects out of 1000 (max. 8388607)
- 443 compressed objects within 5 object streams
- 123 named destinations out of 1000 (max. 500000)
+ 611 PDF objects out of 1000 (max. 8388607)
+ 425 compressed objects within 5 object streams
+ 125 named destinations out of 1000 (max. 500000)
  525 words of extra memory for PDF output out of 10000 (max. 10000000)
 
